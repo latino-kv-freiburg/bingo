@@ -7,7 +7,7 @@ const translations = {
         title: 'Bingo Pachanguero 2025',
         'white-party': 'White Party',
         subtitle: '25 Octubre 2025 – Tanzhalle Freiburg',
-        description: 'Bingo Pachanguero 2025: White Party 🎉🖤🤍<br>¡La fiesta latina más esperada del año regresa! Este año habrá más juegos de Bingo y más premios que nunca. Además, la música y el baile harán vibrar la pista toda la noche. Ven a disfrutar de una noche única llena de diversión, cultura latina y buena energía.',
+        description: '✨ ¡La 4.ª edición del Bingo Pachanguero está aquí! ✨<br>Prepárate para una noche que lo tiene TODO: música, baile, comida y mucha diversión.<br><br>🔥 Este año venimos con más sorpresas que nunca:<br>🎶 Fiesta crossover con la mejor energía para no parar de bailar<br>🍴 Auténticas delicias latinas que te harán agua la boca<br>💃 Animación y show de Salsa Caleña en vivo con Ritmo y Kandela<br>🎁 Y el gran protagonista… ¡nuestro Bingo con premios increíbles!<br><br>👉 No te lo pierdas: reserva tu lugar ahora y vive una noche única, llena de sabor, ritmo y alegría latina.',
         'program-title': 'Programa',
         'program-content': '<table class="program-table"><tr><td>20:00</td><td>Bienvenida</td></tr><tr><td>21:00</td><td>1er juego de Bingo</td></tr><tr><td>22:00</td><td>2do juego de Bingo</td></tr><tr><td>23:00</td><td>3er juego de Bingo</td></tr><tr><td>00:00</td><td>Show de medianoche y animación con Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4to juego de Bingo</td></tr></table>',
         'location-title': 'Ubicación',
@@ -36,7 +36,7 @@ const translations = {
         'extra-cards-label': 'Cartas extra:',
         'total-label': 'Total:',
         'important-info': 'Información Importante',
-        'dress-code': 'Código de vestimenta: Vestimenta blanca obligatoria',
+        'dress-code': 'Código de vestimenta: Te recomendamos venir con vestimenta blanca',
         'event-date': 'Fecha del evento: 25 Octubre 2025',
         'event-location': 'Ubicación: Tanzhalle Freiburg',
         'non-refundable': 'Las entradas no son reembolsables',
@@ -131,7 +131,7 @@ No se permiten cancelaciones
         title: 'Bingo Pachanguero 2025',
         'white-party': 'White Party',
         subtitle: '25. Oktober 2025 – Tanzhalle Freiburg',
-        description: 'Bingo Pachanguero 2025: White Party 🎉🖤🤍<br>Die meist erwartete Latino-Party des Jahres ist zurück! Dieses Jahr gibt es mehr Bingo-Spiele und mehr Preise als je zuvor. Außerdem sorgen Musik und Tanz für eine unvergessliche Stimmung die ganze Nacht.',
+        description: '✨ Die 4. Ausgabe des Bingo Pachanguero ist da! ✨<br>Freut euch auf eine unvergessliche Nacht voller Musik, Tanz, Essen und Spaß.<br><br>🔥 Dieses Jahr erwarten euch noch mehr Highlights:<br>🎶 Crossover-Party mit der besten Stimmung und heißen Rhythmen<br>🍴 Leckere lateinamerikanische Spezialitäten<br>💃 Live-Show und Animation von Ritmo y Kandela mit Salsa Caleña<br>🎁 Und natürlich: unser Bingo mit fantastischen Preisen!<br><br>👉 Sichert euch jetzt euren Platz und erlebt eine Nacht voller Lebensfreude, Rhythmus und lateinamerikanischem Flair.',
         'program-title': 'Programm',
         'program-content': '<table class="program-table"><tr><td>20:00</td><td>Begrüßung</td></tr><tr><td>21:00</td><td>1. Bingo-Spiel</td></tr><tr><td>22:00</td><td>2. Bingo-Spiel</td></tr><tr><td>23:00</td><td>3. Bingo-Spiel</td></tr><tr><td>00:00</td><td>Mitternachtsshow & Animation mit Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4. Bingo-Spiel</td></tr></table>',
         'location-title': 'Standort',
@@ -161,7 +161,7 @@ No se permiten cancelaciones
         'extra-cards-label': 'Extra-Karten:',
         'total-label': 'Gesamt:',
         'important-info': 'Wichtige Informationen',
-        'dress-code': 'Dress-Code: Weiße Kleidung erforderlich',
+        'dress-code': 'Dress-Code: Wir empfehlen weiße Kleidung',
         'event-date': 'Veranstaltungsdatum: 25. Oktober 2025',
         'event-location': 'Ort: Tanzhalle Freiburg',
         'non-refundable': 'Tickets sind nicht erstattungsfähig',
@@ -228,7 +228,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         title: 'Bingo Pachanguero 2025',
         'white-party': 'White Party',
         subtitle: '25 October 2025 – Tanzhalle Freiburg',
-        description: 'Bingo Pachanguero 2025: White Party 🎉🖤🤍<br>The most awaited Latino party of the year is back! This year we\'ll have more bingo games and more prizes than ever before. Plus, music and dancing will keep the energy high all night long.',
+        description: '✨ The 4th edition of Bingo Pachanguero is here! ✨<br>Get ready for a night packed with music, dancing, food, and fun.<br><br>🔥 This year comes with even more surprises:<br>🎶 Crossover party with the best vibes and non-stop dancing<br>🍴 Delicious Latin food that will make your mouth water<br>💃 Live Salsa Caleña show and animation by Ritmo y Kandela<br>🎁 And of course… our Bingo with amazing prizes!<br><br>👉 Don\'t miss it: book your spot now and enjoy an unforgettable night full of rhythm, flavor, and Latin energy.',
         'program-title': 'Program',
         'program-content': '<table class="program-table"><tr><td>20:00</td><td>Welcome</td></tr><tr><td>21:00</td><td>1st Bingo Game</td></tr><tr><td>22:00</td><td>2nd Bingo Game</td></tr><tr><td>23:00</td><td>3rd Bingo Game</td></tr><tr><td>00:00</td><td>Midnight show & animation with Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4th Bingo Game</td></tr></table>',
         'location-title': 'Location',
@@ -257,7 +257,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'extra-cards-label': 'Extra cards:',
         'total-label': 'Total:',
         'important-info': 'Important Information',
-        'dress-code': 'Dress code: White attire required',
+        'dress-code': 'Dress code: We recommend white attire',
         'event-date': 'Event date: 25 October 2025',
         'event-location': 'Location: Tanzhalle Freiburg',
         'non-refundable': 'Tickets are non-refundable',
@@ -282,7 +282,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'extra-cards-label': 'Extra cards:',
         'total-label': 'Total:',
         'important-info': 'Important Information',
-        'dress-code': 'Dress code: White attire required',
+        'dress-code': 'Dress code: We recommend white attire',
         'event-date': 'Event date: 25 October 2025',
         'event-location': 'Location: Tanzhalle Freiburg',
         'non-refundable': 'Tickets are non-refundable',
@@ -571,12 +571,12 @@ function showPaymentModal() {
     
     const paymentConcept = document.getElementById('payment-concept');
     if (paymentConcept) {
-        paymentConcept.textContent = `Bingo Pachanguero 2025 - ${itemName}`;
+        paymentConcept.textContent = itemName;
     }
     
     const bankConcept = document.getElementById('bank-concept');
     if (bankConcept) {
-        bankConcept.textContent = `Bingo Pachanguero 2025 - ${itemName}`;
+        bankConcept.textContent = itemName;
     }
     
     // Update PayPal.me button
