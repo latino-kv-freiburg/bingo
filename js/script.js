@@ -993,6 +993,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Video background initialization
+    const backgroundVideo = document.querySelector('.background-video');
+    
+    if (backgroundVideo) {
+        // Set video properties explicitly
+        backgroundVideo.muted = true;
+        backgroundVideo.loop = true;
+        backgroundVideo.playsInline = true;
+        backgroundVideo.autoplay = true;
+        
+        // Event listeners for video playback
+        backgroundVideo.addEventListener('loadeddata', function() {
+            this.play().catch(function(error) {
+                console.log('Video autoplay prevented by browser policy');
+            });
+        });
+        
+        backgroundVideo.addEventListener('canplay', function() {
+            this.play().catch(function(error) {
+                console.log('Video play attempt failed');
+            });
+        });
+        
+        backgroundVideo.addEventListener('error', function(e) {
+            console.error('Video loading error');
+            // Hide video container if there's an error
+            const videoContainer = document.querySelector('.hero-video-background');
+            if (videoContainer) {
+                videoContainer.style.display = 'none';
+            }
+        });
+        
+        // Initial play attempt
+        backgroundVideo.play().catch(function(error) {
+            console.log('Initial video play failed, will retry when ready');
+        });
+    }
+    
     // Debug: Check if PayPal SDK is loaded
     if (typeof paypal !== 'undefined') {
         console.log('PayPal SDK loaded successfully');

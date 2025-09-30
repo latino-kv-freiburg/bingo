@@ -109,12 +109,62 @@ header {
     min-height: 80vh;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Background Styles */
+.hero-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 0.7; /* Semi-transparent for background effect */
+    z-index: 1;
+    display: block !important;
+    visibility: visible !important;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* White overlay for text readability on all screens */
+    z-index: 2;
+}
+
+/* Performance optimization for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .background-video {
+        display: none;
+    }
+    
+    .hero {
+        background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 10; /* High z-index to ensure content stays on top */
 }
 
 .hero-title {
@@ -394,6 +444,22 @@ footer {
     
     .nav-menu.active {
         left: 0;
+    }
+    
+    /* Video background optimizations for mobile */
+    .background-video {
+        opacity: 0.5; /* Reduce opacity on mobile for better text readability */
+    }
+    
+    .video-overlay {
+        /* Consistent overlay on mobile */
+        background: rgba(255, 255, 255, 0.7) !important;
+    }
+    
+    .hero {
+        /* Reduce padding on mobile */
+        padding: 4rem 0;
+        min-height: 70vh;
     }
     
     .hero-title {
