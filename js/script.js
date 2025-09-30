@@ -585,7 +585,7 @@ function showPaymentModal() {
         bankConcept.textContent = itemName;
     }
     
-    // Update PayPal.me button with proper mobile compatibility
+    // Update PayPal.me button
     const paypalMeBtn = document.getElementById('paypal-me-btn');
     if (paypalMeBtn) {
         // Format amount for PayPal.me URL
@@ -596,18 +596,7 @@ function showPaymentModal() {
             // Add payment note as URL parameter
             const paymentNote = encodeURIComponent(itemName);
             const fullUrl = `${baseUrl}?note=${paymentNote}`;
-            
-            // Detect mobile devices
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            const isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
-            
-            if (isMobile) {
-                // For mobile, open directly in current window to allow app switching
-                window.location.href = fullUrl;
-            } else {
-                // For desktop, open in new tab
-                window.open(fullUrl, '_blank');
-            }
+            window.open(fullUrl, '_blank');
         };
     }
     
