@@ -7,7 +7,12 @@ const translations = {
         title: 'Bingo Pachanguero 2025',
         'white-party': 'White Party',
         subtitle: '25 Octubre 2025 – Tanzhalle Freiburg',
-        description: '¡Una noche inolvidable con Salsa, Música en vivo y nuestro legendario Bingo con premios!',
+        description: 'Bingo Pachanguero 2025: White Party 🎉🖤🤍<br>¡La fiesta latina más esperada del año regresa! Este año habrá más juegos de Bingo y más premios que nunca. Además, la música y el baile harán vibrar la pista toda la noche. Ven a disfrutar de una noche única llena de diversión, cultura latina y buena energía.',
+        'program-title': 'Programa',
+        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Bienvenida</td></tr><tr><td>21:00</td><td>1er juego de Bingo</td></tr><tr><td>22:00</td><td>2do juego de Bingo</td></tr><tr><td>23:00</td><td>3er juego de Bingo</td></tr><tr><td>00:00</td><td>Show de medianoche y animación con Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4to juego de Bingo</td></tr></table>',
+        'location-title': 'Ubicación',
+        'location-address': 'Tanzhalle Freiburg, Haslacher Str. 43, 79115 Freiburg im Breisgau',
+        'reservation-info': 'Para reservas gastronómicas: Henry +49 176 868 15317',
         'cta-button': 'Compra tus entradas',
         footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
         'tickets-title': 'Entradas',
@@ -36,8 +41,7 @@ const translations = {
         'event-location': 'Ubicación: Tanzhalle Freiburg',
         'non-refundable': 'Las entradas no son reembolsables',
         'limited-capacity': 'Capacidad limitada - ¡reserva pronto!',
-                'food-reservation': 'For food reservations, contact Henry: +49 176 868 15317',
-        'buy-paypal': 'Buy via PayPal',
+        'food-reservation': 'Para reservas gastronómicas, contacta a Henry: +49 176 868 15317',
         'ticket-quantity': 'Number of tickets:',
         'extra-cards-quantity': 'Extra cards (€4/card):',
         'extra-cards-quantity-6': 'Extra cards (€6/card):',
@@ -56,17 +60,29 @@ So everyone can enjoy the food, we recommend reserving in advance with Henry: +4
 Cancellation is not possible
 
 We wish you lots of success at Bingo Pachanguero!`,
-        'buy-paypal': 'Comprar via PayPal',
+        'buy-paypal': 'Comprar Entrada',
+        'payment-instructions-title': 'Instrucciones de Pago',
+        'paypal-option': 'Opción 1: PayPal',
+        'paypal-instructions': 'Envía el pago a nuestra cuenta PayPal:',
+        'paypal-email': 'Email PayPal:',
+        'payment-concept': 'Concepto:',
+        'total-amount': 'Monto total:',
+        'send-paypal': 'Enviar vía PayPal.me',
+        'bank-option': 'Opción 2: Transferencia Bancaria',
+        'bank-instructions': 'Transfiere a nuestra cuenta bancaria:',
+        'account-holder': 'Titular:',
+        'bank-name': 'Banco:',
+        'payment-note': '<strong>Importante:</strong> Una vez realizado el pago, envíanos un email a <a href=\"mailto:latinokvfreiburg@gmail.com\">latinokvfreiburg@gmail.com</a> con el comprobante para procesar tu entrada.',
         'ticket-quantity': 'Número de entradas:',
         'extra-cards-quantity': 'Cartas extra (€4/carta):',
         'extra-cards-quantity-6': 'Cartas extra (€6/carta):',
         'tickets-cost': 'Entradas:',
         'extras-cost': 'Cartas extra:',
         'total-cost': 'Total:',
-        'extra-cards-4': '✓ Cartas extra: €4/carta',
-        'extra-cards-6': '✓ Cartas extra: €6/carta',
-        'earlybird-price': '€12',
-        'general-price': '€15',
+        'extra-cards-4': '✓ Cartas extra: 4€/carta',
+        'extra-cards-6': '✓ Cartas extra: 6€/carta',
+        'earlybird-price': '12€',
+        'general-price': '15€',
         'reservation-info': 'Para reservas gastronómicas: Henry +49 176 868 15317',
         'ticket-info': `¡Gracias por tu compra! Información importante:
 
@@ -115,7 +131,12 @@ No se permiten cancelaciones
         title: 'Bingo Pachanguero 2025',
         'white-party': 'White Party',
         subtitle: '25. Oktober 2025 – Tanzhalle Freiburg',
-        description: 'Eine unvergessliche Nacht mit Salsa, Live-Musik und unserem legendären Bingo mit Preisen!',
+        description: 'Bingo Pachanguero 2025: White Party 🎉🖤🤍<br>Die meist erwartete Latino-Party des Jahres ist zurück! Dieses Jahr gibt es mehr Bingo-Spiele und mehr Preise als je zuvor. Außerdem sorgen Musik und Tanz für eine unvergessliche Stimmung die ganze Nacht.',
+        'program-title': 'Programm',
+        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Begrüßung</td></tr><tr><td>21:00</td><td>1. Bingo-Spiel</td></tr><tr><td>22:00</td><td>2. Bingo-Spiel</td></tr><tr><td>23:00</td><td>3. Bingo-Spiel</td></tr><tr><td>00:00</td><td>Mitternachtsshow & Animation mit Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4. Bingo-Spiel</td></tr></table>',
+        'location-title': 'Standort',
+        'location-address': 'Tanzhalle Freiburg, Haslacher Str. 43, 79115 Freiburg im Breisgau',
+        'reservation-info': 'Für Essensreservierung kontaktiert Henry: +49 176 868 15317',
         'cta-button': 'Tickets kaufen',
         footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
         'tickets-title': 'Tickets',
@@ -146,21 +167,29 @@ No se permiten cancelaciones
         'non-refundable': 'Tickets sind nicht erstattungsfähig',
         'limited-capacity': 'Begrenzte Kapazität - früh buchen!',
         'food-reservation': 'Für Essensreservierung kontaktiert Henry: +49 176 868 15317',
-        'buy-paypal': 'Mit PayPal kaufen',
+        'buy-paypal': 'Ticket kaufen',
+        'payment-instructions-title': 'Zahlungsanweisungen',
+        'paypal-option': 'Option 1: PayPal',
+        'paypal-instructions': 'Senden Sie die Zahlung an unser PayPal-Konto:',
+        'paypal-email': 'PayPal E-Mail:',
+        'payment-concept': 'Verwendungszweck:',
+        'total-amount': 'Gesamtbetrag:',
+        'send-paypal': 'Über PayPal.me senden',
+        'bank-option': 'Option 2: Banküberweisung',
+        'bank-instructions': 'Überweisen Sie auf unser Bankkonto:',
+        'account-holder': 'Kontoinhaber:',
+        'bank-name': 'Bank:',
+        'payment-note': '<strong>Wichtig:</strong> Nach der Zahlung senden Sie uns eine E-Mail an <a href=\"mailto:latinokvfreiburg@gmail.com\">latinokvfreiburg@gmail.com</a> mit dem Zahlungsnachweis, um Ihr Ticket zu bearbeiten.',
         'ticket-quantity': 'Anzahl der Tickets:',
         'extra-cards-quantity': 'Extra-Karten (€4/Karte):',
         'extra-cards-quantity-6': 'Extra-Karten (€6/Karte):',
         'tickets-cost': 'Tickets:',
         'extras-cost': 'Extra-Karten:',
         'total-cost': 'Gesamt:',
-        'extra-cards-4': '✓ Extra-Karten: €4/Karte',
-        'extra-cards-6': '✓ Extra-Karten: €6/Karte',
-        'earlybird-price': '€12',
-        'general-price': '€15',
-        'extra-cards-4': '✓ Extra-Karten: €4/Karte',
-        'extra-cards-6': '✓ Extra-Karten: €6/Karte',
-        'earlybird-price': '€12',
-        'general-price': '€15',
+        'extra-cards-4': '✓ Extra-Karten: 4€/Karte',
+        'extra-cards-6': '✓ Extra-Karten: 6€/Karte',
+        'earlybird-price': '12€',
+        'general-price': '15€',
         // Thank you page translations
         'thanks-title': 'Vielen Dank für Ihren Kauf!',
         'thanks-message': 'Ihr Ticket für die Bingo Pachanguero 2025 – White Party wurde erfolgreich verarbeitet.',
@@ -199,7 +228,12 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         title: 'Bingo Pachanguero 2025',
         'white-party': 'White Party',
         subtitle: '25 October 2025 – Tanzhalle Freiburg',
-        description: 'An unforgettable night with Salsa, Live Music, and our legendary Bingo with prizes!',
+        description: 'Bingo Pachanguero 2025: White Party 🎉🖤🤍<br>The most awaited Latino party of the year is back! This year we\'ll have more bingo games and more prizes than ever before. Plus, music and dancing will keep the energy high all night long.',
+        'program-title': 'Program',
+        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Welcome</td></tr><tr><td>21:00</td><td>1st Bingo Game</td></tr><tr><td>22:00</td><td>2nd Bingo Game</td></tr><tr><td>23:00</td><td>3rd Bingo Game</td></tr><tr><td>00:00</td><td>Midnight show & animation with Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4th Bingo Game</td></tr></table>',
+        'location-title': 'Location',
+        'location-address': 'Tanzhalle Freiburg, Haslacher Str. 43, 79115 Freiburg im Breisgau',
+        'reservation-info': 'For dining reservations: Henry +49 176 868 15317',
         'cta-button': 'Get your tickets',
         footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
         'tickets-title': 'Tickets',
@@ -229,17 +263,17 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'non-refundable': 'Tickets are non-refundable',
         'limited-capacity': 'Limited capacity - book early!',
         'food-reservation': 'For food reservations, contact Henry: +49 176 868 15317',
-        'buy-paypal': 'Buy via PayPal',
+        'buy-paypal': 'Buy Ticket',
         'ticket-quantity': 'Number of tickets:',
         'extra-cards-quantity': 'Extra cards (€4/card):',
         'extra-cards-quantity-6': 'Extra cards (€6/card):',
         'tickets-cost': 'Tickets:',
         'extras-cost': 'Extra cards:',
         'total-cost': 'Total:',
-        'extra-cards-4': '✓ Extra cards: €4/card',
-        'extra-cards-6': '✓ Extra cards: €6/card',
-        'earlybird-price': '€12',
-        'general-price': '€15',
+        'extra-cards-4': '✓ Extra cards: 4€/card',
+        'extra-cards-6': '✓ Extra cards: 6€/card',
+        'earlybird-price': '12€',
+        'general-price': '15€',
         'select-extra-cards': 'Extra bingo cards',
         'extra-cards-help': 'Additional cards to increase your chances (optional)',
         'extra-card-price': '€4 per extra card (Early Bird)',
@@ -274,6 +308,19 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'contact-info': 'For questions, contact us at latinokvfreiburg@gmail.com',
         'back-home': 'Back to home',
         'buy-more': 'Buy more tickets',
+        // Payment modal translations
+        'payment-instructions-title': 'Payment Instructions',
+        'paypal-option': 'Option 1: PayPal',
+        'paypal-instructions': 'Send payment to our PayPal account:',
+        'paypal-email': 'PayPal Email:',
+        'payment-concept': 'Payment reference:',
+        'total-amount': 'Total amount:',
+        'send-paypal': 'Send via PayPal.me',
+        'bank-option': 'Option 2: Bank Transfer',
+        'bank-instructions': 'Transfer to our bank account:',
+        'account-holder': 'Account holder:',
+        'bank-name': 'Bank:',
+        'payment-note': '<strong>Important:</strong> After payment, send us an email to <a href=\"mailto:latinokvfreiburg@gmail.com\">latinokvfreiburg@gmail.com</a> with the payment receipt to process your ticket.',
         // Ticket info text
         'ticket-info-text': `Thank you for your purchase! Important information:
 
@@ -324,7 +371,10 @@ function updateContent() {
         console.log('Processing element with key:', key);
         if (translations[currentLanguage] && translations[currentLanguage][key]) {
             const translation = translations[currentLanguage][key];
-            if (element.innerHTML.includes('<a') || element.innerHTML.includes('<svg')) {
+            // Use innerHTML for elements that contain HTML tags or specific content types
+            if (element.innerHTML.includes('<a') || element.innerHTML.includes('<svg') || 
+                key === 'description' || key === 'program-content' || key === 'contact-text' || 
+                key === 'payment-note' || translation.includes('<br>') || translation.includes('<')) {
                 element.innerHTML = translation;
             } else {
                 element.textContent = translation;
@@ -334,7 +384,12 @@ function updateContent() {
             console.warn('No translation found for key:', key, 'in language:', currentLanguage);
             // If no translation found, keep existing content or use Spanish as fallback
             if (translations['es'] && translations['es'][key] && !element.textContent.trim()) {
-                element.textContent = translations['es'][key];
+                if (key === 'description' || key === 'program-content' || key === 'contact-text' || 
+                    key === 'payment-note' || translations['es'][key].includes('<br>') || translations['es'][key].includes('<')) {
+                    element.innerHTML = translations['es'][key];
+                } else {
+                    element.textContent = translations['es'][key];
+                }
                 console.log('Used Spanish fallback for:', key);
             }
         }
@@ -420,9 +475,9 @@ function calculateTotal(ticketType) {
     const total = ticketsCost + extrasCost;
     
     // Update display
-    document.getElementById(`${ticketType}-tickets-cost`).textContent = `€${ticketsCost}`;
-    document.getElementById(`${ticketType}-extras-cost`).textContent = `€${extrasCost}`;
-    document.getElementById(`${ticketType}-total`).textContent = `€${total}`;
+    document.getElementById(`${ticketType}-tickets-cost`).textContent = `${ticketsCost}€`;
+    document.getElementById(`${ticketType}-extras-cost`).textContent = `${extrasCost}€`;
+    document.getElementById(`${ticketType}-total`).textContent = `${total}€`;
     
     console.log(`Updated ${ticketType}: ${quantity} tickets + ${extras} extras = €${total}`);
 }
@@ -467,12 +522,12 @@ function purchaseTickets(ticketType) {
     
     console.log('Purchase data:', window.currentPurchase);
     
-    // Create PayPal payment
-    createPayPalPayment();
+    // Show payment instructions modal
+    showPaymentModal();
 }
 
-// Create PayPal payment
-function createPayPalPayment() {
+// Show payment modal with instructions
+function showPaymentModal() {
     if (!window.currentPurchase) {
         console.error('No purchase data available');
         return;
@@ -497,85 +552,60 @@ function createPayPalPayment() {
     
     const itemName = `${purchase.quantity}x ${ticketNames[currentLanguage][purchase.ticketType]}${purchase.extras > 0 ? ` + ${purchase.extras} Extra Cards` : ''}`;
     
-    console.log('Creating PayPal payment for:', itemName, 'Total:', purchase.total);
-    
-    // Clear any existing PayPal buttons
-    const container = document.getElementById('paypal-button-container');
-    if (!container) {
-        console.error('PayPal container not found');
-        return;
+    // Update payment summary
+    const paymentSummary = document.getElementById('payment-summary');
+    if (paymentSummary) {
+        paymentSummary.innerHTML = `
+            <h4>${translations[currentLanguage]['payment-concept'] || 'Payment Summary'}</h4>
+            <p><strong>${itemName}</strong></p>
+            <p>${translations[currentLanguage]['tickets-cost'] || 'Tickets:'} ${purchase.ticketsCost}€</p>
+            ${purchase.extras > 0 ? `<p>${translations[currentLanguage]['extras-cost'] || 'Extra cards:'} ${purchase.extrasCost}€</p>` : ''}
+        `;
     }
     
-    container.innerHTML = '';
-    container.style.display = 'block';
-    
-    // Check if PayPal is loaded
-    if (typeof paypal === 'undefined') {
-        console.error('PayPal SDK not loaded');
-        alert('PayPal is not available. Please refresh the page and try again.');
-        return;
+    // Update amounts
+    const totalAmount = document.getElementById('total-amount');
+    if (totalAmount) {
+        totalAmount.textContent = `${purchase.total}€`;
     }
     
-    // Render PayPal button
-    paypal.Buttons({
-        createOrder: function(data, actions) {
-            console.log('Creating PayPal order for amount:', purchase.total);
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: purchase.total.toString(),
-                        currency_code: 'EUR'
-                    },
-                    description: itemName
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                console.log('PayPal payment completed:', details);
-                
-                // Get buyer name from PayPal response
-                const buyerName = details.payer.name.given_name + ' ' + details.payer.name.surname;
-                
-                // Generate ticket with buyer information
-                generateTicketImage(buyerName, details);
-                
-                // Hide PayPal container
-                document.getElementById('paypal-button-container').style.display = 'none';
-                
-                // Show success message
-                const successMessages = {
-                    es: '¡Pago exitoso! Tu ticket se está generando...',
-                    de: 'Zahlung erfolgreich! Ihr Ticket wird generiert...',
-                    en: 'Payment successful! Your ticket is being generated...'
-                };
-                alert(successMessages[currentLanguage]);
-                
-                // Redirect to thank you page after a delay
-                setTimeout(() => {
-                    window.location.href = 'thank-you.html';
-                }, 3000);
-            });
-        },
-        onError: function(err) {
-            console.error('PayPal payment error:', err);
-            const errorMessages = {
-                es: 'Error en el pago. Por favor, inténtalo de nuevo.',
-                de: 'Zahlungsfehler. Bitte versuchen Sie es erneut.',
-                en: 'Payment failed. Please try again.'
-            };
-            alert(errorMessages[currentLanguage]);
-            document.getElementById('paypal-button-container').style.display = 'none';
-        },
-        onCancel: function(data) {
-            console.log('PayPal payment cancelled:', data);
-            document.getElementById('paypal-button-container').style.display = 'none';
-        }
-    }).render('#paypal-button-container').catch(function(err) {
-        console.error('PayPal button render error:', err);
-        alert('Error loading PayPal. Please refresh the page and try again.');
-    });
+    const paymentConcept = document.getElementById('payment-concept');
+    if (paymentConcept) {
+        paymentConcept.textContent = `Bingo Pachanguero 2025 - ${itemName}`;
+    }
+    
+    const bankConcept = document.getElementById('bank-concept');
+    if (bankConcept) {
+        bankConcept.textContent = `Bingo Pachanguero 2025 - ${itemName}`;
+    }
+    
+    // Update PayPal.me button
+    const paypalMeBtn = document.getElementById('paypal-me-btn');
+    if (paypalMeBtn) {
+        const paypalMeUrl = `https://paypal.me/money2andres/${purchase.total}EUR`;
+        paypalMeBtn.onclick = function() {
+            window.open(paypalMeUrl, '_blank');
+        };
+    }
+    
+    // Show modal
+    const modal = document.getElementById('payment-instructions');
+    if (modal) {
+        modal.style.display = 'flex';
+        // Apply current language translations
+        updateLanguage();
+    }
 }
+
+// Close payment modal
+function closePaymentModal() {
+    const modal = document.getElementById('payment-instructions');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Language switching and content updates remain the same as before
 
 // Generate ticket image using the template
 function generateTicketImage(buyerName, paymentDetails) {
