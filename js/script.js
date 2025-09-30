@@ -585,30 +585,27 @@ function showPaymentModal() {
         bankConcept.textContent = itemName;
     }
     
-    // Update PayPal.me button with improved mobile compatibility
+    // Update PayPal.me button with proper mobile compatibility
     const paypalMeBtn = document.getElementById('paypal-me-btn');
     if (paypalMeBtn) {
-        // Format amount for better mobile app compatibility
+        // Format amount for PayPal.me URL
         const formattedAmount = purchase.total.toFixed(2);
-        const paypalMeUrl = `https://paypal.me/money2andres/${formattedAmount}EUR`;
+        const baseUrl = `https://paypal.me/money2andres/${formattedAmount}EUR`;
         
         paypalMeBtn.onclick = function() {
-            // Add payment note for better mobile experience
+            // Add payment note as URL parameter
             const paymentNote = encodeURIComponent(itemName);
-            const fullUrl = `${paypalMeUrl}?note=${paymentNote}`;
+            const fullUrl = `${baseUrl}?note=${paymentNote}`;
             
-            // Try to open in PayPal app first, then fallback to browser
+            // Detect mobile devices
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             const isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
             
             if (isMobile) {
-                // For mobile, try PayPal app first
-                window.location.href = `paypal://paypalme/money2andres?amount=${formattedAmount}&currencyCode=EUR&note=${paymentNote}`;
-                // Fallback to web after a short delay
-                setTimeout(() => {
-                    window.open(fullUrl, '_blank');
-                }, 1000);
+                // For mobile, open directly in current window to allow app switching
+                window.location.href = fullUrl;
             } else {
+                // For desktop, open in new tab
                 window.open(fullUrl, '_blank');
             }
         };
