@@ -569,6 +569,12 @@ function showPaymentModal() {
         totalAmount.textContent = `${purchase.total}€`;
     }
     
+    // Update bank transfer total amount
+    const bankTotalAmount = document.getElementById('bank-total-amount');
+    if (bankTotalAmount) {
+        bankTotalAmount.textContent = `${purchase.total}€`;
+    }
+    
     const paymentConcept = document.getElementById('payment-concept');
     if (paymentConcept) {
         paymentConcept.textContent = itemName;
@@ -579,12 +585,32 @@ function showPaymentModal() {
         bankConcept.textContent = itemName;
     }
     
-    // Update PayPal.me button
+    // Update PayPal.me button with improved mobile compatibility
     const paypalMeBtn = document.getElementById('paypal-me-btn');
     if (paypalMeBtn) {
-        const paypalMeUrl = `https://paypal.me/money2andres/${purchase.total}EUR`;
+        // Format amount for better mobile app compatibility
+        const formattedAmount = purchase.total.toFixed(2);
+        const paypalMeUrl = `https://paypal.me/money2andres/${formattedAmount}EUR`;
+        
         paypalMeBtn.onclick = function() {
-            window.open(paypalMeUrl, '_blank');
+            // Add payment note for better mobile experience
+            const paymentNote = encodeURIComponent(itemName);
+            const fullUrl = `${paypalMeUrl}?note=${paymentNote}`;
+            
+            // Try to open in PayPal app first, then fallback to browser
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+            
+            if (isMobile) {
+                // For mobile, try PayPal app first
+                window.location.href = `paypal://paypalme/money2andres?amount=${formattedAmount}&currencyCode=EUR&note=${paymentNote}`;
+                // Fallback to web after a short delay
+                setTimeout(() => {
+                    window.open(fullUrl, '_blank');
+                }, 1000);
+            } else {
+                window.open(fullUrl, '_blank');
+            }
         };
     }
     
@@ -963,6 +989,22 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         }));
+    }
+    
+    // Mobile description expand/collapse functionality
+    const heroDescription = document.querySelector('.hero-description');
+    if (heroDescription && window.innerWidth <= 768) {
+        heroDescription.style.cursor = 'pointer';
+        heroDescription.setAttribute('title', 'Tap to expand');
+        
+        heroDescription.addEventListener('click', function() {
+            this.classList.toggle('expanded');
+            if (this.classList.contains('expanded')) {
+                this.setAttribute('title', 'Tap to collapse');
+            } else {
+                this.setAttribute('title', 'Tap to expand');
+            }
+        });
     }
     
     // Debug: Check if PayPal SDK is loaded
