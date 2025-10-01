@@ -9,7 +9,7 @@ const translations = {
         subtitle: '25 Octubre 2025 – Tanzhalle Freiburg',
         description: '✨ ¡La 4.ª edición del Bingo Pachanguero está aquí! ✨<br>Prepárate para una noche que lo tiene TODO: música, baile, comida y mucha diversión.<br><br>🔥 Este año venimos con más sorpresas que nunca:<br>🎶 Fiesta crossover con la mejor energía para no parar de bailar<br>🍴 Auténticas delicias latinas que te harán agua la boca<br>💃 Animación y show de Salsa Caleña en vivo con Ritmo y Kandela<br>🎁 Y el gran protagonista… ¡nuestro Bingo con premios increíbles!<br><br>👉 No te lo pierdas: reserva tu lugar ahora y vive una noche única, llena de sabor, ritmo y alegría latina.',
         'program-title': 'Programa',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Bienvenida</td></tr><tr><td>21:00</td><td>1er juego de Bingo</td></tr><tr><td>22:00</td><td>2do juego de Bingo</td></tr><tr><td>23:00</td><td>3er juego de Bingo</td></tr><tr><td>00:00</td><td>Show de medianoche y animación con Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4to juego de Bingo</td></tr></table>',
+        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Bienvenida</td></tr><tr><td>21:00</td><td>1er juego de Bingo</td></tr><tr><td>22:00</td><td>2do juego de Bingo</td></tr><tr><td>23:00</td><td>3er juego de Bingo</td></tr><tr><td>00:00</td><td>Salsa Caleña: Show de medianoche, workshop & animación con Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4to juego de Bingo</td></tr><tr><td>03:00</td><td>Fiesta y baile hasta el final</td></tr></table>',
         'location-title': 'Ubicación',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'Para reservas gastronómicas: Henry +49 176 868 15317',
@@ -19,7 +19,7 @@ const translations = {
         'tickets-subtitle': '¡Elige tu entrada y prepárate para una noche increíble!',
         'tickets-page-title': 'Entradas - Bingo Pachanguero 2025',
         'contact-title': 'Contáctanos',
-        'contact-text': 'Para preguntas sobre el Bingo Pachanguero, escríbenos a <a href="mailto:latinokvfreiburg@gmail.com">latinokvfreiburg@gmail.com</a> o envíanos un DM en Instagram <a href="https://instagram.com/latinokv_freiburg" target="_blank">@latinokv_freiburg</a>',
+        'contact-text': 'Para preguntas sobre el Bingo Pachanguero, contáctanos a través de:',
         'general-ticket': 'Entrada General',
         'earlybird-ticket': 'Early Bird',
         'entry-feature': 'Entrada al evento',
@@ -133,7 +133,7 @@ No se permiten cancelaciones
         subtitle: '25. Oktober 2025 – Tanzhalle Freiburg',
         description: '✨ Die 4. Ausgabe des Bingo Pachanguero ist da! ✨<br>Freut euch auf eine unvergessliche Nacht voller Musik, Tanz, Essen und Spaß.<br><br>🔥 Dieses Jahr erwarten euch noch mehr Highlights:<br>🎶 Crossover-Party mit der besten Stimmung und heißen Rhythmen<br>🍴 Leckere lateinamerikanische Spezialitäten<br>💃 Live-Show und Animation von Ritmo y Kandela mit Salsa Caleña<br>🎁 Und natürlich: unser Bingo mit fantastischen Preisen!<br><br>👉 Sichert euch jetzt euren Platz und erlebt eine Nacht voller Lebensfreude, Rhythmus und lateinamerikanischem Flair.',
         'program-title': 'Programm',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Begrüßung</td></tr><tr><td>21:00</td><td>1. Bingo-Spiel</td></tr><tr><td>22:00</td><td>2. Bingo-Spiel</td></tr><tr><td>23:00</td><td>3. Bingo-Spiel</td></tr><tr><td>00:00</td><td>Mitternachtsshow & Animation mit Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4. Bingo-Spiel</td></tr></table>',
+        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Begrüßung</td></tr><tr><td>21:00</td><td>1. Bingo-Spiel</td></tr><tr><td>22:00</td><td>2. Bingo-Spiel</td></tr><tr><td>23:00</td><td>3. Bingo-Spiel</td></tr><tr><td>00:00</td><td>Salsa Caleña: Mitternachtsshow, Workshop & Animation mit Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4. Bingo-Spiel</td></tr><tr><td>03:00</td><td>Party und Tanzen bis zum Ende</td></tr></table>',
         'location-title': 'Standort',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'Für Essensreservierung kontaktiert Henry: +49 176 868 15317',
@@ -143,7 +143,7 @@ No se permiten cancelaciones
         'tickets-subtitle': 'Wähle dein Ticket und bereite dich auf eine fantastische Nacht vor!',
         'tickets-page-title': 'Tickets - Bingo Pachanguero 2025',
         'contact-title': 'Kontakt',
-        'contact-text': 'Für Fragen zum Bingo Pachanguero schreibt uns an <a href="mailto:latinokvfreiburg@gmail.com">latinokvfreiburg@gmail.com</a> oder schickt uns eine DM auf Instagram <a href="https://instagram.com/latinokv_freiburg" target="_blank">@latinokv_freiburg</a>',
+        'contact-text': 'Für Fragen zum Bingo Pachanguero kontaktiert uns über:',
         'general-ticket': 'Allgemeiner Eintritt',
         'earlybird-ticket': 'Frühbucher',
         'entry-feature': 'Eintritt zur Veranstaltung',
@@ -230,7 +230,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         subtitle: '25 October 2025 – Tanzhalle Freiburg',
         description: '✨ The 4th edition of Bingo Pachanguero is here! ✨<br>Get ready for a night packed with music, dancing, food, and fun.<br><br>🔥 This year comes with even more surprises:<br>🎶 Crossover party with the best vibes and non-stop dancing<br>🍴 Delicious Latin food that will make your mouth water<br>💃 Live Salsa Caleña show and animation by Ritmo y Kandela<br>🎁 And of course… our Bingo with amazing prizes!<br><br>👉 Don\'t miss it: book your spot now and enjoy an unforgettable night full of rhythm, flavor, and Latin energy.',
         'program-title': 'Program',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Welcome</td></tr><tr><td>21:00</td><td>1st Bingo Game</td></tr><tr><td>22:00</td><td>2nd Bingo Game</td></tr><tr><td>23:00</td><td>3rd Bingo Game</td></tr><tr><td>00:00</td><td>Midnight show & animation with Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4th Bingo Game</td></tr></table>',
+        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Welcome</td></tr><tr><td>21:00</td><td>1st Bingo Game</td></tr><tr><td>22:00</td><td>2nd Bingo Game</td></tr><tr><td>23:00</td><td>3rd Bingo Game</td></tr><tr><td>00:00</td><td>Salsa Caleña: Midnight show, workshop & animation with Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4th Bingo Game</td></tr><tr><td>03:00</td><td>Party and dancing until the end</td></tr></table>',
         'location-title': 'Location',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'For dining reservations: Henry +49 176 868 15317',
@@ -240,7 +240,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'tickets-subtitle': 'Choose your ticket and get ready for an amazing night!',
         'tickets-page-title': 'Tickets - Bingo Pachanguero 2025',
         'contact-title': 'Contact us',
-        'contact-text': 'For questions about the Bingo Pachanguero, write to <a href="mailto:latinokvfreiburg@gmail.com">latinokvfreiburg@gmail.com</a> or DM us on Instagram <a href="https://instagram.com/latinokv_freiburg" target="_blank">@latinokv_freiburg</a>',
+        'contact-text': 'For questions about the Bingo Pachanguero, contact us through:',
         'general-ticket': 'General Entry',
         'earlybird-ticket': 'Early Bird',
         'entry-feature': 'Entry to the event',
@@ -952,11 +952,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }, 50);
     
-    // Hide early bird if expired
-    if (!isEarlyBirdValid()) {
-        const earlyBirdCard = document.getElementById('earlybird-card');
-        if (earlyBirdCard) {
+    // Hide early bird if expired and show appropriate ticket
+    const today = new Date();
+    const earlyBirdDeadline = new Date('2025-10-11');
+    const isEarlyBirdValid = today <= earlyBirdDeadline;
+    
+    const earlyBirdCard = document.getElementById('earlybird-card');
+    const generalCard = document.querySelector('.ticket-card:not(#earlybird-card)');
+    
+    if (earlyBirdCard && generalCard) {
+        if (isEarlyBirdValid) {
+            // Show only early bird
+            earlyBirdCard.style.display = 'block';
+            generalCard.style.display = 'none';
+        } else {
+            // Show only general entry
             earlyBirdCard.style.display = 'none';
+            generalCard.style.display = 'block';
         }
     }
     
@@ -975,22 +987,6 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         }));
-    }
-    
-    // Mobile description expand/collapse functionality
-    const heroDescription = document.querySelector('.hero-description');
-    if (heroDescription && window.innerWidth <= 768) {
-        heroDescription.style.cursor = 'pointer';
-        heroDescription.setAttribute('title', 'Tap to expand');
-        
-        heroDescription.addEventListener('click', function() {
-            this.classList.toggle('expanded');
-            if (this.classList.contains('expanded')) {
-                this.setAttribute('title', 'Tap to collapse');
-            } else {
-                this.setAttribute('title', 'Tap to expand');
-            }
-        });
     }
     
     // Video background initialization

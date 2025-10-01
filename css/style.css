@@ -1,3 +1,6 @@
+/* Google Fonts import for cross-platform consistency */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Oswald:wght@300;400;500;600;700&display=swap');
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -6,8 +9,9 @@
 }
 
 body {
-    font-family: 'Arial Narrow', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
-    font-stretch: condensed;
+    font-family: 'Oswald', 'Open Sans Condensed', 'Arial Narrow', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.3px;
     line-height: 1.6;
     color: #000;
     background-color: #fff;
@@ -372,32 +376,112 @@ header {
 
 /* Contact Section */
 .contact {
-    padding: 4rem 0;
-    background-color: #fff;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+    padding: 100px 0 50px;
+    display: flex;
+    align-items: center;
+}
+
+.contact .container {
+    text-align: center;
+}
+
+.contact-logo {
+    margin-bottom: 3rem;
+}
+
+.contact-latinokv-logo {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
 }
 
 .contact-content {
-    text-align: center;
-    max-width: 800px;
+    color: white;
+}
+
+.contact-intro {
+    font-size: 1.5rem;
+    font-family: Arial, "Arial Narrow", sans-serif;
+    font-stretch: condensed;
+    letter-spacing: -0.5px;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
     margin: 0 auto;
 }
 
-.contact-content p {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    color: #333;
-}
-
-.contact-content a {
-    color: #D4AF37;
+.contact-btn {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    color: white;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    gap: 1rem;
 }
 
-.contact-content a:hover {
-    color: #000;
-    text-decoration: underline;
+.contact-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-content {
+    text-align: left;
+    flex: 1;
+}
+
+.btn-title {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: Arial, "Arial Narrow", sans-serif;
+    font-stretch: condensed;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.btn-subtitle {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-family: Arial, "Arial Narrow", sans-serif;
+    font-stretch: condensed;
+    letter-spacing: -0.5px;
+}
+
+.email-btn:hover .btn-icon {
+    background: #EA4335;
+}
+
+.instagram-btn:hover .btn-icon {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
 }
 
 /* Footer */
@@ -662,31 +746,6 @@ footer {
         font-size: 1rem;
         line-height: 1.5;
         padding: 0 1rem;
-        /* Make description collapsible on mobile */
-        max-height: 120px;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        position: relative;
-        cursor: pointer;
-    }
-    
-    .hero-description.expanded {
-        max-height: none;
-    }
-    
-    .hero-description::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 40px;
-        background: linear-gradient(transparent, white);
-        pointer-events: none;
-    }
-    
-    .hero-description.expanded::after {
-        display: none;
     }
 } 
 
@@ -987,5 +1046,36 @@ footer {
     
     .map-container iframe {
         height: 300px;
+    }
+    
+    /* Contact mobile styles */
+    .contact {
+        padding: 80px 20px 30px;
+    }
+    
+    .contact-intro {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-buttons {
+        gap: 1rem;
+    }
+    
+    .contact-btn {
+        padding: 1.25rem;
+    }
+    
+    .btn-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .btn-title {
+        font-size: 1.1rem;
+    }
+    
+    .btn-subtitle {
+        font-size: 0.85rem;
     }
 }
