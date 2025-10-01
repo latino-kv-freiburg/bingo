@@ -24,13 +24,13 @@ const translations = {
         'earlybird-ticket': 'Early Bird',
         'entry-feature': 'Entrada al evento',
         'bingo-card-included': '1 carta de bingo incluida',
-        'valid-until': '(Válido hasta 11 Octubre)',
+        'valid-until': 'Válido hasta el 11 de Octubre (después de esta fecha el precio será de 15€)',
         'save-feature': 'Ahorra €3 con reserva anticipada',
         'select-ticket-type': 'Selecciona tipo de entrada',
         'select-quantity': 'Número de entradas',
         'select-extra-cards': 'Cartas extra de bingo',
         'extra-cards-help': 'Cartas adicionales para aumentar tus posibilidades (opcional)',
-        'extra-card-price': '€4 por carta extra (Early Bird)',
+        'extra-card-price': '4€ por carta extra',
         'price-summary': 'Resumen del precio',
         'tickets-label': 'Entradas:',
         'extra-cards-label': 'Cartas extra:',
@@ -43,19 +43,19 @@ const translations = {
         'limited-capacity': 'Capacidad limitada - ¡reserva pronto!',
         'food-reservation': 'Para reservas gastronómicas, contacta a Henry: +49 176 868 15317',
         'ticket-quantity': 'Number of tickets:',
-        'extra-cards-quantity': 'Extra cards (€4/card):',
-        'extra-cards-quantity-6': 'Extra cards (€6/card):',
+        'extra-cards-quantity': 'Extra cards (4€/card):',
+        'extra-cards-quantity-6': 'Extra cards (6€/card):',
         'tickets-cost': 'Tickets:',
         'extras-cost': 'Extra cards:',
         'total-cost': 'Total:',
-        'extra-cards-4': '✓ Extra cards: €4/card',
-        'extra-cards-6': '✓ Extra cards: €6/card',
+        'extra-cards-4': '✓ Extra cards: 4€/card',
+        'extra-cards-6': '✓ Extra cards: 6€/card',
         'reservation-info': 'For dining reservations: Henry +49 176 868 15317',
         'ticket-info': `Thank you for your purchase! Some important information:
 
 Come in your best white outfit
 On event day you will receive your bingo card at reception
-You have the option to purchase an additional bingo card during the event for €6
+You have the option to purchase an additional bingo card during the event for 6€
 So everyone can enjoy the food, we recommend reserving in advance with Henry: +49 176 868 15317
 Cancellation is not possible
 
@@ -74,12 +74,12 @@ We wish you lots of success at Bingo Pachanguero!`,
         'bank-name': 'Banco:',
         'payment-note': '<strong>Importante:</strong> Una vez realizado el pago, envíanos un email a <a href=\"mailto:latinokvfreiburg@gmail.com\">latinokvfreiburg@gmail.com</a> con el comprobante para procesar tu entrada.',
         'ticket-quantity': 'Número de entradas:',
-        'extra-cards-quantity': 'Cartas extra (€4/carta):',
-        'extra-cards-quantity-6': 'Cartas extra (€6/carta):',
+        'extra-cards-quantity': 'Cartas extra (4€/carta):',
+        'extra-cards-quantity-6': 'Cartas extra (6€/carta):',
         'tickets-cost': 'Entradas:',
         'extras-cost': 'Cartas extra:',
         'total-cost': 'Total:',
-        'extra-cards-4': '✓ Cartas extra: 4€/carta',
+        'extra-cards-4': '✓ Cartas extra: 4€/carta (6€/carta después del 11 de Octubre)',
         'extra-cards-6': '✓ Cartas extra: 6€/carta',
         'earlybird-price': '12€',
         'general-price': '15€',
@@ -88,7 +88,7 @@ We wish you lots of success at Bingo Pachanguero!`,
 
 Ven con tu mejor atuendo blanco
 El día del evento recibirás tu carta de bingo en recepción
-Puedes comprar una carta de bingo adicional durante el evento por €6
+Puedes comprar una carta de bingo adicional durante el evento por 6€
 Para que todos puedan disfrutar de la comida, recomendamos reservar con Henry: +49 176 868 15317
 No es posible cancelar
 
@@ -149,13 +149,13 @@ No se permiten cancelaciones
         'entry-feature': 'Eintritt zur Veranstaltung',
         'bingo-card-included': '1 Bingo-Karte inklusive',
 
-        'valid-until': '(Gültig bis 11. Oktober)',
+        'valid-until': 'Gültig bis 11. Oktober (nach diesem Datum kostet das Ticket 15€)',
         'save-feature': '€3 sparen mit Frühbuchung',
         'select-ticket-type': 'Ticket-Typ wählen',
         'select-quantity': 'Anzahl der Tickets',
         'select-extra-cards': 'Extra Bingo-Karten',
         'extra-cards-help': 'Zusätzliche Karten für bessere Gewinnchancen (optional)',
-        'extra-card-price': '€4 pro Extra-Karte (Frühbucher)',
+        'extra-card-price': '4€ pro Extra-Karte',
         'price-summary': 'Preisübersicht',
         'tickets-label': 'Tickets:',
         'extra-cards-label': 'Extra-Karten:',
@@ -181,12 +181,12 @@ No se permiten cancelaciones
         'bank-name': 'Bank:',
         'payment-note': '<strong>Wichtig:</strong> Nach der Zahlung senden Sie uns eine E-Mail an <a href=\"mailto:latinokvfreiburg@gmail.com\">latinokvfreiburg@gmail.com</a> mit dem Zahlungsnachweis, um Ihr Ticket zu bearbeiten.',
         'ticket-quantity': 'Anzahl der Tickets:',
-        'extra-cards-quantity': 'Extra-Karten (€4/Karte):',
-        'extra-cards-quantity-6': 'Extra-Karten (€6/Karte):',
+        'extra-cards-quantity': 'Extra-Karten (4€/Karte):',
+        'extra-cards-quantity-6': 'Extra-Karten (6€/Karte):',
         'tickets-cost': 'Tickets:',
         'extras-cost': 'Extra-Karten:',
         'total-cost': 'Gesamt:',
-        'extra-cards-4': '✓ Extra-Karten: 4€/Karte',
+        'extra-cards-4': '✓ Extra-Karten: 4€/Karte (6€/Karte nach dem 11. Oktober)',
         'extra-cards-6': '✓ Extra-Karten: 6€/Karte',
         'earlybird-price': '12€',
         'general-price': '15€',
@@ -245,13 +245,13 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'earlybird-ticket': 'Early Bird',
         'entry-feature': 'Entry to the event',
         'bingo-card-included': '1 bingo card included',
-        'valid-until': '(Valid until 11 October)',
-        'save-feature': 'Save €3 with early booking',
+        'valid-until': 'Valid until October 11th (after this date the price will be 15€)',
+        'save-feature': 'Save 3€ with early booking',
         'select-ticket-type': 'Select ticket type',
         'select-quantity': 'Number of tickets',
         'select-extra-cards': 'Extra bingo cards',
         'extra-cards-help': 'Additional cards to increase your chances (optional)',
-        'extra-card-price': '€4 per extra card (Early Bird)',
+        'extra-card-price': '4€ per extra card',
         'price-summary': 'Price Summary',
         'tickets-label': 'Tickets:',
         'extra-cards-label': 'Extra cards:',
@@ -265,18 +265,18 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'food-reservation': 'For food reservations, contact Henry: +49 176 868 15317',
         'buy-paypal': 'Buy Ticket',
         'ticket-quantity': 'Number of tickets:',
-        'extra-cards-quantity': 'Extra cards (€4/card):',
-        'extra-cards-quantity-6': 'Extra cards (€6/card):',
+        'extra-cards-quantity': 'Extra cards (4€/card):',
+        'extra-cards-quantity-6': 'Extra cards (6€/card):',
         'tickets-cost': 'Tickets:',
         'extras-cost': 'Extra cards:',
         'total-cost': 'Total:',
-        'extra-cards-4': '✓ Extra cards: 4€/card',
+        'extra-cards-4': '✓ Extra cards: 4€/card (6€/card after October 11th)',
         'extra-cards-6': '✓ Extra cards: 6€/card',
         'earlybird-price': '12€',
         'general-price': '15€',
         'select-extra-cards': 'Extra bingo cards',
         'extra-cards-help': 'Additional cards to increase your chances (optional)',
-        'extra-card-price': '€4 per extra card (Early Bird)',
+        'extra-card-price': '4€ per extra card (Early Bird)',
         'price-summary': 'Price Summary',
         'tickets-label': 'Tickets:',
         'extra-cards-label': 'Extra cards:',
@@ -326,7 +326,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
 
 Come in your best white outfit
 On event day you'll receive your bingo card at reception
-You'll have the opportunity to buy an additional bingo card during the event for €6
+You'll have the opportunity to buy an additional bingo card during the event for 6€
 So everyone can enjoy the food, we recommend reserving in advance with Henry: +49 176 868 15317
 Cancellation is not possible
 
@@ -722,7 +722,7 @@ function generateTicketImage(buyerName, paymentDetails) {
     
     // Update extra card price text
     const extraPriceText = translations[currentLanguage]['extra-card-price']
-        .replace('€4', `€${extraCardPrice}`)
+        .replace('4€', `€${extraCardPrice}`)
         .replace('Early Bird', currentTicketType === 'earlybird' ? 
             translations[currentLanguage]['earlybird-ticket'] : 
             translations[currentLanguage]['general-ticket']);
