@@ -152,7 +152,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.3); /* White overlay for text readability on all screens */
+    background: rgba(255, 255, 255, 0.7); /* Consistent white overlay for better readability */
     z-index: 2;
 }
 
@@ -549,16 +549,6 @@ footer {
     
     .nav-menu.active {
         left: 0;
-    }
-    
-    /* Video background optimizations for mobile */
-    .background-video {
-        opacity: 0.5; /* Reduce opacity on mobile for better text readability */
-    }
-    
-    .video-overlay {
-        /* Consistent overlay on mobile */
-        background: rgba(255, 255, 255, 0.7) !important;
     }
     
     .hero {
