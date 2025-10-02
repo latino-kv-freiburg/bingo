@@ -72,7 +72,7 @@ We wish you lots of success at Bingo Pachanguero!`,
         'bank-instructions': 'Transfiere a nuestra cuenta bancaria:',
         'account-holder': 'Titular:',
         'bank-name': 'Banco:',
-        'payment-note': '<strong>Importante:</strong> Una vez realizado el pago, envíanos un email a <a href=\"mailto:latinokvfreiburg@gmail.com\">latinokvfreiburg@gmail.com</a> con el comprobante para procesar tu entrada.',
+        'payment-note': '<strong>Importante:</strong> Una vez realizado el pago, envíanos un email a <a href=\"mailto:latinokvfreiburginfo@gmail.com\">latinokvfreiburginfo@gmail.com</a> con el comprobante para procesar tu entrada.',
         'ticket-quantity': 'Número de entradas:',
         'extra-cards-quantity': 'Cartas extra (4€/carta):',
         'extra-cards-quantity-6': 'Cartas extra (6€/carta):',
@@ -110,7 +110,7 @@ No es posible cancelar
         'arrival-early': 'Llega temprano para registro y recibir tu carta de bingo',
         'white-attire': 'Vestimenta blanca es obligatoria para entrar',
         'no-refunds': 'Las entradas no son reembolsables',
-        'contact-info': 'Para preguntas, contáctanos en latinokvfreiburg@gmail.com',
+        'contact-info': 'Para preguntas, contáctanos en latinokvfreiburginfo@gmail.com',
         'back-home': 'Volver al inicio',
         'buy-more': 'Comprar más entradas',
         // Ticket info text
@@ -179,7 +179,7 @@ No se permiten cancelaciones
         'bank-instructions': 'Überweisen Sie auf unser Bankkonto:',
         'account-holder': 'Kontoinhaber:',
         'bank-name': 'Bank:',
-        'payment-note': '<strong>Wichtig:</strong> Nach der Zahlung senden Sie uns eine E-Mail an <a href=\"mailto:latinokvfreiburg@gmail.com\">latinokvfreiburg@gmail.com</a> mit dem Zahlungsnachweis, um Ihr Ticket zu bearbeiten.',
+        'payment-note': '<strong>Wichtig:</strong> Nach der Zahlung senden Sie uns eine E-Mail an <a href=\"mailto:latinokvfreiburginfo@gmail.com\">latinokvfreiburginfo@gmail.com</a> mit dem Zahlungsnachweis, um Ihr Ticket zu bearbeiten.',
         'ticket-quantity': 'Anzahl der Tickets:',
         'extra-cards-quantity': 'Extra-Karten (4€/Karte):',
         'extra-cards-quantity-6': 'Extra-Karten (6€/Karte):',
@@ -207,7 +207,7 @@ No se permiten cancelaciones
         'arrival-early': 'Kommen Sie früh zur Registrierung und zum Erhalt Ihrer Bingo-Karte',
         'white-attire': 'Weiße Kleidung ist für den Eintritt obligatorisch',
         'no-refunds': 'Tickets sind nicht erstattungsfähig',
-        'contact-info': 'Bei Fragen kontaktieren Sie uns unter latinokvfreiburg@gmail.com',
+        'contact-info': 'Bei Fragen kontaktieren Sie uns unter latinokvfreiburginfo@gmail.com',
         'back-home': 'Zurück zur Startseite',
         'buy-more': 'Weitere Tickets kaufen',
         // Ticket info text
@@ -305,7 +305,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'arrival-early': 'Arrive early for registration and to receive your bingo card',
         'white-attire': 'White attire is mandatory for entry',
         'no-refunds': 'Tickets are non-refundable',
-        'contact-info': 'For questions, contact us at latinokvfreiburg@gmail.com',
+        'contact-info': 'For questions, contact us at latinokvfreiburginfo@gmail.com',
         'back-home': 'Back to home',
         'buy-more': 'Buy more tickets',
         // Payment modal translations
@@ -320,7 +320,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'bank-instructions': 'Transfer to our bank account:',
         'account-holder': 'Account holder:',
         'bank-name': 'Bank:',
-        'payment-note': '<strong>Important:</strong> After payment, send us an email to <a href=\"mailto:latinokvfreiburg@gmail.com\">latinokvfreiburg@gmail.com</a> with the payment receipt to process your ticket.',
+        'payment-note': '<strong>Important:</strong> After payment, send us an email to <a href=\"mailto:latinokvfreiburginfo@gmail.com\">latinokvfreiburginfo@gmail.com</a> with the payment receipt to process your ticket.',
         // Ticket info text
         'ticket-info-text': `Thank you for your purchase! Important information:
 
