@@ -24,7 +24,11 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the token.pickle file.
-SCOPES = ['https://www.googleapis.com/auth/gmail.send']
+SCOPES = [
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/gmail.send',
+    'openid'
+]
 
 def get_gmail_service():
     """Authenticate and return Gmail API service.
@@ -54,7 +58,8 @@ def get_gmail_service():
             
             flow = InstalledAppFlow.from_client_secrets_file(
                 'credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
+            # The browser will open http://localhost:8080/ after successful login.
+            creds = flow.run_local_server(port=8080)
         
         # Save credentials for future use
         with open('token.pickle', 'wb') as token:
