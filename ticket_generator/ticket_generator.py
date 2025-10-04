@@ -464,14 +464,28 @@ class TicketGenerator:
                         font_size = 12 if i == 0 else 10  # Larger font for header
                         font_name = "Helvetica-Bold" if i == 0 else "Helvetica"
                         
-                        # Draw with glow effect
-                        draw_text_with_glow(
-                            line,
-                            x + col_width/2,  # Center in column
-                            current_y,
-                            font_name,
-                            font_size
-                        )
+                        if i == 0:  # Title - keep centered
+                            draw_text_with_glow(
+                                line,
+                                x + col_width/2,  # Center in column
+                                current_y,
+                                font_name,
+                                font_size
+                            )
+                        else:  # Bullet points - left aligned with small margin
+                            # Draw glow effect (black shadow)
+                            text_x = x + 0.3*cm  # Add small left margin
+                            c.setFillColorRGB(0, 0, 0)
+                            for offset in [(text_x-1, current_y-1), (text_x-1, current_y+1), 
+                                         (text_x+1, current_y-1), (text_x+1, current_y+1)]:
+                                c.setFont(font_name, font_size)
+                                c.drawString(offset[0], offset[1], line)
+                            
+                            # Draw white text
+                            c.setFillColorRGB(1, 1, 1)
+                            c.setFont(font_name, font_size)
+                            c.drawString(text_x, current_y, line)
+                        
                         current_y -= 0.6*cm  # Space between lines
 
             # Save the PDF
