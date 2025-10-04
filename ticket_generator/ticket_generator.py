@@ -12,6 +12,7 @@ import xlsxwriter
 import barcode
 from barcode.writer import ImageWriter
 from io import BytesIO
+from gmail_sender import send_ticket_via_email
 
 class TicketGenerator:
     def __init__(self):
@@ -22,6 +23,10 @@ class TicketGenerator:
         
         # Load or initialize ticket counter and list
         self.load_ticket_data()
+        
+        # Initialize variables for email sending
+        self.last_generated_files = []
+        self.last_ticket_data = None
         
         # Create main container
         container = ttk.Frame(self.root, padding="10")
@@ -37,7 +42,7 @@ class TicketGenerator:
         
         # Email Text
         ttk.Label(email_frame, text="Email Template", font=('Helvetica', 12, 'bold')).grid(row=0, column=0, pady=10)
-        self.email_text = tk.Text(email_frame, width=60, height=35)  # Increased size
+        self.email_text = tk.Text(email_frame, width=80, height=35)  # Wider text field
         self.email_text.grid(row=1, column=0, pady=5, sticky=(tk.W, tk.E, tk.N, tk.S))
         
         # Configure email frame to expand
@@ -98,6 +103,8 @@ class TicketGenerator:
         button_frame.grid(row=12, column=0, columnspan=2, pady=20)
         
         ttk.Button(button_frame, text="Generate Ticket", command=self.generate_ticket).pack(side=tk.LEFT, padx=5)
+        self.send_email_btn = ttk.Button(button_frame, text="Send Email", command=self.send_email, state=tk.DISABLED)
+        self.send_email_btn.pack(side=tk.LEFT, padx=5)
         ttk.Button(button_frame, text="View Ticket List", command=self.show_ticket_list).pack(side=tk.LEFT, padx=5)
         
         # Status Label
@@ -298,7 +305,16 @@ class TicketGenerator:
         for file in generated_files:
             status_text += f"\n{os.path.basename(file)}"
         
-        self.status_var.set(status_text)        # Clear form
+        # Store generated files for email sending
+        self.last_generated_files = generated_files
+        self.last_ticket_data = new_ticket
+        
+        self.status_var.set(status_text)
+        
+        # Enable send email button
+        self.send_email_btn.configure(state=tk.NORMAL)
+        
+        # Clear form
         self.name_var.set("")
         self.email_var.set("")
         self.additional_info_var.set("")
@@ -406,8 +422,8 @@ class TicketGenerator:
                 important_info = {
                     'es': [
                         "Información Importante",
-                        "• Código de vestimenta:",
-                        "  Se requiere vestimenta BLANCA",
+                        "• Vestimenta: Te invitamos a",
+                        "  vestirte de blanco",
                         "• Reserva gastronómica:",
                         "  Henry +49 176 868 15317",
                         "• Capacidad del evento limitada",
@@ -415,8 +431,8 @@ class TicketGenerator:
                     ],
                     'de': [
                         "Wichtige Informationen",
-                        "• Dresscode:",
-                        "  WEIßE Kleidung erforderlich",
+                        "• Kleiderempfehlung: Wir freuen uns,",
+                        "  wenn du in Weiß kommst",
                         "• Gastronomische Reservierung:",
                         "  Henry +49 176 868 15317",
                         "• Begrenzte Veranstaltungskapazität",
@@ -424,8 +440,8 @@ class TicketGenerator:
                     ],
                     'en': [
                         "Important Information",
-                        "• Dress code:",
-                        "  WHITE attire required",
+                        "• Dress suggestion: We invite",
+                        "  you to wear white",
                         "• Food & drinks reservation:",
                         "  Henry +49 176 868 15317",
                         "• Limited event capacity",
@@ -465,17 +481,21 @@ class TicketGenerator:
             raise Exception(f"Error creating PDF: {str(e)}")
 
     def show_email_text(self, serial_number, buyer_name, ticket_type, quantity, extras, total_amount, payment_method):
+        # Create email content for each language with unified formatting
+        extra_cards_es = f"\n- Tarjetas Extra de Bingo: {extras}" if extras > 0 else ""
+        extra_cards_de = f"\n- Extra Bingokarten: {extras}" if extras > 0 else ""
+        extra_cards_en = f"\n- Extra Bingo Cards: {extras}" if extras > 0 else ""
+        
         email_template = {
-            'es': f"""
-¡Hola {buyer_name}!
+            'es': f"""¡Hola {buyer_name}!
 
 ¡Gracias por tu compra de entradas para el Bingo Pachanguero 2025 - White Party!
 
 Detalles de tu compra:
 - Número de Serie: {serial_number}
 - Tipo de Entrada: {ticket_type}
-- Cantidad: {quantity}
-{"- Tarjetas Extra de Bingo: " + str(extras) if extras > 0 else ""}
+- Cantidad: {quantity}{extra_cards_es}
+
 - Monto Total: €{total_amount}
 - Método de Pago: {payment_method}
 
@@ -483,23 +503,21 @@ Información importante:
 - Fecha: 25 de octubre de 2025
 - Hora: 20:00 (apertura de puertas 19:30)
 - Lugar: Tanzhalle Freiburg
-- Código de vestimenta: ¡BLANCO!
+- Vestimenta: Te invitamos a vestirte de blanco
 
 Tu(s) entrada(s) está(n) adjunta(s) a este correo. Por favor, muéstralas en la entrada.
 
-¡Nos vemos en el Bingo!
-Latino KV Freiburg
+¡Nos vemos en el Bingo Pachanguero!
 """,
-            'de': f"""
-Hallo {buyer_name}!
+            'de': f"""Hallo {buyer_name}!
 
 Vielen Dank für deinen Ticketkauf für das Bingo Pachanguero 2025 - White Party!
 
 Deine Bestelldetails:
 - Seriennummer: {serial_number}
 - Ticketart: {ticket_type}
-- Anzahl: {quantity}
-{"- Extra Bingokarten: " + str(extras) if extras > 0 else ""}
+- Anzahl: {quantity}{extra_cards_de}
+
 - Gesamtbetrag: €{total_amount}
 - Zahlungsmethode: {payment_method}
 
@@ -507,23 +525,19 @@ Wichtige Informationen:
 - Datum: 25. Oktober 2025
 - Zeit: 20:00 Uhr (Einlass ab 19:30)
 - Ort: Tanzhalle Freiburg
-- Dresscode: WEIß!
+- Kleiderempfehlung: Wir freuen uns, wenn du in Weiß kommst
 
 Dein(e) Ticket(s) findest du im Anhang. Bitte zeige sie am Eingang vor.
 
-Wir sehen uns beim Bingo!
-Latino KV Freiburg
+Wir sehen uns beim Bingo Pachanguero!
 """,
-            'en': f"""
-Hello {buyer_name}!
-
-Thank you for purchasing tickets for the Bingo Pachanguero 2025 - White Party!
+            'en': f"""Thank you for purchasing tickets for the Bingo Pachanguero 2025 - White Party!
 
 Your order details:
 - Serial Number: {serial_number}
 - Ticket Type: {ticket_type}
-- Quantity: {quantity}
-{"- Extra Bingo Cards: " + str(extras) if extras > 0 else ""}
+- Quantity: {quantity}{extra_cards_en}
+
 - Total Amount: €{total_amount}
 - Payment Method: {payment_method}
 
@@ -531,24 +545,24 @@ Important information:
 - Date: October 25th, 2025
 - Time: 8:00 PM (doors open 7:30 PM)
 - Location: Tanzhalle Freiburg
-- Dress code: WHITE!
+- Dress suggestion: We invite you to wear white
 
 Your ticket(s) are attached to this email. Please show them at the entrance.
 
-See you at Bingo!
-Latino KV Freiburg
-"""
+See you at the Bingo Pachanguero!
+
+Saludos cordiales / mit freundlichen Grüßen / kind regards
+Latino KV Freiburg"""
         }
         
         # Clear existing text
         self.email_text.delete(1.0, tk.END)
         
-        # Insert all language versions
-        self.email_text.insert(tk.END, "🇪🇸 ESPAÑOL:\n")
+        # Insert all language versions with separators
         self.email_text.insert(tk.END, email_template['es'])
-        self.email_text.insert(tk.END, "\n🇩🇪 DEUTSCH:\n")
+        self.email_text.insert(tk.END, "\n----------\n\n")
         self.email_text.insert(tk.END, email_template['de'])
-        self.email_text.insert(tk.END, "\n🇬🇧 ENGLISH:\n")
+        self.email_text.insert(tk.END, "\n----------\n\n")
         self.email_text.insert(tk.END, email_template['en'])
 
     def show_ticket_list(self):
@@ -592,6 +606,60 @@ Latino KV Freiburg
         # Add data
         for _, row in self.tickets_df.iterrows():
             tree.insert('', tk.END, values=[row[col] for col in columns])
+
+    def send_email(self):
+        """Handle manual sending of ticket emails."""
+        if not self.last_generated_files or not self.last_ticket_data:
+            messagebox.showerror(
+                "Error",
+                "No tickets available to send. Please generate tickets first."
+            )
+            return
+
+        try:
+            # Show confirmation dialog
+            if not messagebox.askyesno(
+                "Send Email",
+                f"Send tickets to {self.last_ticket_data['email']}?"
+            ):
+                return
+
+            subject = "Your Bingo Pachanguero 2025 Tickets"
+            
+            # Generate email text
+            self.show_email_text(
+                serial_number=self.last_ticket_data['serial_number'],
+                buyer_name=self.last_ticket_data['buyer_name'],
+                ticket_type=self.last_ticket_data['ticket_type'],
+                quantity=self.last_ticket_data['quantity'],
+                extras=self.last_ticket_data['extra_cards'],
+                total_amount=self.last_ticket_data['amount'],
+                payment_method=self.last_ticket_data['payment_method']
+            )
+            body_text = self.email_text.get(1.0, tk.END)
+            
+            # Send each generated file as a separate email
+            for file in self.last_generated_files:
+                send_ticket_via_email(
+                    recipient_email=self.last_ticket_data['email'],
+                    subject=subject,
+                    body_text=body_text,
+                    attachment_file=file
+                )
+            
+            messagebox.showinfo(
+                "Success",
+                "Tickets have been sent successfully!"
+            )
+            
+            # Disable send button after successful sending
+            self.send_email_btn.configure(state=tk.DISABLED)
+            
+        except Exception as e:
+            messagebox.showerror(
+                "Email Error",
+                f"Failed to send tickets via email: {str(e)}\n\nPlease check your internet connection and try again."
+            )
 
 if __name__ == "__main__":
     TicketGenerator()
