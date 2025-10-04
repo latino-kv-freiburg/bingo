@@ -49,7 +49,7 @@ python ticket_generator.py
 - `tickets/` - Directory for generated PDF tickets
 - `ticket_data.json` - Stores the sequential counter
 - `tickets.xlsx` - Color-coded database of all tickets
-- `images/Bingo_Ticket_Generator.png` - Ticket background template
+- `Bingo_Ticket_Generator.png` - Ticket background template
 
 ## File Naming Convention
 

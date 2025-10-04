@@ -9,6 +9,9 @@ from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
 import pandas as pd
 import xlsxwriter
+import barcode
+from barcode.writer import ImageWriter
+from io import BytesIO
 
 class TicketGenerator:
     def __init__(self):
@@ -116,7 +119,7 @@ class TicketGenerator:
         except (FileNotFoundError, ValueError):
             self.tickets_df = pd.DataFrame(columns=[
                 'serial_number', 'date', 'buyer_name', 'email', 'ticket_type',
-                'quantity', 'extra_cards', 'payment_method', 'additional_info'
+                'quantity', 'extra_cards', 'amount', 'payment_method', 'additional_info'
             ])
     
     def save_ticket_data(self):
@@ -126,7 +129,7 @@ class TicketGenerator:
             }, f)
         
         # Create Excel file with formatting
-        workbook = xlsxwriter.Workbook('tickets.xlsx')
+        workbook = xlsxwriter.Workbook('tickets.xlsx', {'nan_inf_to_errors': True})
         worksheet = workbook.add_worksheet()
         
         # Add formats for different payment methods
@@ -165,6 +168,7 @@ class TicketGenerator:
                 ticket.ticket_type,
                 ticket.quantity,
                 ticket.extra_cards,
+                ticket.amount if hasattr(ticket, 'amount') else '',  # Add amount in correct position
                 ticket.payment_method,
                 ticket.additional_info if hasattr(ticket, 'additional_info') else ''
             ]
@@ -315,7 +319,8 @@ class TicketGenerator:
 
             # Load and draw background image
             try:
-                bg_image = ImageReader("images/Bingo_Ticket_Generator.png")
+                image_path = os.path.join(os.path.dirname(__file__), "Bingo_Ticket_Generator.png")
+                bg_image = ImageReader(image_path)
                 c.drawImage(bg_image, 0, 0, width=width, height=height)
             except Exception as e:
                 print(f"Background image loading failed: {e}")
@@ -335,39 +340,65 @@ class TicketGenerator:
                 c.setFont(font_name, font_size)
                 c.drawCentredString(x, y, text)
 
-            # Draw buyer name in the center
+            # Draw buyer name in the center with larger font
             draw_text_with_glow(
                 buyer_name,
                 width/2,
-                height/2 + 1*cm,
+                height/2,  # Moved down from height/2 + 3*cm
                 "Helvetica-Bold",
-                36
+                48  # Increased from 36
             )
 
-            # Draw ticket type
+            # Draw ticket type with larger font
             draw_text_with_glow(
                 ticket_type,
                 width/2,
-                height/2 - 1*cm,
+                height/2 - 2*cm,  # Moved down from height/2
                 "Helvetica",
-                24
+                36  # Increased from 24
             )
 
-            # Draw serial number for regular tickets
+            # Draw serial number and barcode for regular tickets
             if not is_extra_card and serial_number:
+                # Draw "Serial number" caption
+                draw_text_with_glow(
+                    "Serial number",
+                    width/2,
+                    height/2 - 4*cm,  # Moved down from height/2 - 2*cm
+                    "Helvetica",
+                    18
+                )
+                
+                # Draw serial number
                 draw_text_with_glow(
                     serial_number,
-                    width - 3*cm,
-                    2*cm,
+                    width/2,
+                    height/2 - 5*cm,  # Moved down from height/2 - 3*cm
                     "Helvetica",
-                    12
+                    24  # Increased from 12
                 )
+
+                # Generate barcode
+                try:
+                    # Create Code128 barcode
+                    barcode_class = barcode.get_barcode_class('code128')
+                    barcode_io = BytesIO()
+                    code = barcode_class(serial_number, writer=ImageWriter())
+                    code.write(barcode_io, options={"write_text": False})
+                    
+                    # Draw barcode
+                    barcode_io.seek(0)
+                    barcode_image = ImageReader(barcode_io)
+                    barcode_width = width/3  # One third of page width
+                    barcode_height = 1*cm
+                    x = (width - barcode_width) / 2  # Center horizontally
+                    y = height/2 - 7*cm  # Adjusted to new position below serial number
+                    c.drawImage(barcode_image, x, y, width=barcode_width, height=barcode_height)
+                except Exception as e:
+                    print(f"Barcode generation failed: {e}")
 
             # Save the PDF
             c.save()
-            
-        except Exception as e:
-            raise Exception(f"Error creating PDF: {str(e)}")
             
         except Exception as e:
             raise Exception(f"Error creating PDF: {str(e)}")
