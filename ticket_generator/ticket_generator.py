@@ -262,7 +262,12 @@ class TicketGenerator:
         # Calculate amount
         ticket_price = 12 if self.ticket_type_var.get() == "Early Bird" else 15
         extra_price = 4 if self.ticket_type_var.get() == "Early Bird" else 6
-        total_amount = (ticket_price * self.quantity_var.get()) + (extra_price * self.extras_var.get())
+        
+        # For guests, only charge for extra cards
+        if self.payment_method_var.get() == "Guest":
+            total_amount = extra_price * self.extras_var.get()
+        else:
+            total_amount = (ticket_price * self.quantity_var.get()) + (extra_price * self.extras_var.get())
         
         # Add to dataframe
         new_ticket = {
@@ -396,6 +401,62 @@ class TicketGenerator:
                     c.drawImage(barcode_image, x, y, width=barcode_width, height=barcode_height)
                 except Exception as e:
                     print(f"Barcode generation failed: {e}")
+
+                # Add important information in three columns below barcode
+                important_info = {
+                    'es': [
+                        "Información Importante",
+                        "• Código de vestimenta:",
+                        "  Se requiere vestimenta BLANCA",
+                        "• Reserva gastronómica:",
+                        "  Henry +49 176 868 15317",
+                        "• Capacidad del evento limitada",
+                        "• Entradas no reembolsables"
+                    ],
+                    'de': [
+                        "Wichtige Informationen",
+                        "• Dresscode:",
+                        "  WEIßE Kleidung erforderlich",
+                        "• Gastronomische Reservierung:",
+                        "  Henry +49 176 868 15317",
+                        "• Begrenzte Veranstaltungskapazität",
+                        "• Keine Rückerstattung möglich"
+                    ],
+                    'en': [
+                        "Important Information",
+                        "• Dress code:",
+                        "  WHITE attire required",
+                        "• Food & drinks reservation:",
+                        "  Henry +49 176 868 15317",
+                        "• Limited event capacity",
+                        "• No refunds possible"
+                    ]
+                }
+
+                # Calculate positions for the three columns
+                margin = 2*cm
+                col_width = (width - 2*margin) / 3
+                base_y = height/2 - 8*cm  # Position higher on the page
+
+                # Draw each language column
+                for idx, (lang, info) in enumerate(important_info.items()):
+                    x = margin + idx * col_width
+                    current_y = base_y
+
+                    # Draw each line of text
+                    for i, line in enumerate(info):
+                        font_size = 12 if i == 0 else 10  # Larger font for header
+                        font_name = "Helvetica-Bold" if i == 0 else "Helvetica"
+                        
+                        # Draw with glow effect
+                        draw_text_with_glow(
+                            line,
+                            x + col_width/2,  # Center in column
+                            current_y,
+                            font_name,
+                            font_size
+                        )
+                        current_y -= 0.6*cm  # Space between lines
 
             # Save the PDF
             c.save()
