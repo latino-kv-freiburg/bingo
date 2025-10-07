@@ -133,6 +133,21 @@ class TicketGenerator:
         
         try:
             self.tickets_df = pd.read_excel('tickets.xlsx')
+            # Rename columns to internal names for consistency
+            internal_columns = {
+                'Serial Number': 'serial_number', 
+                'Date': 'date', 
+                'Buyer Name': 'buyer_name', 
+                'Email': 'email', 
+                'Ticket Type': 'ticket_type', 
+                'Quantity': 'quantity', 
+                'Extra Cards': 'extra_cards', 
+                'Amount': 'amount', 
+                'Payment Method': 'payment_method', 
+                'Additional Info': 'additional_info'
+            }
+            # Only rename columns that exist in the loaded DataFrame
+            self.tickets_df.rename(columns=internal_columns, inplace=True)
         except (FileNotFoundError, ValueError):
             self.tickets_df = pd.DataFrame(columns=[
                 'serial_number', 'date', 'buyer_name', 'email', 'ticket_type',
@@ -179,7 +194,14 @@ class TicketGenerator:
         for row, ticket in enumerate(self.tickets_df.itertuples(), start=1):
             # Ensure we read the payment method correctly, using 'Guest' if ticket_type is 'Guest'
             payment_method_display = ticket.payment_method if ticket.ticket_type != 'Guest' else 'Guest'
+            amount_to_write = ticket.amount
+            if pd.isna(amount_to_write):
+                amount_to_write = ''
             
+            additional_info_to_write = ticket.additional_info
+            if pd.isna(additional_info_to_write):
+                additional_info_to_write = ''
+
             data = [
                 ticket.serial_number,
                 ticket.date,
@@ -188,9 +210,9 @@ class TicketGenerator:
                 ticket.ticket_type,
                 ticket.quantity,
                 ticket.extra_cards,
-                ticket.amount if hasattr(ticket, 'amount') else '',
+                amount_to_write, # Use the checked value
                 payment_method_display, # Use the determined display method for formatting
-                ticket.additional_info if hasattr(ticket, 'additional_info') else ''
+                additional_info_to_write # Use the checked value
             ]
             
             # Use the determined display method for formatting
@@ -280,7 +302,6 @@ class TicketGenerator:
             messagebox.showerror("Error", f"An error occurred while generating the ticket: {str(e)}")
             return
         
-        # --- MODIFICATION START: Updated Price Calculation and Payment Method Setting ---
         # Determine base ticket price and extra card price
         if ticket_type == "Early Bird":
             ticket_price = 12
@@ -304,7 +325,6 @@ class TicketGenerator:
         payment_method = self.payment_method_var.get()
         if ticket_type == "Guest":
             payment_method = "Guest" # Override payment method for Guests
-        # --- MODIFICATION END ---
         
         # Add to dataframe
         new_ticket = {
