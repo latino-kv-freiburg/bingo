@@ -61,46 +61,55 @@ class TicketGenerator:
         ttk.Entry(main_frame, textvariable=self.email_var, width=40).grid(row=2, column=1, pady=5)
         
         # Ticket Information
-        ttk.Label(main_frame, text="Ticket Information", font=('Helvetica', 12, 'bold')).grid(row=3, column=0, columnspan=2, pady=10)
+        current_row = 3
+        ttk.Label(main_frame, text="Ticket Information", font=('Helvetica', 12, 'bold')).grid(row=current_row, column=0, columnspan=2, pady=10)
+        current_row += 1
         
-        ttk.Label(main_frame, text="Ticket Type:").grid(row=4, column=0)
+        ttk.Label(main_frame, text="Ticket Type:").grid(row=current_row, column=0)
         self.ticket_type_var = tk.StringVar(value="Early Bird")
-        ttk.Radiobutton(main_frame, text="Early Bird (12€)", variable=self.ticket_type_var, value="Early Bird").grid(row=4, column=1, sticky=tk.W)
-        ttk.Radiobutton(main_frame, text="General Entry (15€)", variable=self.ticket_type_var, value="General Entry").grid(row=5, column=1, sticky=tk.W)
+        ttk.Radiobutton(main_frame, text="Early Bird (12€)", variable=self.ticket_type_var, value="Early Bird").grid(row=current_row, column=1, sticky=tk.W)
+        current_row += 1
+        ttk.Radiobutton(main_frame, text="General Entry (15€)", variable=self.ticket_type_var, value="General Entry").grid(row=current_row, column=1, sticky=tk.W)
+        current_row += 1
+        ttk.Radiobutton(main_frame, text="Guest (Only pays for Extras)", variable=self.ticket_type_var, value="Guest").grid(row=current_row, column=1, sticky=tk.W)
+        current_row += 1
         
-        ttk.Label(main_frame, text="Quantity:").grid(row=6, column=0)
+        ttk.Label(main_frame, text="Quantity:").grid(row=current_row, column=0)
         self.quantity_var = tk.IntVar(value=1)
-        ttk.Spinbox(main_frame, from_=1, to=8, textvariable=self.quantity_var, width=5).grid(row=6, column=1, sticky=tk.W, pady=5)
+        ttk.Spinbox(main_frame, from_=1, to=8, textvariable=self.quantity_var, width=5).grid(row=current_row, column=1, sticky=tk.W, pady=5)
+        current_row += 1
         
-        ttk.Label(main_frame, text="Extra Cards:").grid(row=7, column=0)
+        ttk.Label(main_frame, text="Extra Cards:").grid(row=current_row, column=0)
         self.extras_var = tk.IntVar(value=0)
-        ttk.Spinbox(main_frame, from_=0, to=20, textvariable=self.extras_var, width=5).grid(row=7, column=1, sticky=tk.W, pady=5)
+        ttk.Spinbox(main_frame, from_=0, to=20, textvariable=self.extras_var, width=5).grid(row=current_row, column=1, sticky=tk.W, pady=5)
+        current_row += 1
         
         # Payment Information
-        ttk.Label(main_frame, text="Payment Information", font=('Helvetica', 12, 'bold')).grid(row=8, column=0, columnspan=2, pady=10)
+        ttk.Label(main_frame, text="Payment Information", font=('Helvetica', 12, 'bold')).grid(row=current_row, column=0, columnspan=2, pady=10)
+        current_row += 1
         
-        ttk.Label(main_frame, text="Payment Method:").grid(row=9, column=0)
+        ttk.Label(main_frame, text="Payment Method:").grid(row=current_row, column=0)
         self.payment_method_var = tk.StringVar(value="PayPal")
         payment_methods = [
             ("PayPal", "PayPal"),
             ("Bank Transfer", "Bank Transfer"),
-            ("Guest", "Guest"),
             ("Pays at Event", "Pays at Event")
         ]
-        current_row = 9
         for method, value in payment_methods:
             ttk.Radiobutton(main_frame, text=method, variable=self.payment_method_var, value=value).grid(row=current_row, column=1, sticky=tk.W)
             current_row += 1
 
         # Additional Information
         ttk.Label(main_frame, text="Additional Information", font=('Helvetica', 12, 'bold')).grid(row=current_row, column=0, columnspan=2, pady=10)
+        current_row += 1
         
         self.additional_info_var = tk.StringVar()
-        ttk.Entry(main_frame, textvariable=self.additional_info_var, width=40).grid(row=current_row + 1, column=0, columnspan=2, pady=5)
-        
+        ttk.Entry(main_frame, textvariable=self.additional_info_var, width=40).grid(row=current_row, column=0, columnspan=2, pady=5)
+        current_row += 1
+
         # Buttons
         button_frame = ttk.Frame(main_frame)
-        button_frame.grid(row=12, column=0, columnspan=2, pady=20)
+        button_frame.grid(row=current_row, column=0, columnspan=2, pady=20)
         
         ttk.Button(button_frame, text="Generate Ticket", command=self.generate_ticket).pack(side=tk.LEFT, padx=5)
         self.send_email_btn = ttk.Button(button_frame, text="Send Email", command=self.send_email, state=tk.DISABLED)
@@ -109,7 +118,8 @@ class TicketGenerator:
         
         # Status Label
         self.status_var = tk.StringVar()
-        ttk.Label(main_frame, textvariable=self.status_var, wraplength=400).grid(row=13, column=0, columnspan=2, pady=10)
+        current_row += 1
+        ttk.Label(main_frame, textvariable=self.status_var, wraplength=400).grid(row=current_row, column=0, columnspan=2, pady=10)
         
         self.root.mainloop()
     
@@ -167,6 +177,9 @@ class TicketGenerator:
         
         # Write data with formatting
         for row, ticket in enumerate(self.tickets_df.itertuples(), start=1):
+            # Ensure we read the payment method correctly, using 'Guest' if ticket_type is 'Guest'
+            payment_method_display = ticket.payment_method if ticket.ticket_type != 'Guest' else 'Guest'
+            
             data = [
                 ticket.serial_number,
                 ticket.date,
@@ -175,12 +188,13 @@ class TicketGenerator:
                 ticket.ticket_type,
                 ticket.quantity,
                 ticket.extra_cards,
-                ticket.amount if hasattr(ticket, 'amount') else '',  # Add amount in correct position
-                ticket.payment_method,
+                ticket.amount if hasattr(ticket, 'amount') else '',
+                payment_method_display, # Use the determined display method for formatting
                 ticket.additional_info if hasattr(ticket, 'additional_info') else ''
             ]
             
-            row_format = formats.get(ticket.payment_method, workbook.add_format())
+            # Use the determined display method for formatting
+            row_format = formats.get(payment_method_display, workbook.add_format())
             for col, value in enumerate(data):
                 worksheet.write(row, col, value, row_format)
         
@@ -266,15 +280,31 @@ class TicketGenerator:
             messagebox.showerror("Error", f"An error occurred while generating the ticket: {str(e)}")
             return
         
-        # Calculate amount
-        ticket_price = 12 if self.ticket_type_var.get() == "Early Bird" else 15
-        extra_price = 4 if self.ticket_type_var.get() == "Early Bird" else 6
-        
-        # For guests, only charge for extra cards
-        if self.payment_method_var.get() == "Guest":
-            total_amount = extra_price * self.extras_var.get()
+        # --- MODIFICATION START: Updated Price Calculation and Payment Method Setting ---
+        # Determine base ticket price and extra card price
+        if ticket_type == "Early Bird":
+            ticket_price = 12
+            extra_price = 4
+        elif ticket_type == "General Entry":
+            ticket_price = 15
+            extra_price = 6
+        elif ticket_type == "Guest":
+            # For guests, the ticket price is 0
+            ticket_price = 0
+            extra_price = 4 # Assuming guest extra card price defaults to Early Bird price of 4€
         else:
-            total_amount = (ticket_price * self.quantity_var.get()) + (extra_price * self.extras_var.get())
+            # Default fallback
+            ticket_price = 15
+            extra_price = 6
+
+        # Calculate total amount
+        total_amount = (ticket_price * self.quantity_var.get()) + (extra_price * self.extras_var.get())
+        
+        # Determine payment method
+        payment_method = self.payment_method_var.get()
+        if ticket_type == "Guest":
+            payment_method = "Guest" # Override payment method for Guests
+        # --- MODIFICATION END ---
         
         # Add to dataframe
         new_ticket = {
@@ -285,7 +315,7 @@ class TicketGenerator:
             'ticket_type': self.ticket_type_var.get(),
             'quantity': self.quantity_var.get(),
             'extra_cards': self.extras_var.get(),
-            'payment_method': self.payment_method_var.get(),
+            'payment_method': payment_method, # Use the determined payment_method
             'additional_info': self.additional_info_var.get(),
             'amount': total_amount
         }
