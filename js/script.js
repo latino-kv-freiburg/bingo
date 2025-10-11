@@ -456,7 +456,7 @@ function updateActiveLanguageButton() {
 // Check if early bird is still valid
 function isEarlyBirdValid() {
     const today = new Date();
-    const deadline = new Date('2025-10-12');
+    const deadline = new Date('2025-10-11');
     return today <= deadline;
 }
 
@@ -993,7 +993,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Hide early bird if expired and show appropriate ticket
     const today = new Date();
-    const earlyBirdDeadline = new Date('2025-10-12');
+    const earlyBirdDeadline = new Date('2025-10-11');
     const isEarlyBirdValid = today <= earlyBirdDeadline;
     
     const earlyBirdCard = document.getElementById('earlybird-card');
