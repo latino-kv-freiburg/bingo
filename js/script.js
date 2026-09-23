@@ -4,10 +4,12 @@ const translations = {
         home: 'Inicio',
         tickets: 'Entradas',
         contact: 'Contacto',
-        title: 'Bingo Pachanguero 2025',
-        'white-party': 'White Party',
-        subtitle: '25 de Octubre 2025 – Tanzhalle Freiburg',
-        description: '✨ ¡La 4.ª edición del Bingo Pachanguero está aquí! ✨<br>Prepárate para una noche que lo tiene TODO: música, baile, comida y mucha diversión.<br><br>🔥 Este año venimos con más sorpresas que nunca:<br>🎶 Fiesta crossover con la mejor energía para no parar de bailar<br>🍴 Auténticas delicias latinas que te harán agua la boca<br>💃 Animación y show de Salsa Caleña en vivo con Ritmo y Kandela<br>🎁 Y el gran protagonista… ¡nuestro Bingo con premios increíbles!<br><br>👉 No te lo pierdas: reserva tu lugar ahora y vive una noche única, llena de sabor, ritmo y alegría latina.',
+        title: 'Bingo Pachanguero 2026',
+        'anniversary-title': '5 AÑOS',
+        'anniversary-subtitle': 'CELEBRANDO LO QUE NOS UNE',
+        'white-party': 'Celebración de 5 años',
+        subtitle: '24 de Octubre 2026 – Tanzhalle Freiburg',
+        description: '✨ ¡Celebramos 5 años de Bingo Pachanguero! ✨<br>Prepárate para una noche que lo tiene TODO: música, baile, comida y mucha diversión.<br><br>🔥 Este año venimos con más sorpresas que nunca:<br>🎶 Fiesta crossover con la mejor energía para no parar de bailar<br>🍴 Auténticas delicias latinas que te harán agua la boca<br>💃 Animación y show de Salsa Caleña en vivo con Ritmo y Kandela<br>🎁 Y el gran protagonista… ¡nuestro Bingo con premios increíbles!<br><br>👉 No te lo pierdas: reserva tu lugar ahora y celebra lo que nos une.',
         'program-title': 'Programa',
         'program-content': '<table class="program-table"><tr><td>20:00</td><td>Bienvenida</td></tr><tr><td>21:00</td><td>1er juego de Bingo</td></tr><tr><td>22:00</td><td>2do juego de Bingo</td></tr><tr><td>23:00</td><td>3er juego de Bingo</td></tr><tr><td>00:00</td><td>Salsa Caleña: Show de medianoche, workshop & animación con Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4to juego de Bingo</td></tr><tr><td>03:00</td><td>Fiesta y baile hasta el final</td></tr></table>',
         'location-title': 'Ubicación',
@@ -18,10 +20,10 @@ const translations = {
         'tickets-closed-title': 'Las ventas en línea han terminado',
         'tickets-closed-info': '¡El evento es hoy! Las entradas están disponibles en la entrada.',
         'tickets-closed-details': 'Tanzhalle Freiburg<br>Apertura de puertas: 19:30<br>Inicio del evento: 20:00',
-        footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
+        footer: '© 2026 Latino KV Freiburg – Bingo Pachanguero',
         'tickets-title': 'Entradas',
         'tickets-subtitle': '¡Elige tu entrada y prepárate para una noche increíble!',
-        'tickets-page-title': 'Entradas - Bingo Pachanguero 2025',
+        'tickets-page-title': 'Entradas - Bingo Pachanguero 2026',
         'contact-title': 'Contáctanos',
         'contact-text': 'Para preguntas sobre el Bingo Pachanguero, contáctanos!',
         'general-ticket': 'Entrada General',
@@ -41,7 +43,7 @@ const translations = {
         'total-label': 'Total:',
         'important-info': 'Información Importante',
         'dress-code': 'Código de vestimenta: Te recomendamos venir con vestimenta blanca',
-        'event-date': 'Fecha del evento: 25 de Octubre 2025',
+        'event-date': 'Fecha del evento: 24 de Octubre 2026',
         'event-location': 'Ubicación: Tanzhalle Freiburg',
         'non-refundable': 'Las entradas no son reembolsables',
         'limited-capacity': 'Capacidad limitada - ¡reserva pronto!',
@@ -99,7 +101,7 @@ No es posible cancelar
 ¡Te deseamos mucho éxito en el Bingo Pachanguero!`,
         // Thank you page translations
         'thanks-title': '¡Gracias por tu compra!',
-        'thanks-message': 'Tu entrada para el Bingo Pachanguero 2025 – White Party ha sido procesada exitosamente.',
+        'thanks-message': 'Tu entrada para el Bingo Pachanguero 2026 ha sido procesada exitosamente.',
         'what-next-title': '¿Qué sigue?',
         'pdf-info': 'Tu ticket en PDF se ha descargado automáticamente',
         // Legal sections
@@ -158,20 +160,22 @@ No se permiten cancelaciones
         home: 'Startseite',
         tickets: 'Tickets',
         contact: 'Kontakt',
-        title: 'Bingo Pachanguero 2025',
-        'white-party': 'White Party',
-        subtitle: '25. Oktober 2025 – Tanzhalle Freiburg',
-        description: '✨ Die 4. Ausgabe des Bingo Pachanguero ist da! ✨<br>Freut euch auf eine unvergessliche Nacht voller Musik, Tanz, Essen und Spaß.<br><br>🔥 Dieses Jahr erwarten euch noch mehr Highlights:<br>🎶 Crossover-Party mit der besten Stimmung und heißen Rhythmen<br>🍴 Leckere lateinamerikanische Spezialitäten<br>💃 Live-Show und Animation von Ritmo y Kandela mit Salsa Caleña<br>🎁 Und natürlich: unser Bingo mit fantastischen Preisen!<br><br>👉 Sichert euch jetzt euren Platz und erlebt eine Nacht voller Lebensfreude, Rhythmus und lateinamerikanischem Flair.',
+        title: 'Bingo Pachanguero 2026',
+        'anniversary-title': '5 JAHRE',
+        'anniversary-subtitle': 'WAS UNS VERBINDET, FEIERN',
+        'white-party': '5 Jahre feiern',
+        subtitle: '24. Oktober 2026 – Tanzhalle Freiburg',
+        description: '✨ Wir feiern 5 Jahre Bingo Pachanguero! ✨<br>Freut euch auf eine unvergessliche Nacht voller Musik, Tanz, Essen und Spaß.<br><br>🔥 Dieses Jahr erwarten euch noch mehr Highlights:<br>🎶 Crossover-Party mit der besten Stimmung und heißen Rhythmen<br>🍴 Leckere lateinamerikanische Spezialitäten<br>💃 Live-Show und Animation von Ritmo y Kandela mit Salsa Caleña<br>🎁 Und natürlich: unser Bingo mit fantastischen Preisen!<br><br>👉 Sichert euch jetzt euren Platz und feiert, was uns verbindet.',
         'program-title': 'Programm',
         'program-content': '<table class="program-table"><tr><td>20:00</td><td>Begrüßung</td></tr><tr><td>21:00</td><td>1. Bingo-Spiel</td></tr><tr><td>22:00</td><td>2. Bingo-Spiel</td></tr><tr><td>23:00</td><td>3. Bingo-Spiel</td></tr><tr><td>00:00</td><td>Salsa Caleña: Mitternachtsshow, Workshop & Animation mit Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4. Bingo-Spiel</td></tr><tr><td>03:00</td><td>Party und Tanzen bis zum Ende</td></tr></table>',
         'location-title': 'Standort',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'Für Essensreservierung kontaktiert Henry: +49 176 868 15317',
         'cta-button': 'Ticket kaufen',
-        footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
+        footer: '© 2026 Latino KV Freiburg – Bingo Pachanguero',
         'tickets-title': 'Tickets',
         'tickets-subtitle': 'Wähle dein Ticket und bereite dich auf eine fantastische Nacht vor!',
-        'tickets-page-title': 'Tickets - Bingo Pachanguero 2025',
+        'tickets-page-title': 'Tickets - Bingo Pachanguero 2026',
         'contact-title': 'Kontakt',
         'contact-text': 'Für Fragen zum Bingo Pachanguero kontaktiert uns!',
         'general-ticket': 'Allgemeiner Eintritt',
@@ -192,7 +196,7 @@ No se permiten cancelaciones
         'total-label': 'Gesamt:',
         'important-info': 'Wichtige Informationen',
         'dress-code': 'Dress-Code: Wir empfehlen weiße Kleidung',
-        'event-date': 'Veranstaltungsdatum: 25. Oktober 2025',
+        'event-date': 'Veranstaltungsdatum: 24. Oktober 2026',
         'event-location': 'Ort: Tanzhalle Freiburg',
         'non-refundable': 'Tickets sind nicht erstattungsfähig',
         'limited-capacity': 'Begrenzte Kapazität - früh buchen!',
@@ -222,7 +226,7 @@ No se permiten cancelaciones
         'general-price': '15€',
         // Thank you page translations
         'thanks-title': 'Vielen Dank für Ihren Kauf!',
-        'thanks-message': 'Ihr Ticket für die Bingo Pachanguero 2025 – White Party wurde erfolgreich verarbeitet.',
+        'thanks-message': 'Ihr Ticket für die Bingo Pachanguero 2026 wurde erfolgreich verarbeitet.',
         'what-next-title': 'Was kommt als Nächstes?',
         'pdf-info': 'Ihr PDF-Ticket wurde automatisch heruntergeladen',
         'email-info': 'Sie erhalten eine PayPal-Bestätigungs-E-Mail',
@@ -268,20 +272,22 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         home: 'Home',
         tickets: 'Tickets',
         contact: 'Contact',
-        title: 'Bingo Pachanguero 2025',
-        'white-party': 'White Party',
-        subtitle: '25th October 2025 – Tanzhalle Freiburg',
-        description: '✨ The 4th edition of Bingo Pachanguero is here! ✨<br>Get ready for a night packed with music, dancing, food, and fun.<br><br>🔥 This year comes with even more surprises:<br>🎶 Crossover party with the best vibes and non-stop dancing<br>🍴 Delicious Latin food that will make your mouth water<br>💃 Live Salsa Caleña show and animation by Ritmo y Kandela<br>🎁 And of course… our Bingo with amazing prizes!<br><br>👉 Don\'t miss it: book your spot now and enjoy an unforgettable night full of rhythm, flavor, and Latin energy.',
+        title: 'Bingo Pachanguero 2026',
+        'anniversary-title': '5 YEARS',
+        'anniversary-subtitle': 'CELEBRATING WHAT UNITES US',
+        'white-party': '5 years of celebration',
+        subtitle: '25th October 2026 – Tanzhalle Freiburg',
+        description: '✨ We are celebrating 5 years of Bingo Pachanguero! ✨<br>Get ready for a night packed with music, dancing, food, and fun.<br><br>🔥 This year comes with even more surprises:<br>🎶 Crossover party with the best vibes and non-stop dancing<br>🍴 Delicious Latin food that will make your mouth water<br>💃 Live Salsa Caleña show and animation by Ritmo y Kandela<br>🎁 And of course… our Bingo with amazing prizes!<br><br>👉 Don\'t miss it: book your spot now and celebrate what unites us.',
         'program-title': 'Program',
         'program-content': '<table class="program-table"><tr><td>20:00</td><td>Welcome</td></tr><tr><td>21:00</td><td>1st Bingo Game</td></tr><tr><td>22:00</td><td>2nd Bingo Game</td></tr><tr><td>23:00</td><td>3rd Bingo Game</td></tr><tr><td>00:00</td><td>Salsa Caleña: Midnight show, workshop & animation with Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4th Bingo Game</td></tr><tr><td>03:00</td><td>Party and dancing until the end</td></tr></table>',
         'location-title': 'Location',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'For dining reservations: Henry +49 176 868 15317',
         'cta-button': 'Get your ticket',
-        footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
+        footer: '© 2026 Latino KV Freiburg – Bingo Pachanguero',
         'tickets-title': 'Tickets',
         'tickets-subtitle': 'Choose your ticket and get ready for an amazing night!',
-        'tickets-page-title': 'Tickets - Bingo Pachanguero 2025',
+        'tickets-page-title': 'Tickets - Bingo Pachanguero 2026',
         'contact-title': 'Contact us',
         'contact-text': 'For questions about the Bingo Pachanguero, contact us!',
         'general-ticket': 'General Entry',
@@ -301,7 +307,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'total-label': 'Total:',
         'important-info': 'Important Information',
         'dress-code': 'Dress code: We recommend white attire',
-        'event-date': 'Event date: 25th October 2025',
+        'event-date': 'Event date: 25th October 2026',
         'event-location': 'Location: Tanzhalle Freiburg',
         'non-refundable': 'Tickets are non-refundable',
         'limited-capacity': 'Limited capacity - book early!',
@@ -326,14 +332,14 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'total-label': 'Total:',
         'important-info': 'Important Information',
         'dress-code': 'Dress code: We recommend white attire',
-        'event-date': 'Event date: 25th October 2025',
+        'event-date': 'Event date: 25th October 2026',
         'event-location': 'Location: Tanzhalle Freiburg',
         'non-refundable': 'Tickets are non-refundable',
         'limited-capacity': 'Limited capacity - book early!',
         'food-reservation': 'To reserve food, contact Henry: +49 176 868 15317',
         // Thank you page translations
         'thanks-title': 'Thank you for your purchase!',
-        'thanks-message': 'Your ticket for the Bingo Pachanguero 2025 – White Party has been successfully processed.',
+        'thanks-message': 'Your ticket for the Bingo Pachanguero 2026 has been successfully processed.',
         'what-next-title': 'What\'s next?',
         'pdf-info': 'Your PDF ticket has been automatically downloaded',
         'email-info': 'You will receive a PayPal confirmation email',
@@ -440,8 +446,9 @@ function updateContent() {
     
     // Force update the page title as well
     const titleElement = document.querySelector('title[data-lang], title');
-    if (titleElement && translations[currentLanguage] && translations[currentLanguage]['tickets-page-title']) {
-        titleElement.textContent = translations[currentLanguage]['tickets-page-title'];
+    const titleKey = titleElement?.getAttribute('data-lang');
+    if (titleElement && titleKey && translations[currentLanguage]?.[titleKey]) {
+        titleElement.textContent = translations[currentLanguage][titleKey];
     }
 }
 
@@ -460,7 +467,7 @@ function updateActiveLanguageButton() {
 // Check if early bird is still valid
 function isEarlyBirdValid() {
     const today = new Date();
-    const deadline = new Date('2025-10-11');
+    const deadline = new Date('2026-10-11');
     return today <= deadline;
 }
 
@@ -580,16 +587,16 @@ function showPaymentModal() {
     
     const ticketNames = {
         es: {
-            'general': 'Entrada General - Bingo Pachanguero 2025',
-            'earlybird': 'Early Bird - Bingo Pachanguero 2025'
+            'general': 'Entrada General - Bingo Pachanguero 2026',
+            'earlybird': 'Early Bird - Bingo Pachanguero 2026'
         },
         de: {
-            'general': 'Allgemeiner Eintritt - Bingo Pachanguero 2025',
-            'earlybird': 'Frühbucher - Bingo Pachanguero 2025'
+            'general': 'Allgemeiner Eintritt - Bingo Pachanguero 2026',
+            'earlybird': 'Frühbucher - Bingo Pachanguero 2026'
         },
         en: {
-            'general': 'General Entry - Bingo Pachanguero 2025',
-            'earlybird': 'Early Bird - Bingo Pachanguero 2025'
+            'general': 'General Entry - Bingo Pachanguero 2026',
+            'earlybird': 'Early Bird - Bingo Pachanguero 2026'
         }
     };
     
@@ -728,7 +735,7 @@ function generateTicketImage(buyerName, paymentDetails) {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `bingo-pachanguero-2025-ticket-${buyerName.replace(/\s+/g, '-')}-${Date.now()}.png`;
+            a.download = `bingo-pachanguero-2026-ticket-${buyerName.replace(/\s+/g, '-')}-${Date.now()}.png`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -829,7 +836,7 @@ async function generateCustomTicketPDF(buyerName, orderDetails) {
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = `bingo-pachanguero-2025-${buyerName.replace(/\s+/g, '_')}.pdf`;
+                a.download = `bingo-pachanguero-2026-${buyerName.replace(/\s+/g, '_')}.pdf`;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
@@ -852,7 +859,7 @@ async function generateCustomTicketPDF(buyerName, orderDetails) {
 // Fallback simple PDF generation
 function generateSimpleTicketPDF(buyerName, orderDetails) {
     const ticketContent = `
-BINGO PACHANGUERO 2025 - WHITE PARTY
+BINGO PACHANGUERO 2026
 Entry Ticket
 
 Name: ${buyerName}
@@ -861,7 +868,7 @@ Quantity: ${orderDetails.ticketQuantity}
 Extra Cards: ${orderDetails.extraQuantity}
 Total Price: €${orderDetails.totalPrice}
 
-Date: 25th October 2025
+Date: 25th October 2026
 Time: 8:00 PM
 Location: Tanzhalle Freiburg
 
@@ -874,7 +881,7 @@ Ticket ID: ${Math.random().toString(36).substring(2, 15)}
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `bingo-pachanguero-2025-${buyerName.replace(/\s+/g, '_')}.txt`;
+    a.download = `bingo-pachanguero-2026-${buyerName.replace(/\s+/g, '_')}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -930,7 +937,7 @@ function renderPayPalButton(totalAmount) {
                             }
                         },
                         items: itemList,
-                        description: 'Bingo Pachanguero 2025 - White Party Tickets'
+                        description: 'Bingo Pachanguero 2026 Tickets'
                     }]
                 });
             },
@@ -997,7 +1004,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Hide early bird if expired and show appropriate ticket
     const today = new Date();
-    const earlyBirdDeadline = new Date('2025-10-11');
+    const earlyBirdDeadline = new Date('2026-10-11');
     const isEarlyBirdValid = today <= earlyBirdDeadline;
     
     const earlyBirdCard = document.getElementById('earlybird-card');

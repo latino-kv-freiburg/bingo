@@ -1,6 +1,6 @@
-# Bingo Pachanguero 2025 – White Party Website
+# Bingo Pachanguero 2026 Website
 
-A simple, responsive static website for the "Bingo Pachanguero 2025 – White Party" event.
+A simple, responsive static website for the "Bingo Pachanguero 2026" event and its fifth anniversary.
 
 ## Features
 
