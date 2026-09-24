@@ -5,8 +5,8 @@ const translations = {
         tickets: 'Entradas',
         contact: 'Contacto',
         title: 'Bingo Pachanguero 2026',
-        'anniversary-title': '5 AÑOS',
-        'anniversary-subtitle': 'CELEBRANDO LO QUE NOS UNE',
+        'anniversary-title': 'AÑOS CELEBRANDO',
+        'anniversary-subtitle': 'LO QUE NOS UNE',
         'white-party': 'Celebración de 5 años',
         subtitle: '24 de Octubre 2026 – Tanzhalle Freiburg',
         description: '✨ ¡Celebramos 5 años de Bingo Pachanguero! ✨<br>Prepárate para una noche que lo tiene TODO: música, baile, comida y mucha diversión.<br><br>🔥 Este año venimos con más sorpresas que nunca:<br>🎶 Fiesta crossover con la mejor energía para no parar de bailar<br>🍴 Auténticas delicias latinas que te harán agua la boca<br>💃 Animación y show de Salsa Caleña en vivo con Ritmo y Kandela<br>🎁 Y el gran protagonista… ¡nuestro Bingo con premios increíbles!<br><br>👉 No te lo pierdas: reserva tu lugar ahora y celebra lo que nos une.',
@@ -42,7 +42,7 @@ const translations = {
         'extra-cards-label': 'Cartas extra:',
         'total-label': 'Total:',
         'important-info': 'Información Importante',
-        'dress-code': 'Código de vestimenta: Te recomendamos venir con vestimenta blanca',
+        'dress-code': 'Código de vestimenta: Ven con ropa muy colorida para celebrar lo que nos une',
         'event-date': 'Fecha del evento: 24 de Octubre 2026',
         'event-location': 'Ubicación: Tanzhalle Freiburg',
         'non-refundable': 'Las entradas no son reembolsables',
@@ -59,7 +59,7 @@ const translations = {
         'reservation-info': 'For dining reservations: Henry +49 176 868 15317',
         'ticket-info': `Thank you for your purchase! Some important information:
 
-Come in your best white outfit
+Come in your most colorful outfit to celebrate what unites us
 On event day you will receive your bingo card at reception
 You have the option to purchase an additional bingo card during the event for 6€
 So everyone can enjoy the food, we recommend reserving in advance with Henry: +49 176 868 15317
@@ -127,7 +127,7 @@ No es posible cancelar
         'event-time': '20:00',
         'important-reminders-title': 'Recordatorios Importantes',
         'arrival-early': 'Llega temprano para registro y recibir tu carta de bingo',
-        'white-attire': 'Vestimenta blanca es obligatoria para entrar',
+        'white-attire': 'La ropa colorida está recomendada para celebrar lo que nos une',
         'no-refunds': 'Las entradas no son reembolsables',
         'contact-info': 'Para preguntas, contáctanos en latinokvfreiburginfo@gmail.com',
         'back-home': 'Volver al inicio',
@@ -161,8 +161,8 @@ No se permiten cancelaciones
         tickets: 'Tickets',
         contact: 'Kontakt',
         title: 'Bingo Pachanguero 2026',
-        'anniversary-title': '5 JAHRE',
-        'anniversary-subtitle': 'WAS UNS VERBINDET, FEIERN',
+        'anniversary-title': 'JAHRE FEIERN, WAS',
+        'anniversary-subtitle': 'UNS VERBINDET',
         'white-party': '5 Jahre feiern',
         subtitle: '24. Oktober 2026 – Tanzhalle Freiburg',
         description: '✨ Wir feiern 5 Jahre Bingo Pachanguero! ✨<br>Freut euch auf eine unvergessliche Nacht voller Musik, Tanz, Essen und Spaß.<br><br>🔥 Dieses Jahr erwarten euch noch mehr Highlights:<br>🎶 Crossover-Party mit der besten Stimmung und heißen Rhythmen<br>🍴 Leckere lateinamerikanische Spezialitäten<br>💃 Live-Show und Animation von Ritmo y Kandela mit Salsa Caleña<br>🎁 Und natürlich: unser Bingo mit fantastischen Preisen!<br><br>👉 Sichert euch jetzt euren Platz und feiert, was uns verbindet.',
@@ -195,7 +195,7 @@ No se permiten cancelaciones
         'extra-cards-label': 'Extra-Karten:',
         'total-label': 'Gesamt:',
         'important-info': 'Wichtige Informationen',
-        'dress-code': 'Dress-Code: Wir empfehlen weiße Kleidung',
+        'dress-code': 'Dress-Code: Wir empfehlen farbenfrohe Kleidung, um zu feiern, was uns verbindet',
         'event-date': 'Veranstaltungsdatum: 24. Oktober 2026',
         'event-location': 'Ort: Tanzhalle Freiburg',
         'non-refundable': 'Tickets sind nicht erstattungsfähig',
@@ -239,7 +239,7 @@ No se permiten cancelaciones
         'event-time': '20:00',
         'important-reminders-title': 'Wichtige Erinnerungen',
         'arrival-early': 'Kommen Sie früh zur Registrierung und zum Erhalt Ihrer Bingo-Karte',
-        'white-attire': 'Weiße Kleidung ist für den Eintritt obligatorisch',
+        'white-attire': 'Farbenfrohe Kleidung wird empfohlen, um zu feiern, was uns verbindet',
         'no-refunds': 'Tickets sind nicht erstattungsfähig',
         'contact-info': 'Bei Fragen kontaktieren Sie uns unter latinokvfreiburginfo@gmail.com',
         'back-home': 'Zurück zur Startseite',
@@ -247,7 +247,7 @@ No se permiten cancelaciones
         // Ticket info text
         'ticket-info-text': `Vielen Dank für Ihren Einkauf! Einige wichtige Informationen:
 
-Kommen Sie in Ihrem besten weißen Outfit
+Kommen Sie in Ihrem farbenfrohsten Outfit, um zu feiern, was uns verbindet
 Am Veranstaltungstag erhalten Sie Ihre Bingo-Karte an der Rezeption
 Sie haben die Möglichkeit, eine zusätzliche Bingo-Karte während des Events für 6 Euro zu erwerben
 Damit jeder das Essen genießen kann, empfehlen wir, im Voraus bei Henry zu reservieren: +49 176 868 15317
@@ -273,8 +273,8 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         tickets: 'Tickets',
         contact: 'Contact',
         title: 'Bingo Pachanguero 2026',
-        'anniversary-title': '5 YEARS',
-        'anniversary-subtitle': 'CELEBRATING WHAT UNITES US',
+        'anniversary-title': 'YEARS CELEBRATING',
+        'anniversary-subtitle': 'WHAT UNITES US',
         'white-party': '5 years of celebration',
         subtitle: '25th October 2026 – Tanzhalle Freiburg',
         description: '✨ We are celebrating 5 years of Bingo Pachanguero! ✨<br>Get ready for a night packed with music, dancing, food, and fun.<br><br>🔥 This year comes with even more surprises:<br>🎶 Crossover party with the best vibes and non-stop dancing<br>🍴 Delicious Latin food that will make your mouth water<br>💃 Live Salsa Caleña show and animation by Ritmo y Kandela<br>🎁 And of course… our Bingo with amazing prizes!<br><br>👉 Don\'t miss it: book your spot now and celebrate what unites us.',
@@ -306,7 +306,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'extra-cards-label': 'Extra cards:',
         'total-label': 'Total:',
         'important-info': 'Important Information',
-        'dress-code': 'Dress code: We recommend white attire',
+        'dress-code': 'Dress code: Colorful attire is encouraged to celebrate what unites us',
         'event-date': 'Event date: 25th October 2026',
         'event-location': 'Location: Tanzhalle Freiburg',
         'non-refundable': 'Tickets are non-refundable',
@@ -331,7 +331,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'extra-cards-label': 'Extra cards:',
         'total-label': 'Total:',
         'important-info': 'Important Information',
-        'dress-code': 'Dress code: We recommend white attire',
+        'dress-code': 'Dress code: Colorful attire is encouraged to celebrate what unites us',
         'event-date': 'Event date: 25th October 2026',
         'event-location': 'Location: Tanzhalle Freiburg',
         'non-refundable': 'Tickets are non-refundable',
@@ -352,7 +352,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'event-time': '8:00 PM',
         'important-reminders-title': 'Important Reminders',
         'arrival-early': 'Arrive early for registration and to receive your bingo card',
-        'white-attire': 'White attire is mandatory for entry',
+        'white-attire': 'Colorful attire is encouraged to celebrate what unites us',
         'no-refunds': 'Tickets are non-refundable',
         'contact-info': 'For questions, contact us at latinokvfreiburginfo@gmail.com',
         'back-home': 'Back to home',
@@ -373,7 +373,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         // Ticket info text
         'ticket-info-text': `Thank you for your purchase! Important information:
 
-Come in your best white outfit
+Come in your most colorful outfit to celebrate what unites us
 On event day you'll receive your bingo card at reception
 You'll have the opportunity to buy an additional bingo card during the event for 6€
 So everyone can enjoy the food, we recommend reserving in advance with Henry: +49 176 868 15317
@@ -464,11 +464,20 @@ function updateActiveLanguageButton() {
     }
 }
 
-// Check if early bird is still valid
+const EARLY_BIRD_DEADLINE = { year: 2026, month: 9, day: 11 };
+const EVENT_DATE = { year: 2026, month: 9, day: 25 };
+
+function localCalendarDate({ year, month, day }) {
+    return new Date(year, month, day, 23, 59, 59, 999);
+}
+
+// Compare calendar dates in local time so the deadline does not shift at midnight.
 function isEarlyBirdValid() {
-    const today = new Date();
-    const deadline = new Date('2026-10-11');
-    return today <= deadline;
+    return new Date() <= localCalendarDate(EARLY_BIRD_DEADLINE);
+}
+
+function isEventOver() {
+    return new Date() > localCalendarDate(EVENT_DATE);
 }
 
 // Adjust quantity for tickets or extra cards
@@ -1003,15 +1012,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 50);
     
     // Hide early bird if expired and show appropriate ticket
-    const today = new Date();
-    const earlyBirdDeadline = new Date('2026-10-11');
-    const isEarlyBirdValid = today <= earlyBirdDeadline;
+    const earlyBirdIsValid = isEarlyBirdValid();
     
     const earlyBirdCard = document.getElementById('earlybird-card');
     const generalCard = document.querySelector('.ticket-card:not(#earlybird-card)');
+    const ticketsClosedMessage = document.getElementById('tickets-closed-message');
+
+    if (ticketsClosedMessage) {
+        ticketsClosedMessage.hidden = !isEventOver();
+    }
     
     if (earlyBirdCard && generalCard) {
-        if (isEarlyBirdValid) {
+        if (earlyBirdIsValid) {
             // Show only early bird
             earlyBirdCard.style.display = 'block';
             generalCard.style.display = 'none';
@@ -1096,8 +1108,8 @@ style.textContent = `
     
     .lang-btn {
         background: transparent;
-        border: 2px solid #D4AF37;
-        color: #000;
+        border: 2px solid #fbd14e;
+        color: #fff;
         padding: 8px 12px;
         border-radius: 4px;
         cursor: pointer;
@@ -1108,8 +1120,13 @@ style.textContent = `
     
     .lang-btn:hover,
     .lang-btn.active {
-        background: #D4AF37;
-        color: #000;
+        background: #283b9d;
+        color: #fff;
+    }
+
+    .lang-btn:hover {
+        background: #fbd14e;
+        color: #17204d;
     }
     
     .ticket-selection {

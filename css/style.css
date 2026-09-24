@@ -1,5 +1,5 @@
 /* Modern web fonts for cross-platform consistency */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 :root {
     --bingo-blue: #4c63d2;
@@ -101,6 +101,11 @@ header {
 
 .lang-btn:hover,
 .lang-btn.active {
+    background: var(--bingo-blue-dark);
+    color: #fff;
+}
+
+.lang-btn:hover {
     background: var(--bingo-yellow);
     color: var(--bingo-ink);
 }
@@ -191,7 +196,7 @@ header {
     margin-bottom: 1.5rem;
     font-weight: bold;
     color: var(--bingo-blue-dark);
-    font-family: 'Anton', Impact, sans-serif;
+    font-family: 'Bangers', Impact, sans-serif;
     font-stretch: condensed;
     letter-spacing: 0;
     text-transform: uppercase;
@@ -680,6 +685,14 @@ footer {
 /* Logo styles */
 .nav-logo { display: flex; align-items: center; gap: 1rem; } .logo-latinokv, .logo-bingo2026 { height: 40px; width: auto; } .nav-logo h2 { margin: 0; } @media (max-width: 768px) { .logo-latinokv, .logo-bingo2026 { height: 30px; } .nav-logo { gap: 0.5rem; } .nav-logo h2 { font-size: 1.2rem; } }
 
+.nav-logo h3 {
+    color: #fff;
+    font-family: 'Gagalin', Impact, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
 /* Hero section with Bingo logo */
 .hero-logo { 
     text-align: center; 
@@ -715,7 +728,7 @@ footer {
 } 
 
 .hero-subtitle { 
-    font-size: 1.5rem; 
+    font-size: 2.5rem; 
     font-weight: normal; 
     color: #333; 
     text-align: center; 
@@ -732,8 +745,8 @@ footer {
 }
 
 .hero-description {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 1.25rem;
+    line-height: 1;
     color: #000;
     max-width: calc(100% - 2rem);
     margin: 1rem auto;
@@ -950,7 +963,7 @@ footer {
 .program-section h2 {
     text-align: center;
     color: #D4AF37;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
 }
 
@@ -1306,7 +1319,7 @@ footer {
 
 .hero-title {
     color: var(--bingo-blue-dark);
-    font-family: 'Anton', Impact, sans-serif;
+    font-family: 'Bangers', Impact, sans-serif;
     font-size: clamp(2.25rem, 6vw, 4.5rem);
     letter-spacing: 0;
     text-shadow: 4px 4px 0 var(--bingo-yellow);
@@ -1334,7 +1347,7 @@ footer {
     color: var(--bingo-yellow);
     background: var(--bingo-blue);
     border-radius: 50%;
-    font-family: 'Anton', Impact, sans-serif;
+    font-family: 'Bangers', Impact, sans-serif;
     font-size: 3rem;
     line-height: 1;
 }
@@ -1347,19 +1360,20 @@ footer {
 }
 
 .anniversary-copy strong {
-    font-family: 'Anton', Impact, sans-serif;
+    font-family: 'Bangers', Impact, sans-serif;
     font-size: 1.35rem;
     font-weight: 400;
 }
 
 .anniversary-copy span {
-    font-size: 0.72rem;
+    font-size: 1.72rem;
     font-weight: 700;
     letter-spacing: 0.04em;
 }
 
 .hero-subtitle {
     color: var(--bingo-blue-dark);
+    font-family: 'Bangers', Impact, sans-serif;
     font-weight: 700;
 }
 
@@ -1388,7 +1402,7 @@ footer {
 .location-section h2,
 .page-header h1 {
     color: var(--bingo-blue-dark);
-    font-family: 'Anton', Impact, sans-serif;
+    font-family: 'Bangers', Impact, sans-serif;
     letter-spacing: 0;
 }
 
