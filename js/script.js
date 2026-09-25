@@ -465,7 +465,7 @@ function updateActiveLanguageButton() {
 }
 
 const EARLY_BIRD_DEADLINE = { year: 2026, month: 9, day: 11 };
-const EVENT_DATE = { year: 2026, month: 9, day: 25 };
+const EVENT_DATE = { year: 2026, month: 9, day: 24 };
 
 function localCalendarDate({ year, month, day }) {
     return new Date(year, month, day, 23, 59, 59, 999);
@@ -473,7 +473,12 @@ function localCalendarDate({ year, month, day }) {
 
 // Compare calendar dates in local time so the deadline does not shift at midnight.
 function isEarlyBirdValid() {
-    return new Date() <= localCalendarDate(EARLY_BIRD_DEADLINE);
+    const deadline = new Date(
+        EARLY_BIRD_DEADLINE.year,
+        EARLY_BIRD_DEADLINE.month,
+        EARLY_BIRD_DEADLINE.day
+    );
+    return new Date() < deadline;
 }
 
 function isEventOver() {
@@ -544,6 +549,10 @@ function calculateTotal(ticketType) {
 // Purchase tickets function
 function purchaseTickets(ticketType) {
     console.log('Purchase tickets called for:', ticketType);
+
+    if (isEventOver()) {
+        return;
+    }
     
     // Check if early bird is still valid
     if (ticketType === 'earlybird' && !isEarlyBirdValid()) {
@@ -1011,24 +1020,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }, 50);
     
-    // Hide early bird if expired and show appropriate ticket
+    // Show the ticket tier that is available for the current calendar date.
     const earlyBirdIsValid = isEarlyBirdValid();
     
     const earlyBirdCard = document.getElementById('earlybird-card');
     const generalCard = document.querySelector('.ticket-card:not(#earlybird-card)');
     const ticketsClosedMessage = document.getElementById('tickets-closed-message');
+    const ticketOptions = document.querySelector('.ticket-options');
 
     if (ticketsClosedMessage) {
         ticketsClosedMessage.hidden = !isEventOver();
     }
+
+    if (ticketOptions) {
+        ticketOptions.hidden = isEventOver();
+    }
     
-    if (earlyBirdCard && generalCard) {
+    if (!isEventOver() && earlyBirdCard && generalCard) {
         if (earlyBirdIsValid) {
-            // Show only early bird
+            // Show both ticket types before the Early Bird deadline.
             earlyBirdCard.style.display = 'block';
-            generalCard.style.display = 'none';
+            generalCard.style.display = 'block';
         } else {
-            // Show only general entry
+            // Show only general entry after the Early Bird deadline.
             earlyBirdCard.style.display = 'none';
             generalCard.style.display = 'block';
         }

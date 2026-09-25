@@ -231,7 +231,7 @@ header {
 
 .cta-button {
     display: inline-block;
-    background-color: #D4AF37;
+    background-color: var(--bingo-yellow);
     color: #000;
     padding: 18px 45px;
     text-decoration: none;
@@ -239,7 +239,7 @@ header {
     font-size: 1.2rem;
     font-weight: bold;
     transition: all 0.3s ease;
-    border: 2px solid #D4AF37;
+    border: 2px solid var(--bingo-yellow);
     text-transform: uppercase;
     letter-spacing: 0px;
     font-family: 'Inter', system-ui, sans-serif;
@@ -248,7 +248,7 @@ header {
 
 .cta-button:hover {
     background-color: #000;
-    color: #D4AF37;
+    color: var(--bingo-yellow);
     transform: translateY(-2px);
 }
 
@@ -260,7 +260,7 @@ header {
     color: #000;
     padding: 3rem 0;
     text-align: center;
-    border-bottom: 2px solid #D4AF37;
+    border-bottom: 2px solid var(--bingo-yellow);
 }
 
 .page-header h1 {
@@ -301,12 +301,16 @@ header {
 }
 
 .ticket-card.featured {
-    border: 2px solid #D4AF37;
+    border: 2px solid var(--bingo-yellow);
     transform: scale(1.05);
 }
 
+.ticket-card.featured:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
 .ticket-header {
-    background: #000;
+    background: var(--bingo-ink);
     color: var(--bingo-paper);
     padding: 2rem;
     text-align: center;
@@ -345,7 +349,7 @@ header {
 
 .ticket-features li::before {
     content: "✓";
-    color: #D4AF37;
+    color: var(--bingo-yellow);
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -353,7 +357,7 @@ header {
 
 .ticket-button {
     width: 100%;
-    background-color: #D4AF37;
+    background-color: var(--bingo-yellow);
     color: #000;
     border: none;
     padding: 15px;
@@ -368,14 +372,14 @@ header {
 
 .ticket-button:hover {
     background-color: #000;
-    color: #D4AF37;
+    color: var(--bingo-yellow);
 }
 
 .ticket-info {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 8px;
-    border-left: 4px solid #D4AF37;
+    border-left: 4px solid var(--bingo-yellow);
     margin-top: 2rem;
 }
 
@@ -448,7 +452,7 @@ header {
     align-items: center;
     padding: 1.5rem;
     background: rgba(212, 175, 55, 0.1);
-    border: 2px solid #D4AF37;
+    border: 2px solid var(--bingo-yellow);
     border-radius: 16px;
     color: #000;
     text-decoration: none;
@@ -459,7 +463,7 @@ header {
 
 .contact-btn:hover {
     transform: translateY(-2px);
-    background: #D4AF37;
+    background: var(--bingo-yellow);
     color: #000;
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
@@ -513,7 +517,7 @@ footer {
     color: var(--bingo-paper);
     text-align: center;
     padding: 2rem 0;
-    border-top: 1px solid #D4AF37;
+    border-top: 1px solid var(--bingo-yellow);
 }
 
 .footer-content {
@@ -679,10 +683,10 @@ footer {
 .highlight-card:nth-child(3) {
     animation-delay: 0.4s;
 }/* Thank you page styles */
-.thank-you-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; } .info-card { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #D4AF37; } .info-card h3 { color: #333; margin-bottom: 1rem; } .info-card ul { list-style: none; padding: 0; } .info-card li { padding: 0.5rem 0; position: relative; padding-left: 1.5rem; } .info-card li::before { content: '✓'; position: absolute; left: 0; color: #D4AF37; font-weight: bold; } .cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; } .cta-button.secondary { background: transparent; color: #D4AF37; border: 2px solid #D4AF37; } .cta-button.secondary:hover { background: #D4AF37; color: #000; } @media (max-width: 768px) { .cta-buttons { flex-direction: column; align-items: center; } .cta-button { width: 100%; max-width: 300px; text-align: center; } }
+.thank-you-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; } .info-card { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--bingo-yellow); } .info-card h3 { color: #333; margin-bottom: 1rem; } .info-card ul { list-style: none; padding: 0; } .info-card li { padding: 0.5rem 0; position: relative; padding-left: 1.5rem; } .info-card li::before { content: '✓'; position: absolute; left: 0; color: var(--bingo-yellow); font-weight: bold; } .cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; } .cta-button.secondary { background: transparent; color: var(--bingo-yellow); border: 2px solid var(--bingo-yellow); } .cta-button.secondary:hover { background: var(--bingo-yellow); color: #000; } @media (max-width: 768px) { .cta-buttons { flex-direction: column; align-items: center; } .cta-button { width: 100%; max-width: 300px; text-align: center; } }
 
 /* Updated Ticket Structure Styles */
-.ticket-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin: 2rem 0; } .purchase-form { border-top: 1px solid #eee; padding-top: 1.5rem; } .form-group { margin-bottom: 1rem; } .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #333; } .form-group select { width: 100%; padding: 0.5rem; border: 2px solid #ddd; border-radius: 4px; font-size: 1rem; background: #fff; } .form-group select:focus { outline: none; border-color: #D4AF37; } .price-breakdown { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; } .price-line { display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #666; } .price-line.total { font-weight: bold; font-size: 1.1rem; color: #000; border-top: 1px solid #ddd; padding-top: 0.5rem; margin-top: 0.5rem; } #paypal-button-container { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); z-index: 1000; max-width: 400px; width: 90%; } #paypal-button-container::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: -1; }
+.ticket-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin: 2rem 0; } .purchase-form { border-top: 1px solid #eee; padding-top: 1.5rem; } .purchase-form > .cta-button { display: block; width: fit-content; margin: 1rem auto 0; } .form-group { margin-bottom: 1rem; } .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #333; } .form-group select { width: 100%; padding: 0.5rem; border: 2px solid #ddd; border-radius: 4px; font-size: 1rem; background: #fff; } .form-group select:focus { outline: none; border-color: var(--bingo-yellow); } .price-breakdown { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; } .price-line { display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #666; } .price-line.total { font-weight: bold; font-size: 1.1rem; color: #000; border-top: 1px solid #ddd; padding-top: 0.5rem; margin-top: 0.5rem; } #paypal-button-container { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); z-index: 1000; max-width: 400px; width: 90%; } #paypal-button-container::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: -1; }
 
 /* Logo styles */
 .nav-logo { display: flex; align-items: center; gap: 1rem; } .logo-latinokv, .logo-bingo2026 { height: 40px; width: auto; } .nav-logo h2 { margin: 0; } @media (max-width: 768px) { .logo-latinokv, .logo-bingo2026 { height: 30px; } .nav-logo { gap: 0.5rem; } .nav-logo h2 { font-size: 1.2rem; } }
@@ -710,7 +714,7 @@ footer {
 .hero-title { 
     font-size: 3rem; 
     font-weight: bold; 
-    color: #D4AF37; 
+    color: var(--bingo-yellow); 
     text-align: center; 
     margin-bottom: 0.5rem;
     font-family: 'Arial Narrow', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
@@ -855,7 +859,7 @@ footer {
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 2rem;
-    border-left: 4px solid #D4AF37;
+    border-left: 4px solid var(--bingo-yellow);
 }
 
 .payment-summary h4 {
@@ -876,12 +880,12 @@ footer {
 }
 
 .payment-option:hover {
-    border-color: #D4AF37;
+    border-color: var(--bingo-yellow);
     box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1);
 }
 
 .payment-option h4 {
-    color: #D4AF37;
+    color: var(--bingo-blue-dark);
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
@@ -924,7 +928,7 @@ footer {
 }
 
 .important-note a {
-    color: #D4AF37;
+    color: var(--bingo-yellow);
     text-decoration: none;
     font-weight: bold;
 }
@@ -964,7 +968,7 @@ footer {
 
 .program-section h2 {
     text-align: center;
-    color: #D4AF37;
+    color: var(--bingo-yellow);
     font-size: 3rem;
     margin-bottom: 1.5rem;
 }
@@ -992,7 +996,7 @@ footer {
 
 .program-table td:first-child {
     font-weight: bold;
-    color: #D4AF37;
+    color: var(--bingo-yellow);
     width: 80px;
     text-align: center;
 }
@@ -1014,7 +1018,7 @@ footer {
 
 .location-section h2 {
     text-align: center;
-    color: #D4AF37;
+    color: var(--bingo-yellow);
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
@@ -1105,11 +1109,11 @@ footer {
     padding: 4rem 0;
     text-align: center;
     position: relative;
-    border-bottom: 2px solid #D4AF37;
+    border-bottom: 2px solid var(--bingo-yellow);
 }
 
 .page-header h1 {
-    color: #D4AF37;
+    color: var(--bingo-yellow);
     font-size: 3rem;
     margin-bottom: 1rem;
     font-family: 'Roboto Condensed', 'Inter', system-ui, sans-serif;
@@ -1147,7 +1151,7 @@ footer {
     align-items: center;
     padding: 1.5rem;
     background: rgba(212, 175, 55, 0.1);
-    border: 2px solid #D4AF37;
+    border: 2px solid var(--bingo-yellow);
     border-radius: 16px;
     color: #000;
     text-decoration: none;
@@ -1158,7 +1162,7 @@ footer {
 
 .contact-btn:hover {
     transform: translateY(-2px);
-    background: #D4AF37;
+    background: var(--bingo-yellow);
     color: #000;
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
