@@ -236,7 +236,7 @@ class TicketGenerator:
         second = chr(ord('A') + (counter % 26))
         letter_code = first + second
         
-        serial = f"251025-{counter:03d}{letter_code}"
+        serial = f"261024-{counter:03d}{letter_code}"
         
         # Update counter for the next ticket
         self.ticket_counter += 1
@@ -267,7 +267,7 @@ class TicketGenerator:
                 serial_number = self.generate_serial_number()
                 pdf_filename = os.path.join(
                     tickets_dir, 
-                    f"Bingo-Pachanguero-2025_{buyer_name.replace(' ', '-')}_{serial_number}.pdf"
+                    f"Bingo-Pachanguero-2026_{buyer_name.replace(' ', '-')}_{serial_number}.pdf"
                 )
                 self.create_ticket_pdf(
                     pdf_filename,
@@ -282,7 +282,7 @@ class TicketGenerator:
             if extras > 0:
                 extra_pdf_filename = os.path.join(
                     tickets_dir,
-                    f"Bingo-Pachanguero-2025_{buyer_name.replace(' ', '-')}_Additional-cards.pdf"
+                    f"Bingo-Pachanguero-2026_{buyer_name.replace(' ', '-')}_Additional-cards.pdf"
                 )
                 self.create_ticket_pdf(
                     extra_pdf_filename,
@@ -398,16 +398,16 @@ class TicketGenerator:
                 c.setFillColorRGB(0, 0, 0)
                 c.rect(0, 0, width, height, fill=True)
 
-            # Create white text with black glow effect
+            # Create black text with white glow effect
             def draw_text_with_glow(text, x, y, font_name, font_size):
-                # Draw glow effect (black shadow)
-                c.setFillColorRGB(0, 0, 0)
+                # Draw glow effect (white shadow)
+                c.setFillColorRGB(1, 1, 1)
                 for offset in [(x-1, y-1), (x-1, y+1), (x+1, y-1), (x+1, y+1)]:
                     c.setFont(font_name, font_size)
                     c.drawCentredString(offset[0], offset[1], text)
                 
                 # Draw white text
-                c.setFillColorRGB(1, 1, 1)
+                c.setFillColorRGB(0, 0, 0)
                 c.setFont(font_name, font_size)
                 c.drawCentredString(x, y, text)
 
@@ -472,8 +472,6 @@ class TicketGenerator:
                 important_info = {
                     'es': [
                         "Información Importante",
-                        "• Vestimenta: Te invitamos a",
-                        "  vestirte de blanco",
                         "• Reserva gastronómica:",
                         "  Henry +49 176 868 15317",
                         "• Capacidad del evento limitada",
@@ -481,8 +479,6 @@ class TicketGenerator:
                     ],
                     'de': [
                         "Wichtige Informationen",
-                        "• Kleiderempfehlung: Wir freuen uns,",
-                        "  wenn du in Weiß kommst",
                         "• Gastronomische Reservierung:",
                         "  Henry +49 176 868 15317",
                         "• Begrenzte Veranstaltungskapazität",
@@ -490,8 +486,6 @@ class TicketGenerator:
                     ],
                     'en': [
                         "Important Information",
-                        "• Dress suggestion: We invite",
-                        "  you to wear white",
                         "• Food & drinks reservation:",
                         "  Henry +49 176 868 15317",
                         "• Limited event capacity",
@@ -523,16 +517,16 @@ class TicketGenerator:
                                 font_size
                             )
                         else:  # Bullet points - left aligned with small margin
-                            # Draw glow effect (black shadow)
+                            # Draw glow effect (white shadow)
                             text_x = x + 0.3*cm  # Add small left margin
-                            c.setFillColorRGB(0, 0, 0)
+                            c.setFillColorRGB(1, 1, 1)
                             for offset in [(text_x-1, current_y-1), (text_x-1, current_y+1), 
                                          (text_x+1, current_y-1), (text_x+1, current_y+1)]:
                                 c.setFont(font_name, font_size)
                                 c.drawString(offset[0], offset[1], line)
                             
-                            # Draw white text
-                            c.setFillColorRGB(1, 1, 1)
+                            # Draw black text
+                            c.setFillColorRGB(0, 0, 0)
                             c.setFont(font_name, font_size)
                             c.drawString(text_x, current_y, line)
                         
@@ -553,7 +547,7 @@ class TicketGenerator:
         email_template = {
             'es': f"""¡Hola {buyer_name}!
 
-¡Gracias por tu compra de entradas para el Bingo Pachanguero 2025 - White Party!
+¡Gracias por tu compra de entradas para el Bingo Pachanguero 2026!
 
 Detalles de tu compra:
 - Número de Serie: {serial_number}
@@ -564,10 +558,9 @@ Detalles de tu compra:
 - Método de Pago: {payment_method}
 
 Información importante:
-- Fecha: 25 de octubre de 2025
+- Fecha: 24 de octubre de 2026
 - Hora: 20:00 (apertura de puertas 19:30)
 - Lugar: Tanzhalle Freiburg
-- Vestimenta: Te invitamos a vestirte de blanco
 
 Tu(s) entrada(s) está(n) adjunta(s) a este correo. Por favor, muéstralas en la entrada.
 
@@ -575,7 +568,7 @@ Tu(s) entrada(s) está(n) adjunta(s) a este correo. Por favor, muéstralas en la
 """,
             'de': f"""Hallo {buyer_name}!
 
-Vielen Dank für deinen Ticketkauf für das Bingo Pachanguero 2025 - White Party!
+Vielen Dank für deinen Ticketkauf für das Bingo Pachanguero 2026!
 
 Deine Bestelldetails:
 - Seriennummer: {serial_number}
@@ -586,16 +579,15 @@ Deine Bestelldetails:
 - Zahlungsmethode: {payment_method}
 
 Wichtige Informationen:
-- Datum: 25. Oktober 2025
+- Datum: 24. Oktober 2026
 - Zeit: 20:00 Uhr (Einlass ab 19:30)
 - Ort: Tanzhalle Freiburg
-- Kleiderempfehlung: Wir freuen uns, wenn du in Weiß kommst
 
 Dein(e) Ticket(s) findest du im Anhang. Bitte zeige sie am Eingang vor.
 
 Wir sehen uns beim Bingo Pachanguero!
 """,
-            'en': f"""Thank you for purchasing tickets for the Bingo Pachanguero 2025 - White Party!
+            'en': f"""Thank you for purchasing tickets for the Bingo Pachanguero 2026!
 
 Your order details:
 - Serial Number: {serial_number}
@@ -606,10 +598,9 @@ Your order details:
 - Payment Method: {payment_method}
 
 Important information:
-- Date: October 25th, 2025
+- Date: October 24th, 2026
 - Time: 8:00 PM (doors open 7:30 PM)
 - Location: Tanzhalle Freiburg
-- Dress suggestion: We invite you to wear white
 
 Your ticket(s) are attached to this email. Please show them at the entrance.
 
@@ -688,7 +679,7 @@ Latino KV Freiburg"""
             ):
                 return
 
-            subject = "Your Bingo Pachanguero 2025 Tickets"
+            subject = "Your Bingo Pachanguero 2026 Tickets"
             
             # Generate email text
             self.show_email_text(
