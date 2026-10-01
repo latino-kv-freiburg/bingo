@@ -14,7 +14,20 @@
       "es": "Ven con ropa muy colorida para celebrar lo que nos une",
       "de": "Wir empfehlen farbenfrohe Kleidung, um zu feiern, was uns verbindet",
       "en": "Colorful attire is encouraged to celebrate what unites us"
-    }
+    },
+    "program": [
+      { "time": "20:00", "title": { "es": "Bienvenida", "de": "Begrüßung", "en": "Welcome" } },
+      { "time": "20:30", "title": { "es": "1er Bingo", "de": "1. Bingo", "en": "1st Bingo" } },
+      { "time": "21:00", "title": { "es": "Música para bailar", "de": "Tanzmusik", "en": "Dance music" } },
+      { "time": "21:30", "title": { "es": "2º Bingo", "de": "2. Bingo", "en": "2nd Bingo" } },
+      { "time": "22:00", "title": { "es": "Workshop Rueda de Casino con Los Recocheros Ffm", "de": "Workshop Rueda de Casino mit Los Recocheros Ffm", "en": "Rueda de Casino workshop with Los Recocheros Ffm" } },
+      { "time": "23:00", "title": { "es": "3er Bingo", "de": "3. Bingo", "en": "3rd Bingo" } },
+      { "time": "23:30", "title": { "es": "Música para bailar", "de": "Tanzmusik", "en": "Dance music" } },
+      { "time": "00:00", "title": { "es": "Show & Animación con Ritmo y Kandela + Los Recocheros Ffm", "de": "Show und Animation mit Ritmo y Kandela + Los Recocheros Ffm", "en": "Show & animation with Ritmo y Kandela + Los Recocheros Ffm" } },
+      { "time": "00:45", "title": { "es": "Música para bailar", "de": "Tanzmusik", "en": "Dance music" } },
+      { "time": "01:00", "title": { "es": "4º Bingo", "de": "4. Bingo", "en": "4th Bingo" } },
+      { "time": "01:30", "title": { "es": "Fiesta y baile hasta las 02:30", "de": "Party und Tanzen bis 02:30", "en": "Party and dancing until 02:30" } }
+    ]
   },
   "tickets": {
     "prices": {

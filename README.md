@@ -20,7 +20,7 @@ A simple, responsive static website for the "Bingo Pachanguero 2026" event and i
 ├── index.html          # Homepage
 ├── tickets.html        # Tickets page
 ├── contact.html        # Contact page
-├── event_config.json   # Shared event dates, dress code, and ticket prices
+├── event_config.json   # Shared event details, multilingual program, and ticket prices
 ├── css/
 │   └── style.css       # Main stylesheet
 ├── js/
@@ -31,7 +31,7 @@ A simple, responsive static website for the "Bingo Pachanguero 2026" event and i
 ## Setup Instructions
 
 1. **Clone or Download** the project files
-2. **Edit Event Settings** in `event_config.json`. The website and ticket generator read dates, dress code, and ticket prices from this file.
+2. **Edit Event Settings** in `event_config.json`. The website and ticket generator read dates, dress code, multilingual program, and ticket prices from this file.
 3. **Run Locally** from the project root with `python -m http.server 8000`, then open `http://localhost:8000`. The website needs HTTP access to load the JSON file.
 4. **Customize Content** in the HTML files and translations in `js/script.js` as needed
 5. **Customize Styling** in `css/style.css`

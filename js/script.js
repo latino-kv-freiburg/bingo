@@ -11,7 +11,7 @@ const translations = {
         subtitle: '24 de Octubre 2026 – Tanzhalle Freiburg',
         description: '✨ ¡Celebramos 5 años de Bingo Pachanguero! ✨<br>Prepárate para una noche que lo tiene TODO: música, baile, comida y mucha diversión.<br><br>🔥 Este año venimos con más sorpresas que nunca:<br>🎶 Fiesta crossover con la mejor energía para no parar de bailar<br>🍴 Auténticas delicias latinas que te harán agua la boca<br>💃 Animación y show de Salsa Caleña en vivo con Ritmo y Kandela<br>🎁 Y el gran protagonista… ¡nuestro Bingo con premios increíbles!<br><br>👉 No te lo pierdas: reserva tu lugar ahora y celebra lo que nos une.',
         'program-title': 'Programa',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Bienvenida</td></tr><tr><td>21:00</td><td>1er juego de Bingo</td></tr><tr><td>22:00</td><td>2do juego de Bingo</td></tr><tr><td>23:00</td><td>3er juego de Bingo</td></tr><tr><td>00:00</td><td>Salsa Caleña: Show de medianoche, workshop & animación con Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4to juego de Bingo</td></tr><tr><td>03:00</td><td>Fiesta y baile hasta el final</td></tr></table>',
+        'program-content': '',
         'location-title': 'Ubicación',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'Para reservas gastronómicas: Henry +49 176 868 15317',
@@ -167,7 +167,7 @@ No se permiten cancelaciones
         subtitle: '24. Oktober 2026 – Tanzhalle Freiburg',
         description: '✨ Wir feiern 5 Jahre Bingo Pachanguero! ✨<br>Freut euch auf eine unvergessliche Nacht voller Musik, Tanz, Essen und Spaß.<br><br>🔥 Dieses Jahr erwarten euch noch mehr Highlights:<br>🎶 Crossover-Party mit der besten Stimmung und heißen Rhythmen<br>🍴 Leckere lateinamerikanische Spezialitäten<br>💃 Live-Show und Animation von Ritmo y Kandela mit Salsa Caleña<br>🎁 Und natürlich: unser Bingo mit fantastischen Preisen!<br><br>👉 Sichert euch jetzt euren Platz und feiert, was uns verbindet.',
         'program-title': 'Programm',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Begrüßung</td></tr><tr><td>21:00</td><td>1. Bingo-Spiel</td></tr><tr><td>22:00</td><td>2. Bingo-Spiel</td></tr><tr><td>23:00</td><td>3. Bingo-Spiel</td></tr><tr><td>00:00</td><td>Salsa Caleña: Mitternachtsshow, Workshop & Animation mit Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4. Bingo-Spiel</td></tr><tr><td>03:00</td><td>Party und Tanzen bis zum Ende</td></tr></table>',
+        'program-content': '',
         'location-title': 'Standort',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'Für Essensreservierung kontaktiert Henry: +49 176 868 15317',
@@ -279,7 +279,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         subtitle: '25th October 2026 – Tanzhalle Freiburg',
         description: '✨ We are celebrating 5 years of Bingo Pachanguero! ✨<br>Get ready for a night packed with music, dancing, food, and fun.<br><br>🔥 This year comes with even more surprises:<br>🎶 Crossover party with the best vibes and non-stop dancing<br>🍴 Delicious Latin food that will make your mouth water<br>💃 Live Salsa Caleña show and animation by Ritmo y Kandela<br>🎁 And of course… our Bingo with amazing prizes!<br><br>👉 Don\'t miss it: book your spot now and celebrate what unites us.',
         'program-title': 'Program',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Welcome</td></tr><tr><td>21:00</td><td>1st Bingo Game</td></tr><tr><td>22:00</td><td>2nd Bingo Game</td></tr><tr><td>23:00</td><td>3rd Bingo Game</td></tr><tr><td>00:00</td><td>Salsa Caleña: Midnight show, workshop & animation with Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4th Bingo Game</td></tr><tr><td>03:00</td><td>Party and dancing until the end</td></tr></table>',
+        'program-content': '',
         'location-title': 'Location',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'For dining reservations: Henry +49 176 868 15317',
@@ -478,6 +478,27 @@ function changeLanguage(lang) {
     }, 50);
 }
 
+function renderProgram(element) {
+    if (!eventConfig?.event.program) return;
+
+    const table = document.createElement('table');
+    table.className = 'program-table';
+    const body = document.createElement('tbody');
+
+    eventConfig.event.program.forEach(({ time, title }) => {
+        const row = document.createElement('tr');
+        const timeCell = document.createElement('td');
+        const titleCell = document.createElement('td');
+        timeCell.textContent = time;
+        titleCell.textContent = title[currentLanguage] || title.es;
+        row.append(timeCell, titleCell);
+        body.appendChild(row);
+    });
+
+    table.appendChild(body);
+    element.replaceChildren(table);
+}
+
 // Update content based on current language
 function updateContent() {
     console.log('Updating content to language:', currentLanguage);
@@ -487,6 +508,10 @@ function updateContent() {
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
         console.log('Processing element with key:', key);
+        if (key === 'program-content' && eventConfig) {
+            renderProgram(element);
+            return;
+        }
         if (translations[currentLanguage] && translations[currentLanguage][key]) {
             const translation = translations[currentLanguage][key].replace(/2026/g, String(eventConfig?.event.year || 2026));
             // Use innerHTML for elements that contain HTML tags or specific content types
@@ -547,6 +572,21 @@ function isEventOver() {
     return eventConfig && new Date() > localCalendarDate(eventConfig.event.date);
 }
 
+function updateTicketAvailability() {
+    if (!eventConfig) return;
+
+    const eventHasEnded = isEventOver();
+    const earlyBirdCard = document.getElementById('earlybird-card');
+    const generalCard = document.querySelector('.ticket-card:not(#earlybird-card)');
+    const ticketsClosedMessage = document.getElementById('tickets-closed-message');
+    const ticketOptions = document.querySelector('.ticket-options');
+
+    if (ticketsClosedMessage) ticketsClosedMessage.hidden = !eventHasEnded;
+    if (ticketOptions) ticketOptions.hidden = eventHasEnded;
+    if (earlyBirdCard) earlyBirdCard.style.display = isEarlyBirdValid() ? 'block' : 'none';
+    if (generalCard) generalCard.style.display = 'block';
+}
+
 // Adjust quantity for tickets or extra cards
 function adjustQuantity(type, change) {
     if (type === 'tickets') {
@@ -568,24 +608,9 @@ function adjustQuantity(type, change) {
 // Update pricing display
 function updatePricing() {
     if (!eventConfig) return;
-    // Get current selections
-    const selectedType = document.querySelector('input[name="ticketType"]:checked');
-    if (selectedType) {
-        currentTicketType = selectedType.value;
-    }
-    
-    // Check if early bird is still valid
-    if (currentTicketType === 'earlybird' && !isEarlyBirdValid()) {
-        // Switch to general and disable early bird
-        currentTicketType = 'general';
-        document.getElementById('general').checked = true;
-        document.getElementById('earlybird-option').style.opacity = '0.5';
-        document.getElementById('earlybird').disabled = true;
-    }
-    
-    // Calculate prices
-    const ticketPrice = eventConfig.tickets.prices[currentTicketType];
-    const extraCardPrice = eventConfig.tickets.extraCardPrices[currentTicketType];
+    updateTicketAvailability();
+    if (document.getElementById('earlybird-quantity')) calculateTotal('earlybird');
+    if (document.getElementById('general-quantity')) calculateTotal('general');
 }
 
 // Calculate total price for ticket type
@@ -1071,6 +1096,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.querySelectorAll('[data-ticket-price]').forEach(element => {
             element.textContent = `${eventConfig.tickets.prices[element.dataset.ticketPrice]}€`;
         });
+        if (document.getElementById('earlybird-quantity')) {
+            calculateTotal('earlybird');
+            calculateTotal('general');
+        }
     } catch (error) {
         console.error('Event configuration unavailable; ticket sales are disabled.', error);
         document.querySelectorAll('.ticket-options').forEach(element => element.hidden = true);
@@ -1084,45 +1113,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         updateContent();
         updateActiveLanguageButton();
         
-        // Initialize price calculations for both ticket types
-        if (document.getElementById('earlybird-quantity')) {
-            calculateTotal('earlybird');
-            calculateTotal('general');
-        }
-        
         // Force another content update to ensure everything is translated
         setTimeout(() => {
             updateContent();
         }, 100);
     }, 50);
     
-    // Show the ticket tier that is available for the current calendar date.
-    const earlyBirdIsValid = isEarlyBirdValid();
-    
-    const earlyBirdCard = document.getElementById('earlybird-card');
-    const generalCard = document.querySelector('.ticket-card:not(#earlybird-card)');
-    const ticketsClosedMessage = document.getElementById('tickets-closed-message');
-    const ticketOptions = document.querySelector('.ticket-options');
-
-    if (ticketsClosedMessage) {
-        ticketsClosedMessage.hidden = !isEventOver();
-    }
-
-    if (ticketOptions) {
-        ticketOptions.hidden = !eventConfig || isEventOver();
-    }
-    
-    if (!isEventOver() && earlyBirdCard && generalCard) {
-        if (earlyBirdIsValid) {
-            // Show both ticket types before the Early Bird deadline.
-            earlyBirdCard.style.display = 'block';
-            generalCard.style.display = 'block';
-        } else {
-            // Show only general entry after the Early Bird deadline.
-            earlyBirdCard.style.display = 'none';
-            generalCard.style.display = 'block';
-        }
-    }
+    updateTicketAvailability();
     
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
