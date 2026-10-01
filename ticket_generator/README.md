@@ -1,11 +1,11 @@
-# Ticket Generator for Bingo Pachanguero 2025
+# Ticket Generator for Bingo Pachanguero 2026
 
-This Python script provides a graphical interface for generating tickets for the Bingo Pachanguero 2025 event. It creates individual PDF tickets with custom backgrounds, unique serial numbers, and maintains a formatted list of all generated tickets.
+This Python script provides a graphical interface for generating tickets for the Bingo Pachanguero event. It creates individual PDF tickets with custom backgrounds, unique serial numbers, and maintains a formatted list of all generated tickets. Event year, date, dress code, and ticket prices come from the shared `../event_config.json` file.
 
 ## Features
 
 - Graphical user interface for ticket generation
-- Unique serial number system (251025-xxxyy format)
+- Unique serial number system based on configured event date
 - Individual PDF generation for each ticket and extra cards
 - Custom ticket design with background image
 - White text with black glow effect for visibility
@@ -30,7 +30,7 @@ python ticket_generator.py
 
 2. Enter ticket details:
    - Buyer name and email
-   - Ticket type (Early Bird: 12€/General Entry: 15€)
+   - Ticket type (prices come from `../event_config.json`)
    - Quantity (up to 8 tickets)
    - Extra cards (up to 20 cards)
    - Payment method (PayPal/Bank Transfer/Guest/Pays at Event)
@@ -50,17 +50,18 @@ python ticket_generator.py
 - `ticket_data.json` - Stores the sequential counter
 - `tickets.xlsx` - Color-coded database of all tickets
 - `Bingo_Ticket_Generator.png` - Ticket background template
+- `../event_config.json` - Shared event settings
 
 ## File Naming Convention
 
 Generated PDFs follow these formats:
-- Regular tickets: `Bingo-Pachanguero-2025_<Buyer>_<Serial>.pdf`
-- Extra cards: `Bingo-Pachanguero-2025_<Buyer>_Additional-cards.pdf`
+- Regular tickets: `Bingo-Pachanguero-<Year>_<Buyer>_<Serial>.pdf`
+- Extra cards: `Bingo-Pachanguero-<Year>_<Buyer>_Additional-cards.pdf`
 
 ## Serial Number System
 
-Format: 251025-xxxYY
-- 251025: Event date (25 October 2025)
+Format: YYMMDD-xxxYY
+- YYMMDD: Configured event date
 - xxx: Sequential number (000-999)
 - YY: Automatically incrementing letters (AA-ZZ)
 

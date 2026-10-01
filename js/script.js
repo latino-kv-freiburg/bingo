@@ -390,6 +390,75 @@ let currentLanguage = localStorage.getItem('language') || 'es';
 let currentTicketType = 'earlybird';
 let ticketQuantity = 1;
 let extraQuantity = 0;
+let eventConfig;
+const eventConfigUrl = new URL('../event_config.json', document.currentScript.src);
+
+async function loadEventConfig() {
+    const response = await fetch(eventConfigUrl);
+    if (!response.ok) {
+        throw new Error(`Could not load event configuration: ${response.status}`);
+    }
+    eventConfig = await response.json();
+}
+
+function formattedEventDate(date, language, includeYear = true) {
+    const locale = { es: 'es-ES', de: 'de-DE', en: 'en-GB' }[language];
+    return new Intl.DateTimeFormat(locale, {
+        day: 'numeric',
+        month: 'long',
+        ...(includeYear ? { year: 'numeric' } : {})
+    }).format(new Date(eventConfig.event.year, date.month - 1, date.day));
+}
+
+function applyEventConfigToTranslations() {
+    const eventDate = eventConfig.event.date;
+    const deadline = eventConfig.event.earlyBirdDeadline;
+    const earlyPrice = eventConfig.tickets.prices.earlybird;
+    const generalPrice = eventConfig.tickets.prices.general;
+    const earlyExtraPrice = eventConfig.tickets.extraCardPrices.earlybird;
+    const generalExtraPrice = eventConfig.tickets.extraCardPrices.general;
+
+    const copy = {
+        es: {
+            date: formattedEventDate(eventDate, 'es'),
+            validUntil: `Promoción válida hasta el ${formattedEventDate(deadline, 'es', false)}<br>Después de esta fecha el precio será de ${generalPrice}€`,
+            eventDate: `Fecha del evento: ${formattedEventDate(eventDate, 'es')}`,
+            dressCode: `Código de vestimenta: ${eventConfig.event.dressCode.es}`
+        },
+        de: {
+            date: formattedEventDate(eventDate, 'de'),
+            validUntil: `Angebot gültig bis ${formattedEventDate(deadline, 'de', false)}<br>Danach kostet das Ticket ${generalPrice}€`,
+            eventDate: `Veranstaltungsdatum: ${formattedEventDate(eventDate, 'de')}`,
+            dressCode: `Dress-Code: ${eventConfig.event.dressCode.de}`
+        },
+        en: {
+            date: formattedEventDate(eventDate, 'en'),
+            validUntil: `Offer valid until ${formattedEventDate(deadline, 'en', false)}<br>After this date the price will be ${generalPrice}€`,
+            eventDate: `Event date: ${formattedEventDate(eventDate, 'en')}`,
+            dressCode: `Dress code: ${eventConfig.event.dressCode.en}`
+        }
+    };
+
+    Object.entries(copy).forEach(([language, values]) => {
+        const translationsForLanguage = translations[language];
+        translationsForLanguage.subtitle = `${values.date} – ${eventConfig.event.venue}`;
+        translationsForLanguage['valid-until'] = values.validUntil;
+        translationsForLanguage['event-date'] = values.eventDate;
+        translationsForLanguage['dress-code'] = values.dressCode;
+        translationsForLanguage['earlybird-price'] = `${earlyPrice}€`;
+        translationsForLanguage['general-price'] = `${generalPrice}€`;
+        translationsForLanguage['extra-cards-4'] = language === 'es'
+            ? `Cartas extra: ${earlyExtraPrice}€/carta<br>(${generalExtraPrice}€/carta después del ${formattedEventDate(deadline, 'es', false)})`
+            : language === 'de'
+                ? `Extra-Karten: ${earlyExtraPrice}€/Karte<br>(${generalExtraPrice}€/Karte nach dem ${formattedEventDate(deadline, 'de', false)})`
+                : `Extra cards: ${earlyExtraPrice}€/card<br>(${generalExtraPrice}€/card after ${formattedEventDate(deadline, 'en', false)})`;
+        translationsForLanguage['extra-cards-6'] = language === 'es'
+            ? `Cartas extra: ${generalExtraPrice}€/carta`
+            : language === 'de'
+                ? `Extra-Karten: ${generalExtraPrice}€/Karte`
+                : `Extra cards: ${generalExtraPrice}€/card`;
+    });
+}
 
 // Change language function
 function changeLanguage(lang) {
@@ -419,7 +488,7 @@ function updateContent() {
         const key = element.getAttribute('data-lang');
         console.log('Processing element with key:', key);
         if (translations[currentLanguage] && translations[currentLanguage][key]) {
-            const translation = translations[currentLanguage][key];
+            const translation = translations[currentLanguage][key].replace(/2026/g, String(eventConfig?.event.year || 2026));
             // Use innerHTML for elements that contain HTML tags or specific content types
             if (element.innerHTML.includes('<a') || element.innerHTML.includes('<svg') || 
                 key === 'description' || key === 'program-content' || key === 'contact-text' || 
@@ -448,7 +517,8 @@ function updateContent() {
     const titleElement = document.querySelector('title[data-lang], title');
     const titleKey = titleElement?.getAttribute('data-lang');
     if (titleElement && titleKey && translations[currentLanguage]?.[titleKey]) {
-        titleElement.textContent = translations[currentLanguage][titleKey];
+        titleElement.textContent = translations[currentLanguage][titleKey]
+            .replace(/2026/g, String(eventConfig?.event.year || 2026));
     }
 }
 
@@ -464,25 +534,17 @@ function updateActiveLanguageButton() {
     }
 }
 
-const EARLY_BIRD_DEADLINE = { year: 2026, month: 9, day: 11 };
-const EVENT_DATE = { year: 2026, month: 9, day: 24 };
-
-function localCalendarDate({ year, month, day }) {
-    return new Date(year, month, day, 23, 59, 59, 999);
+function localCalendarDate({ month, day }) {
+    return new Date(eventConfig.event.year, month - 1, day, 23, 59, 59, 999);
 }
 
 // Compare calendar dates in local time so the deadline does not shift at midnight.
 function isEarlyBirdValid() {
-    const deadline = new Date(
-        EARLY_BIRD_DEADLINE.year,
-        EARLY_BIRD_DEADLINE.month,
-        EARLY_BIRD_DEADLINE.day
-    );
-    return new Date() < deadline;
+    return eventConfig && new Date() <= localCalendarDate(eventConfig.event.earlyBirdDeadline);
 }
 
 function isEventOver() {
-    return new Date() > localCalendarDate(EVENT_DATE);
+    return eventConfig && new Date() > localCalendarDate(eventConfig.event.date);
 }
 
 // Adjust quantity for tickets or extra cards
@@ -505,6 +567,7 @@ function adjustQuantity(type, change) {
 
 // Update pricing display
 function updatePricing() {
+    if (!eventConfig) return;
     // Get current selections
     const selectedType = document.querySelector('input[name="ticketType"]:checked');
     if (selectedType) {
@@ -521,15 +584,16 @@ function updatePricing() {
     }
     
     // Calculate prices
-    const ticketPrice = currentTicketType === 'earlybird' ? 12 : 15;
-    const extraCardPrice = currentTicketType === 'earlybird' ? 4 : 6;
+    const ticketPrice = eventConfig.tickets.prices[currentTicketType];
+    const extraCardPrice = eventConfig.tickets.extraCardPrices[currentTicketType];
 }
 
 // Calculate total price for ticket type
 function calculateTotal(ticketType) {
+    if (!eventConfig) return;
     console.log('Calculating total for:', ticketType);
-    const ticketPrice = ticketType === 'earlybird' ? 12 : 15;
-    const extraPrice = ticketType === 'earlybird' ? 4 : 6;
+    const ticketPrice = eventConfig.tickets.prices[ticketType];
+    const extraPrice = eventConfig.tickets.extraCardPrices[ticketType];
     
     const quantity = parseInt(document.getElementById(`${ticketType}-quantity`).value);
     const extras = parseInt(document.getElementById(`${ticketType}-extras`).value);
@@ -550,6 +614,7 @@ function calculateTotal(ticketType) {
 function purchaseTickets(ticketType) {
     console.log('Purchase tickets called for:', ticketType);
 
+    if (!eventConfig) return;
     if (isEventOver()) {
         return;
     }
@@ -565,8 +630,8 @@ function purchaseTickets(ticketType) {
         return;
     }
     
-    const ticketPrice = ticketType === 'earlybird' ? 12 : 15;
-    const extraPrice = ticketType === 'earlybird' ? 4 : 6;
+    const ticketPrice = eventConfig.tickets.prices[ticketType];
+    const extraPrice = eventConfig.tickets.extraCardPrices[ticketType];
     
     const quantity = parseInt(document.getElementById(`${ticketType}-quantity`).value);
     const extras = parseInt(document.getElementById(`${ticketType}-extras`).value);
@@ -605,16 +670,16 @@ function showPaymentModal() {
     
     const ticketNames = {
         es: {
-            'general': 'Entrada General - Bingo Pachanguero 2026',
-            'earlybird': 'Early Bird - Bingo Pachanguero 2026'
+            'general': `Entrada General - Bingo Pachanguero ${eventConfig.event.year}`,
+            'earlybird': `Early Bird - Bingo Pachanguero ${eventConfig.event.year}`
         },
         de: {
-            'general': 'Allgemeiner Eintritt - Bingo Pachanguero 2026',
-            'earlybird': 'Frühbucher - Bingo Pachanguero 2026'
+            'general': `Allgemeiner Eintritt - Bingo Pachanguero ${eventConfig.event.year}`,
+            'earlybird': `Frühbucher - Bingo Pachanguero ${eventConfig.event.year}`
         },
         en: {
-            'general': 'General Entry - Bingo Pachanguero 2026',
-            'earlybird': 'Early Bird - Bingo Pachanguero 2026'
+            'general': `General Entry - Bingo Pachanguero ${eventConfig.event.year}`,
+            'earlybird': `Early Bird - Bingo Pachanguero ${eventConfig.event.year}`
         }
     };
     
@@ -753,7 +818,7 @@ function generateTicketImage(buyerName, paymentDetails) {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `bingo-pachanguero-2026-ticket-${buyerName.replace(/\s+/g, '-')}-${Date.now()}.png`;
+            a.download = `bingo-pachanguero-${eventConfig.event.year}-ticket-${buyerName.replace(/\s+/g, '-')}-${Date.now()}.png`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -854,7 +919,7 @@ async function generateCustomTicketPDF(buyerName, orderDetails) {
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = `bingo-pachanguero-2026-${buyerName.replace(/\s+/g, '_')}.pdf`;
+                a.download = `bingo-pachanguero-${eventConfig.event.year}-${buyerName.replace(/\s+/g, '_')}.pdf`;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
@@ -877,7 +942,7 @@ async function generateCustomTicketPDF(buyerName, orderDetails) {
 // Fallback simple PDF generation
 function generateSimpleTicketPDF(buyerName, orderDetails) {
     const ticketContent = `
-BINGO PACHANGUERO 2026
+BINGO PACHANGUERO ${eventConfig.event.year}
 Entry Ticket
 
 Name: ${buyerName}
@@ -886,9 +951,9 @@ Quantity: ${orderDetails.ticketQuantity}
 Extra Cards: ${orderDetails.extraQuantity}
 Total Price: €${orderDetails.totalPrice}
 
-Date: 25th October 2026
+Date: ${formattedEventDate(eventConfig.event.date, currentLanguage)}
 Time: 8:00 PM
-Location: Tanzhalle Freiburg
+Location: ${eventConfig.event.venue}
 
 ${translations[currentLanguage]['ticket-info-text']}
 
@@ -899,7 +964,7 @@ Ticket ID: ${Math.random().toString(36).substring(2, 15)}
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `bingo-pachanguero-2026-${buyerName.replace(/\s+/g, '_')}.txt`;
+    a.download = `bingo-pachanguero-${eventConfig.event.year}-${buyerName.replace(/\s+/g, '_')}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -926,7 +991,7 @@ function renderPayPalButton(totalAmount) {
                     name: `${ticketQuantity}x ${ticketTypeName}`,
                     unit_amount: {
                         currency_code: 'EUR',
-                        value: (currentTicketType === 'earlybird' ? 12 : 15).toString()
+                        value: eventConfig.tickets.prices[currentTicketType].toString()
                     },
                     quantity: ticketQuantity.toString()
                 }];
@@ -936,7 +1001,7 @@ function renderPayPalButton(totalAmount) {
                         name: `${extraQuantity}x Extra Bingo Cards`,
                         unit_amount: {
                             currency_code: 'EUR',
-                            value: (currentTicketType === 'earlybird' ? 4 : 6).toString()
+                            value: eventConfig.tickets.extraCardPrices[currentTicketType].toString()
                         },
                         quantity: extraQuantity.toString()
                     });
@@ -955,7 +1020,7 @@ function renderPayPalButton(totalAmount) {
                             }
                         },
                         items: itemList,
-                        description: 'Bingo Pachanguero 2026 Tickets'
+                        description: `Bingo Pachanguero ${eventConfig.event.year} Tickets`
                     }]
                 });
             },
@@ -999,7 +1064,18 @@ function renderPayPalButton(totalAmount) {
 }
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        await loadEventConfig();
+        applyEventConfigToTranslations();
+        document.querySelectorAll('[data-ticket-price]').forEach(element => {
+            element.textContent = `${eventConfig.tickets.prices[element.dataset.ticketPrice]}€`;
+        });
+    } catch (error) {
+        console.error('Event configuration unavailable; ticket sales are disabled.', error);
+        document.querySelectorAll('.ticket-options').forEach(element => element.hidden = true);
+    }
+
     console.log('DOM loaded, initializing language:', currentLanguage);
     
     // Small delay to ensure all elements are rendered
@@ -1033,7 +1109,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (ticketOptions) {
-        ticketOptions.hidden = isEventOver();
+        ticketOptions.hidden = !eventConfig || isEventOver();
     }
     
     if (!isEventOver() && earlyBirdCard && generalCard) {

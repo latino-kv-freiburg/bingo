@@ -1,0 +1,30 @@
+{
+  "event": {
+    "year": 2026,
+    "date": {
+      "month": 10,
+      "day": 24
+    },
+    "earlyBirdDeadline": {
+      "month": 10,
+      "day": 11
+    },
+    "venue": "Tanzhalle Freiburg",
+    "dressCode": {
+      "es": "Ven con ropa muy colorida para celebrar lo que nos une",
+      "de": "Wir empfehlen farbenfrohe Kleidung, um zu feiern, was uns verbindet",
+      "en": "Colorful attire is encouraged to celebrate what unites us"
+    }
+  },
+  "tickets": {
+    "prices": {
+      "earlybird": 12,
+      "general": 15
+    },
+    "extraCardPrices": {
+      "earlybird": 4,
+      "general": 6,
+      "guest": 4
+    }
+  }
+}
