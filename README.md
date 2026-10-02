@@ -1,6 +1,6 @@
-# Bingo Pachanguero 2025 – White Party Website
+# Bingo Pachanguero 2026 Website
 
-A simple, responsive static website for the "Bingo Pachanguero 2025 – White Party" event.
+A simple, responsive static website for the "Bingo Pachanguero 2026" event and its fifth anniversary.
 
 ## Features
 
@@ -20,6 +20,7 @@ A simple, responsive static website for the "Bingo Pachanguero 2025 – White Pa
 ├── index.html          # Homepage
 ├── tickets.html        # Tickets page
 ├── contact.html        # Contact page
+├── event_config.json   # Shared event details, multilingual program, and ticket prices
 ├── css/
 │   └── style.css       # Main stylesheet
 ├── js/
@@ -30,11 +31,11 @@ A simple, responsive static website for the "Bingo Pachanguero 2025 – White Pa
 ## Setup Instructions
 
 1. **Clone or Download** the project files
-2. **Customize Content**: Edit the HTML files to match your event details
-3. **Update PayPal Settings**: In `js/script.js`, replace `your-paypal-email@example.com` with your actual PayPal business email
-4. **Customize Styling**: Modify `css/style.css` to match your brand colors and preferences
-5. **Test Locally**: Open `index.html` in a web browser to test the site
-6. **Deploy**: Upload all files to your web hosting service
+2. **Edit Event Settings** in `event_config.json`. The website and ticket generator read dates, dress code, multilingual program, and ticket prices from this file.
+3. **Run Locally** from the project root with `python -m http.server 8000`, then open `http://localhost:8000`. The website needs HTTP access to load the JSON file.
+4. **Customize Content** in the HTML files and translations in `js/script.js` as needed
+5. **Customize Styling** in `css/style.css`
+6. **Deploy** all project files, including `event_config.json`, to your web hosting service
 
 ## Customization Guide
 

@@ -3,6 +3,7 @@ from tkinter import ttk, messagebox
 import json
 from datetime import datetime
 import os
+from pathlib import Path
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import cm
@@ -13,6 +14,11 @@ import barcode
 from barcode.writer import ImageWriter
 from io import BytesIO
 from gmail_sender import send_ticket_via_email
+
+with (Path(__file__).resolve().parent.parent / "event_config.json").open(encoding="utf-8") as config_file:
+    EVENT_CONFIG = json.load(config_file)
+
+EVENT_YEAR = EVENT_CONFIG["event"]["year"]
 
 class TicketGenerator:
     def __init__(self):
@@ -67,9 +73,11 @@ class TicketGenerator:
         
         ttk.Label(main_frame, text="Ticket Type:").grid(row=current_row, column=0)
         self.ticket_type_var = tk.StringVar(value="Early Bird")
-        ttk.Radiobutton(main_frame, text="Early Bird (12€)", variable=self.ticket_type_var, value="Early Bird").grid(row=current_row, column=1, sticky=tk.W)
+        earlybird_price = EVENT_CONFIG["tickets"]["prices"]["earlybird"]
+        ttk.Radiobutton(main_frame, text=f"Early Bird ({earlybird_price}€)", variable=self.ticket_type_var, value="Early Bird").grid(row=current_row, column=1, sticky=tk.W)
         current_row += 1
-        ttk.Radiobutton(main_frame, text="General Entry (15€)", variable=self.ticket_type_var, value="General Entry").grid(row=current_row, column=1, sticky=tk.W)
+        general_price = EVENT_CONFIG["tickets"]["prices"]["general"]
+        ttk.Radiobutton(main_frame, text=f"General Entry ({general_price}€)", variable=self.ticket_type_var, value="General Entry").grid(row=current_row, column=1, sticky=tk.W)
         current_row += 1
         ttk.Radiobutton(main_frame, text="Guest (Only pays for Extras)", variable=self.ticket_type_var, value="Guest").grid(row=current_row, column=1, sticky=tk.W)
         current_row += 1
@@ -236,7 +244,9 @@ class TicketGenerator:
         second = chr(ord('A') + (counter % 26))
         letter_code = first + second
         
-        serial = f"251025-{counter:03d}{letter_code}"
+        event_date = EVENT_CONFIG["event"]["date"]
+        date_code = f"{EVENT_YEAR % 100:02d}{event_date['month']:02d}{event_date['day']:02d}"
+        serial = f"{date_code}-{counter:03d}{letter_code}"
         
         # Update counter for the next ticket
         self.ticket_counter += 1
@@ -267,7 +277,7 @@ class TicketGenerator:
                 serial_number = self.generate_serial_number()
                 pdf_filename = os.path.join(
                     tickets_dir, 
-                    f"Bingo-Pachanguero-2025_{buyer_name.replace(' ', '-')}_{serial_number}.pdf"
+                    f"Bingo-Pachanguero-{EVENT_YEAR}_{buyer_name.replace(' ', '-')}_{serial_number}.pdf"
                 )
                 self.create_ticket_pdf(
                     pdf_filename,
@@ -282,7 +292,7 @@ class TicketGenerator:
             if extras > 0:
                 extra_pdf_filename = os.path.join(
                     tickets_dir,
-                    f"Bingo-Pachanguero-2025_{buyer_name.replace(' ', '-')}_Additional-cards.pdf"
+                    f"Bingo-Pachanguero-{EVENT_YEAR}_{buyer_name.replace(' ', '-')}_Additional-cards.pdf"
                 )
                 self.create_ticket_pdf(
                     extra_pdf_filename,
@@ -304,19 +314,19 @@ class TicketGenerator:
         
         # Determine base ticket price and extra card price
         if ticket_type == "Early Bird":
-            ticket_price = 12
-            extra_price = 4
+            ticket_price = EVENT_CONFIG["tickets"]["prices"]["earlybird"]
+            extra_price = EVENT_CONFIG["tickets"]["extraCardPrices"]["earlybird"]
         elif ticket_type == "General Entry":
-            ticket_price = 15
-            extra_price = 6
+            ticket_price = EVENT_CONFIG["tickets"]["prices"]["general"]
+            extra_price = EVENT_CONFIG["tickets"]["extraCardPrices"]["general"]
         elif ticket_type == "Guest":
             # For guests, the ticket price is 0
             ticket_price = 0
-            extra_price = 4 # Assuming guest extra card price defaults to Early Bird price of 4€
+            extra_price = EVENT_CONFIG["tickets"]["extraCardPrices"]["guest"]
         else:
             # Default fallback
-            ticket_price = 15
-            extra_price = 6
+            ticket_price = EVENT_CONFIG["tickets"]["prices"]["general"]
+            extra_price = EVENT_CONFIG["tickets"]["extraCardPrices"]["general"]
 
         # Calculate total amount
         total_amount = (ticket_price * self.quantity_var.get()) + (extra_price * self.extras_var.get())
@@ -398,16 +408,16 @@ class TicketGenerator:
                 c.setFillColorRGB(0, 0, 0)
                 c.rect(0, 0, width, height, fill=True)
 
-            # Create white text with black glow effect
+            # Create black text with white glow effect
             def draw_text_with_glow(text, x, y, font_name, font_size):
-                # Draw glow effect (black shadow)
-                c.setFillColorRGB(0, 0, 0)
+                # Draw glow effect (white shadow)
+                c.setFillColorRGB(1, 1, 1)
                 for offset in [(x-1, y-1), (x-1, y+1), (x+1, y-1), (x+1, y+1)]:
                     c.setFont(font_name, font_size)
                     c.drawCentredString(offset[0], offset[1], text)
                 
                 # Draw white text
-                c.setFillColorRGB(1, 1, 1)
+                c.setFillColorRGB(0, 0, 0)
                 c.setFont(font_name, font_size)
                 c.drawCentredString(x, y, text)
 
@@ -472,8 +482,6 @@ class TicketGenerator:
                 important_info = {
                     'es': [
                         "Información Importante",
-                        "• Vestimenta: Te invitamos a",
-                        "  vestirte de blanco",
                         "• Reserva gastronómica:",
                         "  Henry +49 176 868 15317",
                         "• Capacidad del evento limitada",
@@ -481,8 +489,6 @@ class TicketGenerator:
                     ],
                     'de': [
                         "Wichtige Informationen",
-                        "• Kleiderempfehlung: Wir freuen uns,",
-                        "  wenn du in Weiß kommst",
                         "• Gastronomische Reservierung:",
                         "  Henry +49 176 868 15317",
                         "• Begrenzte Veranstaltungskapazität",
@@ -490,8 +496,6 @@ class TicketGenerator:
                     ],
                     'en': [
                         "Important Information",
-                        "• Dress suggestion: We invite",
-                        "  you to wear white",
                         "• Food & drinks reservation:",
                         "  Henry +49 176 868 15317",
                         "• Limited event capacity",
@@ -523,16 +527,16 @@ class TicketGenerator:
                                 font_size
                             )
                         else:  # Bullet points - left aligned with small margin
-                            # Draw glow effect (black shadow)
+                            # Draw glow effect (white shadow)
                             text_x = x + 0.3*cm  # Add small left margin
-                            c.setFillColorRGB(0, 0, 0)
+                            c.setFillColorRGB(1, 1, 1)
                             for offset in [(text_x-1, current_y-1), (text_x-1, current_y+1), 
                                          (text_x+1, current_y-1), (text_x+1, current_y+1)]:
                                 c.setFont(font_name, font_size)
                                 c.drawString(offset[0], offset[1], line)
                             
-                            # Draw white text
-                            c.setFillColorRGB(1, 1, 1)
+                            # Draw black text
+                            c.setFillColorRGB(0, 0, 0)
                             c.setFont(font_name, font_size)
                             c.drawString(text_x, current_y, line)
                         
@@ -546,6 +550,12 @@ class TicketGenerator:
 
     def show_email_text(self, serial_number, buyer_name, ticket_type, quantity, extras, total_amount, payment_method):
         # Create email content for each language with unified formatting
+        event_date = EVENT_CONFIG["event"]["date"]
+        event_date_display = datetime(
+            EVENT_YEAR, event_date["month"], event_date["day"]
+        ).strftime("%d.%m.%Y")
+        dress_codes = EVENT_CONFIG["event"]["dressCode"]
+        venue = EVENT_CONFIG["event"]["venue"]
         extra_cards_es = f"\n- Tarjetas Extra de Bingo: {extras}" if extras > 0 else ""
         extra_cards_de = f"\n- Extra Bingokarten: {extras}" if extras > 0 else ""
         extra_cards_en = f"\n- Extra Bingo Cards: {extras}" if extras > 0 else ""
@@ -553,7 +563,7 @@ class TicketGenerator:
         email_template = {
             'es': f"""¡Hola {buyer_name}!
 
-¡Gracias por tu compra de entradas para el Bingo Pachanguero 2025 - White Party!
+¡Gracias por tu compra de entradas para el Bingo Pachanguero {EVENT_YEAR}!
 
 Detalles de tu compra:
 - Número de Serie: {serial_number}
@@ -564,10 +574,10 @@ Detalles de tu compra:
 - Método de Pago: {payment_method}
 
 Información importante:
-- Fecha: 25 de octubre de 2025
+- Fecha: {event_date_display}
 - Hora: 20:00 (apertura de puertas 19:30)
-- Lugar: Tanzhalle Freiburg
-- Vestimenta: Te invitamos a vestirte de blanco
+- Lugar: {venue}
+- Código de vestimenta: {dress_codes['es']}
 
 Tu(s) entrada(s) está(n) adjunta(s) a este correo. Por favor, muéstralas en la entrada.
 
@@ -575,7 +585,7 @@ Tu(s) entrada(s) está(n) adjunta(s) a este correo. Por favor, muéstralas en la
 """,
             'de': f"""Hallo {buyer_name}!
 
-Vielen Dank für deinen Ticketkauf für das Bingo Pachanguero 2025 - White Party!
+Vielen Dank für deinen Ticketkauf für das Bingo Pachanguero {EVENT_YEAR}!
 
 Deine Bestelldetails:
 - Seriennummer: {serial_number}
@@ -586,16 +596,16 @@ Deine Bestelldetails:
 - Zahlungsmethode: {payment_method}
 
 Wichtige Informationen:
-- Datum: 25. Oktober 2025
+- Datum: {event_date_display}
 - Zeit: 20:00 Uhr (Einlass ab 19:30)
-- Ort: Tanzhalle Freiburg
-- Kleiderempfehlung: Wir freuen uns, wenn du in Weiß kommst
+- Ort: {venue}
+- Dress-Code: {dress_codes['de']}
 
 Dein(e) Ticket(s) findest du im Anhang. Bitte zeige sie am Eingang vor.
 
 Wir sehen uns beim Bingo Pachanguero!
 """,
-            'en': f"""Thank you for purchasing tickets for the Bingo Pachanguero 2025 - White Party!
+            'en': f"""Thank you for purchasing tickets for the Bingo Pachanguero {EVENT_YEAR}!
 
 Your order details:
 - Serial Number: {serial_number}
@@ -606,10 +616,10 @@ Your order details:
 - Payment Method: {payment_method}
 
 Important information:
-- Date: October 25th, 2025
+- Date: {event_date_display}
 - Time: 8:00 PM (doors open 7:30 PM)
-- Location: Tanzhalle Freiburg
-- Dress suggestion: We invite you to wear white
+- Location: {venue}
+- Dress code: {dress_codes['en']}
 
 Your ticket(s) are attached to this email. Please show them at the entrance.
 
@@ -688,7 +698,7 @@ Latino KV Freiburg"""
             ):
                 return
 
-            subject = "Your Bingo Pachanguero 2025 Tickets"
+            subject = f"Your Bingo Pachanguero {EVENT_YEAR} Tickets"
             
             # Generate email text
             self.show_email_text(

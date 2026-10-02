@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang="tickets-page-title">Entradas - Bingo Pachanguero 2025</title>
+    <title data-lang="tickets-page-title">Entradas - Bingo Pachanguero</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Canvas library for ticket generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
@@ -48,7 +48,141 @@
 
         <section class="tickets">
             <div class="container">
-                <div class="tickets-closed-message" style="text-align: center; padding: 40px; margin: 20px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div class="ticket-options">
+                    <!-- Early Bird Ticket Option -->
+                    <div class="ticket-card featured" id="earlybird-card">
+                        <div class="ticket-header">
+                            <h3 data-lang="earlybird-ticket">Early Bird</h3>
+                            <div class="price" data-ticket-price="earlybird"></div>
+                            <div class="badge" data-lang="valid-until"></div>
+                        </div>
+                        <div class="ticket-content">
+                            <ul class="ticket-features">
+                                <li data-lang="entry-feature">✓ Entrada al evento</li>
+                                <li data-lang="bingo-card-included">✓ 1 carta de bingo incluida</li>
+                                <li data-lang="save-feature">✓ Ahorra €3 con reserva anticipada</li>
+                                <li data-lang="extra-cards-4">✓ Cartas extra: €4/carta</li>
+                            </ul>
+                            
+                            <div class="purchase-form">
+                                <div class="form-group">
+                                    <label data-lang="ticket-quantity"></label>
+                                    <select id="earlybird-quantity" onchange="calculateTotal('earlybird')">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label data-lang="extra-cards-quantity">Cartas extra (4€/carta):</label>
+                                    <select id="earlybird-extras" onchange="calculateTotal('earlybird')">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="price-breakdown">
+                                    <div class="price-line">
+                                        <span data-lang="tickets-cost">Entradas:</span>
+                                        <span id="earlybird-tickets-cost"></span>
+                                    </div>
+                                    <div class="price-line">
+                                        <span data-lang="extras-cost">Cartas extra:</span>
+                                        <span id="earlybird-extras-cost">0€</span>
+                                    </div>
+                                    <div class="price-line total">
+                                        <span data-lang="total-cost">Total:</span>
+                                        <span id="earlybird-total"></span>
+                                    </div>
+                                </div>
+                                
+                                <button class="cta-button" onclick="purchaseTickets('earlybird')" data-lang="buy-paypal">
+                                    Comprar Entrada
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- General Entry Ticket Option -->
+                    <div class="ticket-card">
+                        <div class="ticket-header">
+                            <h3 data-lang="general-ticket">Entrada General</h3>
+                            <div class="price" data-ticket-price="general"></div>
+                        </div>
+                        <div class="ticket-content">
+                            <ul class="ticket-features">
+                                <li data-lang="entry-feature">✓ Entrada al evento</li>
+                                <li data-lang="bingo-card-included">✓ 1 carta de bingo incluida</li>
+                                <li data-lang="extra-cards-6">✓ Cartas extra: €6/carta</li>
+                            </ul>
+                            
+                            <div class="purchase-form">
+                                <div class="form-group">
+                                    <label data-lang="ticket-quantity">Número de entradas:</label>
+                                    <select id="general-quantity" onchange="calculateTotal('general')">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label data-lang="extra-cards-quantity-6">Cartas extra (6€/carta):</label>
+                                    <select id="general-extras" onchange="calculateTotal('general')">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="price-breakdown">
+                                    <div class="price-line">
+                                        <span data-lang="tickets-cost">Entradas:</span>
+                                        <span id="general-tickets-cost"></span>
+                                    </div>
+                                    <div class="price-line">
+                                        <span data-lang="extras-cost">Cartas extra:</span>
+                                        <span id="general-extras-cost">0€</span>
+                                    </div>
+                                    <div class="price-line total">
+                                        <span data-lang="total-cost">Total:</span>
+                                        <span id="general-total"></span>
+                                    </div>
+                                </div>
+                                
+                                <button class="cta-button" onclick="purchaseTickets('general')" data-lang="buy-paypal">
+                                    Comprar Entradas
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tickets-closed-message" class="tickets-closed-message" hidden style="text-align: center; padding: 40px; margin: 20px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                     <h2 data-lang="tickets-closed-title" style="color: #333; margin-bottom: 20px;">Las ventas en línea han terminado</h2>
                     <p data-lang="tickets-closed-info" style="font-size: 1.2em; color: #666; margin-bottom: 15px;">¡El evento es hoy! Las entradas están disponibles en la entrada.</p>
                     <div data-lang="tickets-closed-details" style="font-size: 1.1em; color: #444;">
@@ -56,29 +190,27 @@
                         Apertura de puertas: 19:30<br>
                         Inicio del evento: 20:00
                     </div>
-                    <!-- Add location map -->
                     <div class="map-container" style="margin-top: 30px;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2670.081732278271!2d7.814057690239101!3d47.99280759704116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b3fff1c0001%3A0xe5aa7ec2117fdc14!2sTanzHalle%20Freiburg!5e0!3m2!1sde!2sus!4v1759222356078!5m2!1sde!2sus" 
-                            width="100%" 
-                            height="300" 
-                            style="border:0; border-radius: 10px;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2670.081732278271!2d7.814057690239101!3d47.99280759704116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b3fff1c0001%3A0xe5aa7ec2117fdc14!2sTanzHalle%20Freiburg!5e0!3m2!1sde!2sus!4v1759222356078!5m2!1sde!2sus"
+                            width="100%"
+                            height="300"
+                            style="border:0; border-radius: 10px;"
+                            allowfullscreen=""
+                            loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
-                    </div>
 
                 <!-- Important Information -->
                 <div class="important-info">
                     <h3 data-lang="important-info">Información Importante</h3>
                     <div class="info-grid">
                         <div class="info-item">
-                            <span data-lang="dress-code">Código de vestimenta: Te recomendamos venir con vestimenta blanca</span>
+                            <span data-lang="dress-code">Código de vestimenta: Ven con ropa muy colorida para celebrar lo que nos une</span>
                         </div>
                         <div class="info-item">
-                            <span data-lang="event-date">Fecha del evento: 25 Octubre 2025</span>
+                            <span data-lang="event-date"></span>
                         </div>
                         <div class="info-item">
                             <span data-lang="event-location">Ubicación: Tanzhalle Freiburg</span>
@@ -97,11 +229,51 @@
             </div>
         </section>
 
+        <!-- Payment instructions container -->
+        <div id="payment-instructions" class="payment-modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 data-lang="payment-instructions-title">Instrucciones de Pago</h3>
+                    <button class="close-btn" onclick="closePaymentModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="payment-summary" id="payment-summary">
+                        <!-- Payment details will be inserted here -->
+                    </div>
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <h4 data-lang="paypal-option">Opción 1: PayPal</h4>
+                            <p data-lang="paypal-instructions">Envía el pago a nuestra cuenta PayPal:</p>
+                            <div class="payment-details">
+                                <strong data-lang="paypal-email">Email PayPal:</strong> andres_r5@hotmail.com<br>
+                                <strong data-lang="payment-concept">Concepto:</strong> <span id="payment-concept">Bingo Pachanguero</span><br>
+                                <strong data-lang="total-amount">Monto total:</strong> <span id="total-amount">0€</span>
+                            </div>
+                            <button class="paypal-me-btn" id="paypal-me-btn" data-lang="send-paypal">Enviar vía PayPal.me</button>
+                        </div>
+                        <div class="payment-option">
+                            <h4 data-lang="bank-option">Opción 2: Transferencia Bancaria</h4>
+                            <p data-lang="bank-instructions">Transfiere a nuestra cuenta bancaria:</p>
+                            <div class="payment-details">
+                                <strong>IBAN:</strong> DE64 6807 0024 0084 3169 00<br>
+                                <strong data-lang="account-holder">Titular:</strong> Andres Romero<br>
+                                <strong data-lang="bank-name">Banco:</strong> Deutsche Bank<br>
+                                <strong data-lang="payment-concept">Concepto:</strong> <span id="bank-concept">Bingo Pachanguero</span><br>
+                                <strong data-lang="total-amount">Monto total:</strong> <span id="bank-total-amount">0€</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="important-note">
+                        <p data-lang="payment-note"><strong>Importante:</strong> Una vez realizado el pago, envíanos un email a <a href="mailto:latinokvfreiburginfo@gmail.com">latinokvfreiburginfo@gmail.com</a> con el comprobante para procesar tu entrada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p data-lang="footer">© 2025 Latino KV Freiburg – Bingo Pachanguero White Party</p>
+            <p data-lang="footer">Latino KV Freiburg – Bingo Pachanguero</p>
             <div class="social-links">
                 <a href="https://instagram.com/latinokv_freiburg" target="_blank" class="social-link">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -121,6 +293,5 @@
     <canvas id="ticket-canvas" style="display: none;"></canvas>
 
     <script src="js/script.js"></script>
-    <script src="js/translations_update.js"></script>
 </body>
 </html>

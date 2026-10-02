@@ -4,12 +4,14 @@ const translations = {
         home: 'Inicio',
         tickets: 'Entradas',
         contact: 'Contacto',
-        title: 'Bingo Pachanguero 2025',
-        'white-party': 'White Party',
-        subtitle: '25 de Octubre 2025 – Tanzhalle Freiburg',
-        description: '✨ ¡La 4.ª edición del Bingo Pachanguero está aquí! ✨<br>Prepárate para una noche que lo tiene TODO: música, baile, comida y mucha diversión.<br><br>🔥 Este año venimos con más sorpresas que nunca:<br>🎶 Fiesta crossover con la mejor energía para no parar de bailar<br>🍴 Auténticas delicias latinas que te harán agua la boca<br>💃 Animación y show de Salsa Caleña en vivo con Ritmo y Kandela<br>🎁 Y el gran protagonista… ¡nuestro Bingo con premios increíbles!<br><br>👉 No te lo pierdas: reserva tu lugar ahora y vive una noche única, llena de sabor, ritmo y alegría latina.',
+        title: 'Bingo Pachanguero 2026',
+        'anniversary-title': 'AÑOS CELEBRANDO',
+        'anniversary-subtitle': 'LO QUE NOS UNE',
+        'white-party': 'Celebración de 5 años',
+        subtitle: '24 de Octubre 2026 – Tanzhalle Freiburg',
+        description: '✨ ¡Celebramos 5 años de Bingo Pachanguero! ✨<br>Prepárate para una noche que lo tiene TODO: música, baile, comida y mucha diversión.<br><br>🔥 Este año venimos con más sorpresas que nunca:<br>🎶 Fiesta crossover con la mejor energía para no parar de bailar<br>🍴 Auténticas delicias latinas que te harán agua la boca<br>💃 Animación y show de Salsa Caleña en vivo con Ritmo y Kandela<br>🎁 Y el gran protagonista… ¡nuestro Bingo con premios increíbles!<br><br>👉 No te lo pierdas: reserva tu lugar ahora y celebra lo que nos une.',
         'program-title': 'Programa',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Bienvenida</td></tr><tr><td>21:00</td><td>1er juego de Bingo</td></tr><tr><td>22:00</td><td>2do juego de Bingo</td></tr><tr><td>23:00</td><td>3er juego de Bingo</td></tr><tr><td>00:00</td><td>Salsa Caleña: Show de medianoche, workshop & animación con Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4to juego de Bingo</td></tr><tr><td>03:00</td><td>Fiesta y baile hasta el final</td></tr></table>',
+        'program-content': '',
         'location-title': 'Ubicación',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'Para reservas gastronómicas: Henry +49 176 868 15317',
@@ -18,10 +20,10 @@ const translations = {
         'tickets-closed-title': 'Las ventas en línea han terminado',
         'tickets-closed-info': '¡El evento es hoy! Las entradas están disponibles en la entrada.',
         'tickets-closed-details': 'Tanzhalle Freiburg<br>Apertura de puertas: 19:30<br>Inicio del evento: 20:00',
-        footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
+        footer: '© 2026 Latino KV Freiburg – Bingo Pachanguero',
         'tickets-title': 'Entradas',
         'tickets-subtitle': '¡Elige tu entrada y prepárate para una noche increíble!',
-        'tickets-page-title': 'Entradas - Bingo Pachanguero 2025',
+        'tickets-page-title': 'Entradas - Bingo Pachanguero 2026',
         'contact-title': 'Contáctanos',
         'contact-text': 'Para preguntas sobre el Bingo Pachanguero, contáctanos!',
         'general-ticket': 'Entrada General',
@@ -40,8 +42,8 @@ const translations = {
         'extra-cards-label': 'Cartas extra:',
         'total-label': 'Total:',
         'important-info': 'Información Importante',
-        'dress-code': 'Código de vestimenta: Te recomendamos venir con vestimenta blanca',
-        'event-date': 'Fecha del evento: 25 de Octubre 2025',
+        'dress-code': 'Código de vestimenta: Ven con ropa muy colorida para celebrar lo que nos une',
+        'event-date': 'Fecha del evento: 24 de Octubre 2026',
         'event-location': 'Ubicación: Tanzhalle Freiburg',
         'non-refundable': 'Las entradas no son reembolsables',
         'limited-capacity': 'Capacidad limitada - ¡reserva pronto!',
@@ -57,7 +59,7 @@ const translations = {
         'reservation-info': 'For dining reservations: Henry +49 176 868 15317',
         'ticket-info': `Thank you for your purchase! Some important information:
 
-Come in your best white outfit
+Come in your most colorful outfit to celebrate what unites us
 On event day you will receive your bingo card at reception
 You have the option to purchase an additional bingo card during the event for 6€
 So everyone can enjoy the food, we recommend reserving in advance with Henry: +49 176 868 15317
@@ -99,7 +101,7 @@ No es posible cancelar
 ¡Te deseamos mucho éxito en el Bingo Pachanguero!`,
         // Thank you page translations
         'thanks-title': '¡Gracias por tu compra!',
-        'thanks-message': 'Tu entrada para el Bingo Pachanguero 2025 – White Party ha sido procesada exitosamente.',
+        'thanks-message': 'Tu entrada para el Bingo Pachanguero 2026 ha sido procesada exitosamente.',
         'what-next-title': '¿Qué sigue?',
         'pdf-info': 'Tu ticket en PDF se ha descargado automáticamente',
         // Legal sections
@@ -125,7 +127,7 @@ No es posible cancelar
         'event-time': '20:00',
         'important-reminders-title': 'Recordatorios Importantes',
         'arrival-early': 'Llega temprano para registro y recibir tu carta de bingo',
-        'white-attire': 'Vestimenta blanca es obligatoria para entrar',
+        'white-attire': 'La ropa colorida está recomendada para celebrar lo que nos une',
         'no-refunds': 'Las entradas no son reembolsables',
         'contact-info': 'Para preguntas, contáctanos en latinokvfreiburginfo@gmail.com',
         'back-home': 'Volver al inicio',
@@ -158,20 +160,22 @@ No se permiten cancelaciones
         home: 'Startseite',
         tickets: 'Tickets',
         contact: 'Kontakt',
-        title: 'Bingo Pachanguero 2025',
-        'white-party': 'White Party',
-        subtitle: '25. Oktober 2025 – Tanzhalle Freiburg',
-        description: '✨ Die 4. Ausgabe des Bingo Pachanguero ist da! ✨<br>Freut euch auf eine unvergessliche Nacht voller Musik, Tanz, Essen und Spaß.<br><br>🔥 Dieses Jahr erwarten euch noch mehr Highlights:<br>🎶 Crossover-Party mit der besten Stimmung und heißen Rhythmen<br>🍴 Leckere lateinamerikanische Spezialitäten<br>💃 Live-Show und Animation von Ritmo y Kandela mit Salsa Caleña<br>🎁 Und natürlich: unser Bingo mit fantastischen Preisen!<br><br>👉 Sichert euch jetzt euren Platz und erlebt eine Nacht voller Lebensfreude, Rhythmus und lateinamerikanischem Flair.',
+        title: 'Bingo Pachanguero 2026',
+        'anniversary-title': 'JAHRE FEIERN, WAS',
+        'anniversary-subtitle': 'UNS VERBINDET',
+        'white-party': '5 Jahre feiern',
+        subtitle: '24. Oktober 2026 – Tanzhalle Freiburg',
+        description: '✨ Wir feiern 5 Jahre Bingo Pachanguero! ✨<br>Freut euch auf eine unvergessliche Nacht voller Musik, Tanz, Essen und Spaß.<br><br>🔥 Dieses Jahr erwarten euch noch mehr Highlights:<br>🎶 Crossover-Party mit der besten Stimmung und heißen Rhythmen<br>🍴 Leckere lateinamerikanische Spezialitäten<br>💃 Live-Show und Animation von Ritmo y Kandela mit Salsa Caleña<br>🎁 Und natürlich: unser Bingo mit fantastischen Preisen!<br><br>👉 Sichert euch jetzt euren Platz und feiert, was uns verbindet.',
         'program-title': 'Programm',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Begrüßung</td></tr><tr><td>21:00</td><td>1. Bingo-Spiel</td></tr><tr><td>22:00</td><td>2. Bingo-Spiel</td></tr><tr><td>23:00</td><td>3. Bingo-Spiel</td></tr><tr><td>00:00</td><td>Salsa Caleña: Mitternachtsshow, Workshop & Animation mit Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4. Bingo-Spiel</td></tr><tr><td>03:00</td><td>Party und Tanzen bis zum Ende</td></tr></table>',
+        'program-content': '',
         'location-title': 'Standort',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'Für Essensreservierung kontaktiert Henry: +49 176 868 15317',
         'cta-button': 'Ticket kaufen',
-        footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
+        footer: '© 2026 Latino KV Freiburg – Bingo Pachanguero',
         'tickets-title': 'Tickets',
         'tickets-subtitle': 'Wähle dein Ticket und bereite dich auf eine fantastische Nacht vor!',
-        'tickets-page-title': 'Tickets - Bingo Pachanguero 2025',
+        'tickets-page-title': 'Tickets - Bingo Pachanguero 2026',
         'contact-title': 'Kontakt',
         'contact-text': 'Für Fragen zum Bingo Pachanguero kontaktiert uns!',
         'general-ticket': 'Allgemeiner Eintritt',
@@ -191,8 +195,8 @@ No se permiten cancelaciones
         'extra-cards-label': 'Extra-Karten:',
         'total-label': 'Gesamt:',
         'important-info': 'Wichtige Informationen',
-        'dress-code': 'Dress-Code: Wir empfehlen weiße Kleidung',
-        'event-date': 'Veranstaltungsdatum: 25. Oktober 2025',
+        'dress-code': 'Dress-Code: Wir empfehlen farbenfrohe Kleidung, um zu feiern, was uns verbindet',
+        'event-date': 'Veranstaltungsdatum: 24. Oktober 2026',
         'event-location': 'Ort: Tanzhalle Freiburg',
         'non-refundable': 'Tickets sind nicht erstattungsfähig',
         'limited-capacity': 'Begrenzte Kapazität - früh buchen!',
@@ -222,7 +226,7 @@ No se permiten cancelaciones
         'general-price': '15€',
         // Thank you page translations
         'thanks-title': 'Vielen Dank für Ihren Kauf!',
-        'thanks-message': 'Ihr Ticket für die Bingo Pachanguero 2025 – White Party wurde erfolgreich verarbeitet.',
+        'thanks-message': 'Ihr Ticket für die Bingo Pachanguero 2026 wurde erfolgreich verarbeitet.',
         'what-next-title': 'Was kommt als Nächstes?',
         'pdf-info': 'Ihr PDF-Ticket wurde automatisch heruntergeladen',
         'email-info': 'Sie erhalten eine PayPal-Bestätigungs-E-Mail',
@@ -235,7 +239,7 @@ No se permiten cancelaciones
         'event-time': '20:00',
         'important-reminders-title': 'Wichtige Erinnerungen',
         'arrival-early': 'Kommen Sie früh zur Registrierung und zum Erhalt Ihrer Bingo-Karte',
-        'white-attire': 'Weiße Kleidung ist für den Eintritt obligatorisch',
+        'white-attire': 'Farbenfrohe Kleidung wird empfohlen, um zu feiern, was uns verbindet',
         'no-refunds': 'Tickets sind nicht erstattungsfähig',
         'contact-info': 'Bei Fragen kontaktieren Sie uns unter latinokvfreiburginfo@gmail.com',
         'back-home': 'Zurück zur Startseite',
@@ -243,7 +247,7 @@ No se permiten cancelaciones
         // Ticket info text
         'ticket-info-text': `Vielen Dank für Ihren Einkauf! Einige wichtige Informationen:
 
-Kommen Sie in Ihrem besten weißen Outfit
+Kommen Sie in Ihrem farbenfrohsten Outfit, um zu feiern, was uns verbindet
 Am Veranstaltungstag erhalten Sie Ihre Bingo-Karte an der Rezeption
 Sie haben die Möglichkeit, eine zusätzliche Bingo-Karte während des Events für 6 Euro zu erwerben
 Damit jeder das Essen genießen kann, empfehlen wir, im Voraus bei Henry zu reservieren: +49 176 868 15317
@@ -268,20 +272,22 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         home: 'Home',
         tickets: 'Tickets',
         contact: 'Contact',
-        title: 'Bingo Pachanguero 2025',
-        'white-party': 'White Party',
-        subtitle: '25th October 2025 – Tanzhalle Freiburg',
-        description: '✨ The 4th edition of Bingo Pachanguero is here! ✨<br>Get ready for a night packed with music, dancing, food, and fun.<br><br>🔥 This year comes with even more surprises:<br>🎶 Crossover party with the best vibes and non-stop dancing<br>🍴 Delicious Latin food that will make your mouth water<br>💃 Live Salsa Caleña show and animation by Ritmo y Kandela<br>🎁 And of course… our Bingo with amazing prizes!<br><br>👉 Don\'t miss it: book your spot now and enjoy an unforgettable night full of rhythm, flavor, and Latin energy.',
+        title: 'Bingo Pachanguero 2026',
+        'anniversary-title': 'YEARS CELEBRATING',
+        'anniversary-subtitle': 'WHAT UNITES US',
+        'white-party': '5 years of celebration',
+        subtitle: '25th October 2026 – Tanzhalle Freiburg',
+        description: '✨ We are celebrating 5 years of Bingo Pachanguero! ✨<br>Get ready for a night packed with music, dancing, food, and fun.<br><br>🔥 This year comes with even more surprises:<br>🎶 Crossover party with the best vibes and non-stop dancing<br>🍴 Delicious Latin food that will make your mouth water<br>💃 Live Salsa Caleña show and animation by Ritmo y Kandela<br>🎁 And of course… our Bingo with amazing prizes!<br><br>👉 Don\'t miss it: book your spot now and celebrate what unites us.',
         'program-title': 'Program',
-        'program-content': '<table class="program-table"><tr><td>20:00</td><td>Welcome</td></tr><tr><td>21:00</td><td>1st Bingo Game</td></tr><tr><td>22:00</td><td>2nd Bingo Game</td></tr><tr><td>23:00</td><td>3rd Bingo Game</td></tr><tr><td>00:00</td><td>Salsa Caleña: Midnight show, workshop & animation with Ritmo y Kandela</td></tr><tr><td>01:00</td><td>4th Bingo Game</td></tr><tr><td>03:00</td><td>Party and dancing until the end</td></tr></table>',
+        'program-content': '',
         'location-title': 'Location',
         'location-address': 'Tanzhalle Freiburg, Markgrafenstr. 38, 79115 Freiburg im Breisgau',
         'reservation-info': 'For dining reservations: Henry +49 176 868 15317',
         'cta-button': 'Get your ticket',
-        footer: '© 2025 Latino KV Freiburg – Bingo Pachanguero White Party',
+        footer: '© 2026 Latino KV Freiburg – Bingo Pachanguero',
         'tickets-title': 'Tickets',
         'tickets-subtitle': 'Choose your ticket and get ready for an amazing night!',
-        'tickets-page-title': 'Tickets - Bingo Pachanguero 2025',
+        'tickets-page-title': 'Tickets - Bingo Pachanguero 2026',
         'contact-title': 'Contact us',
         'contact-text': 'For questions about the Bingo Pachanguero, contact us!',
         'general-ticket': 'General Entry',
@@ -300,8 +306,8 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'extra-cards-label': 'Extra cards:',
         'total-label': 'Total:',
         'important-info': 'Important Information',
-        'dress-code': 'Dress code: We recommend white attire',
-        'event-date': 'Event date: 25th October 2025',
+        'dress-code': 'Dress code: Colorful attire is encouraged to celebrate what unites us',
+        'event-date': 'Event date: 25th October 2026',
         'event-location': 'Location: Tanzhalle Freiburg',
         'non-refundable': 'Tickets are non-refundable',
         'limited-capacity': 'Limited capacity - book early!',
@@ -325,15 +331,15 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'extra-cards-label': 'Extra cards:',
         'total-label': 'Total:',
         'important-info': 'Important Information',
-        'dress-code': 'Dress code: We recommend white attire',
-        'event-date': 'Event date: 25th October 2025',
+        'dress-code': 'Dress code: Colorful attire is encouraged to celebrate what unites us',
+        'event-date': 'Event date: 25th October 2026',
         'event-location': 'Location: Tanzhalle Freiburg',
         'non-refundable': 'Tickets are non-refundable',
         'limited-capacity': 'Limited capacity - book early!',
         'food-reservation': 'To reserve food, contact Henry: +49 176 868 15317',
         // Thank you page translations
         'thanks-title': 'Thank you for your purchase!',
-        'thanks-message': 'Your ticket for the Bingo Pachanguero 2025 – White Party has been successfully processed.',
+        'thanks-message': 'Your ticket for the Bingo Pachanguero 2026 has been successfully processed.',
         'what-next-title': 'What\'s next?',
         'pdf-info': 'Your PDF ticket has been automatically downloaded',
         'email-info': 'You will receive a PayPal confirmation email',
@@ -346,7 +352,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         'event-time': '8:00 PM',
         'important-reminders-title': 'Important Reminders',
         'arrival-early': 'Arrive early for registration and to receive your bingo card',
-        'white-attire': 'White attire is mandatory for entry',
+        'white-attire': 'Colorful attire is encouraged to celebrate what unites us',
         'no-refunds': 'Tickets are non-refundable',
         'contact-info': 'For questions, contact us at latinokvfreiburginfo@gmail.com',
         'back-home': 'Back to home',
@@ -367,7 +373,7 @@ Wir wünschen Ihnen viel Erfolg beim Bingo Pachanguero!`
         // Ticket info text
         'ticket-info-text': `Thank you for your purchase! Important information:
 
-Come in your best white outfit
+Come in your most colorful outfit to celebrate what unites us
 On event day you'll receive your bingo card at reception
 You'll have the opportunity to buy an additional bingo card during the event for 6€
 So everyone can enjoy the food, we recommend reserving in advance with Henry: +49 176 868 15317
@@ -384,6 +390,75 @@ let currentLanguage = localStorage.getItem('language') || 'es';
 let currentTicketType = 'earlybird';
 let ticketQuantity = 1;
 let extraQuantity = 0;
+let eventConfig;
+const eventConfigUrl = new URL('../event_config.json', document.currentScript.src);
+
+async function loadEventConfig() {
+    const response = await fetch(eventConfigUrl);
+    if (!response.ok) {
+        throw new Error(`Could not load event configuration: ${response.status}`);
+    }
+    eventConfig = await response.json();
+}
+
+function formattedEventDate(date, language, includeYear = true) {
+    const locale = { es: 'es-ES', de: 'de-DE', en: 'en-GB' }[language];
+    return new Intl.DateTimeFormat(locale, {
+        day: 'numeric',
+        month: 'long',
+        ...(includeYear ? { year: 'numeric' } : {})
+    }).format(new Date(eventConfig.event.year, date.month - 1, date.day));
+}
+
+function applyEventConfigToTranslations() {
+    const eventDate = eventConfig.event.date;
+    const deadline = eventConfig.event.earlyBirdDeadline;
+    const earlyPrice = eventConfig.tickets.prices.earlybird;
+    const generalPrice = eventConfig.tickets.prices.general;
+    const earlyExtraPrice = eventConfig.tickets.extraCardPrices.earlybird;
+    const generalExtraPrice = eventConfig.tickets.extraCardPrices.general;
+
+    const copy = {
+        es: {
+            date: formattedEventDate(eventDate, 'es'),
+            validUntil: `Promoción válida hasta el ${formattedEventDate(deadline, 'es', false)}<br>Después de esta fecha el precio será de ${generalPrice}€`,
+            eventDate: `Fecha del evento: ${formattedEventDate(eventDate, 'es')}`,
+            dressCode: `Código de vestimenta: ${eventConfig.event.dressCode.es}`
+        },
+        de: {
+            date: formattedEventDate(eventDate, 'de'),
+            validUntil: `Angebot gültig bis ${formattedEventDate(deadline, 'de', false)}<br>Danach kostet das Ticket ${generalPrice}€`,
+            eventDate: `Veranstaltungsdatum: ${formattedEventDate(eventDate, 'de')}`,
+            dressCode: `Dress-Code: ${eventConfig.event.dressCode.de}`
+        },
+        en: {
+            date: formattedEventDate(eventDate, 'en'),
+            validUntil: `Offer valid until ${formattedEventDate(deadline, 'en', false)}<br>After this date the price will be ${generalPrice}€`,
+            eventDate: `Event date: ${formattedEventDate(eventDate, 'en')}`,
+            dressCode: `Dress code: ${eventConfig.event.dressCode.en}`
+        }
+    };
+
+    Object.entries(copy).forEach(([language, values]) => {
+        const translationsForLanguage = translations[language];
+        translationsForLanguage.subtitle = `${values.date} – ${eventConfig.event.venue}`;
+        translationsForLanguage['valid-until'] = values.validUntil;
+        translationsForLanguage['event-date'] = values.eventDate;
+        translationsForLanguage['dress-code'] = values.dressCode;
+        translationsForLanguage['earlybird-price'] = `${earlyPrice}€`;
+        translationsForLanguage['general-price'] = `${generalPrice}€`;
+        translationsForLanguage['extra-cards-4'] = language === 'es'
+            ? `Cartas extra: ${earlyExtraPrice}€/carta<br>(${generalExtraPrice}€/carta después del ${formattedEventDate(deadline, 'es', false)})`
+            : language === 'de'
+                ? `Extra-Karten: ${earlyExtraPrice}€/Karte<br>(${generalExtraPrice}€/Karte nach dem ${formattedEventDate(deadline, 'de', false)})`
+                : `Extra cards: ${earlyExtraPrice}€/card<br>(${generalExtraPrice}€/card after ${formattedEventDate(deadline, 'en', false)})`;
+        translationsForLanguage['extra-cards-6'] = language === 'es'
+            ? `Cartas extra: ${generalExtraPrice}€/carta`
+            : language === 'de'
+                ? `Extra-Karten: ${generalExtraPrice}€/Karte`
+                : `Extra cards: ${generalExtraPrice}€/card`;
+    });
+}
 
 // Change language function
 function changeLanguage(lang) {
@@ -403,6 +478,27 @@ function changeLanguage(lang) {
     }, 50);
 }
 
+function renderProgram(element) {
+    if (!eventConfig?.event.program) return;
+
+    const table = document.createElement('table');
+    table.className = 'program-table';
+    const body = document.createElement('tbody');
+
+    eventConfig.event.program.forEach(({ time, title }) => {
+        const row = document.createElement('tr');
+        const timeCell = document.createElement('td');
+        const titleCell = document.createElement('td');
+        timeCell.textContent = time;
+        titleCell.textContent = title[currentLanguage] || title.es;
+        row.append(timeCell, titleCell);
+        body.appendChild(row);
+    });
+
+    table.appendChild(body);
+    element.replaceChildren(table);
+}
+
 // Update content based on current language
 function updateContent() {
     console.log('Updating content to language:', currentLanguage);
@@ -412,8 +508,12 @@ function updateContent() {
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
         console.log('Processing element with key:', key);
+        if (key === 'program-content' && eventConfig) {
+            renderProgram(element);
+            return;
+        }
         if (translations[currentLanguage] && translations[currentLanguage][key]) {
-            const translation = translations[currentLanguage][key];
+            const translation = translations[currentLanguage][key].replace(/2026/g, String(eventConfig?.event.year || 2026));
             // Use innerHTML for elements that contain HTML tags or specific content types
             if (element.innerHTML.includes('<a') || element.innerHTML.includes('<svg') || 
                 key === 'description' || key === 'program-content' || key === 'contact-text' || 
@@ -440,8 +540,10 @@ function updateContent() {
     
     // Force update the page title as well
     const titleElement = document.querySelector('title[data-lang], title');
-    if (titleElement && translations[currentLanguage] && translations[currentLanguage]['tickets-page-title']) {
-        titleElement.textContent = translations[currentLanguage]['tickets-page-title'];
+    const titleKey = titleElement?.getAttribute('data-lang');
+    if (titleElement && titleKey && translations[currentLanguage]?.[titleKey]) {
+        titleElement.textContent = translations[currentLanguage][titleKey]
+            .replace(/2026/g, String(eventConfig?.event.year || 2026));
     }
 }
 
@@ -457,11 +559,32 @@ function updateActiveLanguageButton() {
     }
 }
 
-// Check if early bird is still valid
+function localCalendarDate({ month, day }) {
+    return new Date(eventConfig.event.year, month - 1, day, 23, 59, 59, 999);
+}
+
+// Compare calendar dates in local time so the deadline does not shift at midnight.
 function isEarlyBirdValid() {
-    const today = new Date();
-    const deadline = new Date('2025-10-11');
-    return today <= deadline;
+    return eventConfig && new Date() <= localCalendarDate(eventConfig.event.earlyBirdDeadline);
+}
+
+function isEventOver() {
+    return eventConfig && new Date() > localCalendarDate(eventConfig.event.date);
+}
+
+function updateTicketAvailability() {
+    if (!eventConfig) return;
+
+    const eventHasEnded = isEventOver();
+    const earlyBirdCard = document.getElementById('earlybird-card');
+    const generalCard = document.querySelector('.ticket-card:not(#earlybird-card)');
+    const ticketsClosedMessage = document.getElementById('tickets-closed-message');
+    const ticketOptions = document.querySelector('.ticket-options');
+
+    if (ticketsClosedMessage) ticketsClosedMessage.hidden = !eventHasEnded;
+    if (ticketOptions) ticketOptions.hidden = eventHasEnded;
+    if (earlyBirdCard) earlyBirdCard.style.display = isEarlyBirdValid() ? 'block' : 'none';
+    if (generalCard) generalCard.style.display = 'block';
 }
 
 // Adjust quantity for tickets or extra cards
@@ -484,31 +607,18 @@ function adjustQuantity(type, change) {
 
 // Update pricing display
 function updatePricing() {
-    // Get current selections
-    const selectedType = document.querySelector('input[name="ticketType"]:checked');
-    if (selectedType) {
-        currentTicketType = selectedType.value;
-    }
-    
-    // Check if early bird is still valid
-    if (currentTicketType === 'earlybird' && !isEarlyBirdValid()) {
-        // Switch to general and disable early bird
-        currentTicketType = 'general';
-        document.getElementById('general').checked = true;
-        document.getElementById('earlybird-option').style.opacity = '0.5';
-        document.getElementById('earlybird').disabled = true;
-    }
-    
-    // Calculate prices
-    const ticketPrice = currentTicketType === 'earlybird' ? 12 : 15;
-    const extraCardPrice = currentTicketType === 'earlybird' ? 4 : 6;
+    if (!eventConfig) return;
+    updateTicketAvailability();
+    if (document.getElementById('earlybird-quantity')) calculateTotal('earlybird');
+    if (document.getElementById('general-quantity')) calculateTotal('general');
 }
 
 // Calculate total price for ticket type
 function calculateTotal(ticketType) {
+    if (!eventConfig) return;
     console.log('Calculating total for:', ticketType);
-    const ticketPrice = ticketType === 'earlybird' ? 12 : 15;
-    const extraPrice = ticketType === 'earlybird' ? 4 : 6;
+    const ticketPrice = eventConfig.tickets.prices[ticketType];
+    const extraPrice = eventConfig.tickets.extraCardPrices[ticketType];
     
     const quantity = parseInt(document.getElementById(`${ticketType}-quantity`).value);
     const extras = parseInt(document.getElementById(`${ticketType}-extras`).value);
@@ -528,6 +638,11 @@ function calculateTotal(ticketType) {
 // Purchase tickets function
 function purchaseTickets(ticketType) {
     console.log('Purchase tickets called for:', ticketType);
+
+    if (!eventConfig) return;
+    if (isEventOver()) {
+        return;
+    }
     
     // Check if early bird is still valid
     if (ticketType === 'earlybird' && !isEarlyBirdValid()) {
@@ -540,8 +655,8 @@ function purchaseTickets(ticketType) {
         return;
     }
     
-    const ticketPrice = ticketType === 'earlybird' ? 12 : 15;
-    const extraPrice = ticketType === 'earlybird' ? 4 : 6;
+    const ticketPrice = eventConfig.tickets.prices[ticketType];
+    const extraPrice = eventConfig.tickets.extraCardPrices[ticketType];
     
     const quantity = parseInt(document.getElementById(`${ticketType}-quantity`).value);
     const extras = parseInt(document.getElementById(`${ticketType}-extras`).value);
@@ -580,16 +695,16 @@ function showPaymentModal() {
     
     const ticketNames = {
         es: {
-            'general': 'Entrada General - Bingo Pachanguero 2025',
-            'earlybird': 'Early Bird - Bingo Pachanguero 2025'
+            'general': `Entrada General - Bingo Pachanguero ${eventConfig.event.year}`,
+            'earlybird': `Early Bird - Bingo Pachanguero ${eventConfig.event.year}`
         },
         de: {
-            'general': 'Allgemeiner Eintritt - Bingo Pachanguero 2025',
-            'earlybird': 'Frühbucher - Bingo Pachanguero 2025'
+            'general': `Allgemeiner Eintritt - Bingo Pachanguero ${eventConfig.event.year}`,
+            'earlybird': `Frühbucher - Bingo Pachanguero ${eventConfig.event.year}`
         },
         en: {
-            'general': 'General Entry - Bingo Pachanguero 2025',
-            'earlybird': 'Early Bird - Bingo Pachanguero 2025'
+            'general': `General Entry - Bingo Pachanguero ${eventConfig.event.year}`,
+            'earlybird': `Early Bird - Bingo Pachanguero ${eventConfig.event.year}`
         }
     };
     
@@ -728,7 +843,7 @@ function generateTicketImage(buyerName, paymentDetails) {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `bingo-pachanguero-2025-ticket-${buyerName.replace(/\s+/g, '-')}-${Date.now()}.png`;
+            a.download = `bingo-pachanguero-${eventConfig.event.year}-ticket-${buyerName.replace(/\s+/g, '-')}-${Date.now()}.png`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -829,7 +944,7 @@ async function generateCustomTicketPDF(buyerName, orderDetails) {
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = `bingo-pachanguero-2025-${buyerName.replace(/\s+/g, '_')}.pdf`;
+                a.download = `bingo-pachanguero-${eventConfig.event.year}-${buyerName.replace(/\s+/g, '_')}.pdf`;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
@@ -852,7 +967,7 @@ async function generateCustomTicketPDF(buyerName, orderDetails) {
 // Fallback simple PDF generation
 function generateSimpleTicketPDF(buyerName, orderDetails) {
     const ticketContent = `
-BINGO PACHANGUERO 2025 - WHITE PARTY
+BINGO PACHANGUERO ${eventConfig.event.year}
 Entry Ticket
 
 Name: ${buyerName}
@@ -861,9 +976,9 @@ Quantity: ${orderDetails.ticketQuantity}
 Extra Cards: ${orderDetails.extraQuantity}
 Total Price: €${orderDetails.totalPrice}
 
-Date: 25th October 2025
+Date: ${formattedEventDate(eventConfig.event.date, currentLanguage)}
 Time: 8:00 PM
-Location: Tanzhalle Freiburg
+Location: ${eventConfig.event.venue}
 
 ${translations[currentLanguage]['ticket-info-text']}
 
@@ -874,7 +989,7 @@ Ticket ID: ${Math.random().toString(36).substring(2, 15)}
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `bingo-pachanguero-2025-${buyerName.replace(/\s+/g, '_')}.txt`;
+    a.download = `bingo-pachanguero-${eventConfig.event.year}-${buyerName.replace(/\s+/g, '_')}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -901,7 +1016,7 @@ function renderPayPalButton(totalAmount) {
                     name: `${ticketQuantity}x ${ticketTypeName}`,
                     unit_amount: {
                         currency_code: 'EUR',
-                        value: (currentTicketType === 'earlybird' ? 12 : 15).toString()
+                        value: eventConfig.tickets.prices[currentTicketType].toString()
                     },
                     quantity: ticketQuantity.toString()
                 }];
@@ -911,7 +1026,7 @@ function renderPayPalButton(totalAmount) {
                         name: `${extraQuantity}x Extra Bingo Cards`,
                         unit_amount: {
                             currency_code: 'EUR',
-                            value: (currentTicketType === 'earlybird' ? 4 : 6).toString()
+                            value: eventConfig.tickets.extraCardPrices[currentTicketType].toString()
                         },
                         quantity: extraQuantity.toString()
                     });
@@ -930,7 +1045,7 @@ function renderPayPalButton(totalAmount) {
                             }
                         },
                         items: itemList,
-                        description: 'Bingo Pachanguero 2025 - White Party Tickets'
+                        description: `Bingo Pachanguero ${eventConfig.event.year} Tickets`
                     }]
                 });
             },
@@ -974,7 +1089,22 @@ function renderPayPalButton(totalAmount) {
 }
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        await loadEventConfig();
+        applyEventConfigToTranslations();
+        document.querySelectorAll('[data-ticket-price]').forEach(element => {
+            element.textContent = `${eventConfig.tickets.prices[element.dataset.ticketPrice]}€`;
+        });
+        if (document.getElementById('earlybird-quantity')) {
+            calculateTotal('earlybird');
+            calculateTotal('general');
+        }
+    } catch (error) {
+        console.error('Event configuration unavailable; ticket sales are disabled.', error);
+        document.querySelectorAll('.ticket-options').forEach(element => element.hidden = true);
+    }
+
     console.log('DOM loaded, initializing language:', currentLanguage);
     
     // Small delay to ensure all elements are rendered
@@ -983,37 +1113,13 @@ document.addEventListener('DOMContentLoaded', function() {
         updateContent();
         updateActiveLanguageButton();
         
-        // Initialize price calculations for both ticket types
-        if (document.getElementById('earlybird-quantity')) {
-            calculateTotal('earlybird');
-            calculateTotal('general');
-        }
-        
         // Force another content update to ensure everything is translated
         setTimeout(() => {
             updateContent();
         }, 100);
     }, 50);
     
-    // Hide early bird if expired and show appropriate ticket
-    const today = new Date();
-    const earlyBirdDeadline = new Date('2025-10-11');
-    const isEarlyBirdValid = today <= earlyBirdDeadline;
-    
-    const earlyBirdCard = document.getElementById('earlybird-card');
-    const generalCard = document.querySelector('.ticket-card:not(#earlybird-card)');
-    
-    if (earlyBirdCard && generalCard) {
-        if (isEarlyBirdValid) {
-            // Show only early bird
-            earlyBirdCard.style.display = 'block';
-            generalCard.style.display = 'none';
-        } else {
-            // Show only general entry
-            earlyBirdCard.style.display = 'none';
-            generalCard.style.display = 'block';
-        }
-    }
+    updateTicketAvailability();
     
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
@@ -1089,8 +1195,8 @@ style.textContent = `
     
     .lang-btn {
         background: transparent;
-        border: 2px solid #D4AF37;
-        color: #000;
+        border: 2px solid #fbd14e;
+        color: #fff;
         padding: 8px 12px;
         border-radius: 4px;
         cursor: pointer;
@@ -1101,8 +1207,13 @@ style.textContent = `
     
     .lang-btn:hover,
     .lang-btn.active {
-        background: #D4AF37;
-        color: #000;
+        background: #283b9d;
+        color: #fff;
+    }
+
+    .lang-btn:hover {
+        background: #fbd14e;
+        color: #17204d;
     }
     
     .ticket-selection {
