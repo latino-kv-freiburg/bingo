@@ -13,10 +13,12 @@ To set up Gmail API credentials:
 
 import os
 import pickle
+from pathlib import Path
 from base64 import urlsafe_b64encode
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
+from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -30,6 +32,28 @@ SCOPES = [
     'openid'
 ]
 
+AUTH_DIR = Path(__file__).resolve().parent
+
+
+def _get_credentials_path():
+    """Find OAuth client credentials beside this module or in the launch directory."""
+    for directory in (AUTH_DIR, Path.cwd()):
+        path = directory / 'credentials.json'
+        if path.is_file():
+            return path
+
+    raise FileNotFoundError(
+        "credentials.json not found. Please follow the setup instructions "
+        "in GMAIL_SETUP.md."
+    )
+
+
+def _authenticate_user(credentials_path):
+    flow = InstalledAppFlow.from_client_secrets_file(
+        str(credentials_path), SCOPES)
+    return flow.run_local_server(port=8080)
+
+
 def get_gmail_service():
     """Authenticate and return Gmail API service.
     
@@ -38,31 +62,29 @@ def get_gmail_service():
     Raises:
         Exception: If authentication fails
     """
+    credentials_path = _get_credentials_path()
+    token_path = credentials_path.with_name('token.pickle')
     creds = None
     
     # Load token from pickle file if exists
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+    if token_path.is_file():
+        with token_path.open('rb') as token:
             creds = pickle.load(token)
     
     # If no valid credentials available, authenticate
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+            try:
+                creds.refresh(Request())
+            except RefreshError as error:
+                if 'invalid_grant' not in str(error):
+                    raise
+                creds = _authenticate_user(credentials_path)
         else:
-            if not os.path.exists('credentials.json'):
-                raise Exception(
-                    "credentials.json not found. Please follow the setup instructions "
-                    "in the comments at the top of this file."
-                )
-            
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
-            # The browser will open http://localhost:8080/ after successful login.
-            creds = flow.run_local_server(port=8080)
+            creds = _authenticate_user(credentials_path)
         
         # Save credentials for future use
-        with open('token.pickle', 'wb') as token:
+        with token_path.open('wb') as token:
             pickle.dump(creds, token)
     
     try:
@@ -120,7 +142,7 @@ def send_ticket_via_email(recipient_email, subject, body_text, attachment_file):
     """
     try:
         service = get_gmail_service()
-        sender_email = service.users().getProfile(userId='me').execute()['emailAddress']
+        sender_email = 'latinokvfreiburg@gmail.com' #service.users().getProfile(userId='me').execute()['emailAddress']
         
         message = create_message_with_attachment(
             sender_email,

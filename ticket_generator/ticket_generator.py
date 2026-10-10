@@ -732,7 +732,7 @@ Latino KV Freiburg"""
         except Exception as e:
             messagebox.showerror(
                 "Email Error",
-                f"Failed to send tickets via email: {str(e)}\n\nPlease check your internet connection and try again."
+                f"Failed to send tickets via email: {str(e)}"
             )
 
 if __name__ == "__main__":
