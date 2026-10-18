@@ -13,7 +13,7 @@ import xlsxwriter
 import barcode
 from barcode.writer import ImageWriter
 from io import BytesIO
-from gmail_sender import send_ticket_via_email
+from gmail_sender import send_ticket_via_email, test_gmail_connection
 
 with (Path(__file__).resolve().parent.parent / "event_config.json").open(encoding="utf-8") as config_file:
     EVENT_CONFIG = json.load(config_file)
@@ -120,6 +120,7 @@ class TicketGenerator:
         button_frame.grid(row=current_row, column=0, columnspan=2, pady=20)
         
         ttk.Button(button_frame, text="Generate Ticket", command=self.generate_ticket).pack(side=tk.LEFT, padx=5)
+        ttk.Button(button_frame, text="Test connection", command=self.test_email_connection).pack(side=tk.LEFT, padx=5)
         self.send_email_btn = ttk.Button(button_frame, text="Send Email", command=self.send_email, state=tk.DISABLED)
         self.send_email_btn.pack(side=tk.LEFT, padx=5)
         ttk.Button(button_frame, text="View Ticket List", command=self.show_ticket_list).pack(side=tk.LEFT, padx=5)
@@ -733,6 +734,20 @@ Latino KV Freiburg"""
             messagebox.showerror(
                 "Email Error",
                 f"Failed to send tickets via email: {str(e)}"
+            )
+
+    def test_email_connection(self):
+        """Check Gmail authentication and API access."""
+        try:
+            email_address = test_gmail_connection()
+            messagebox.showinfo(
+                "Connection Test",
+                f"Gmail connection successful for {email_address}."
+            )
+        except Exception as e:
+            messagebox.showerror(
+                "Connection Test Failed",
+                f"Could not connect to Gmail: {str(e)}"
             )
 
 if __name__ == "__main__":

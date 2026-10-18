@@ -28,6 +28,13 @@ To enable email functionality for sending tickets, you need to set up Gmail API 
    - Keep `credentials.json` and `token.pickle` beside `gmail_sender.py`; the
      application also checks its launch directory for existing files.
 
+7. Verify the connection:
+   - Click "Test connection" in the ticket generator.
+   - A success message displays the authenticated Gmail account. An error
+     message reports missing credentials, authentication failures, or API issues.
+   - The connection check needs Gmail metadata access. If you already have a
+     saved token, the application asks you to grant this permission on next run.
+
 Note: If you get authentication errors or need to use a different Google account:
 - An expired or revoked refresh token (`invalid_grant`) makes the application
   open the browser again so you can re-authenticate.

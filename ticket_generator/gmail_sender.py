@@ -29,6 +29,7 @@ from googleapiclient.errors import HttpError
 SCOPES = [
     'https://www.googleapis.com/auth/userinfo.email',
     'https://www.googleapis.com/auth/gmail.send',
+    'https://www.googleapis.com/auth/gmail.metadata',
     'openid'
 ]
 
@@ -71,6 +72,10 @@ def get_gmail_service():
         with token_path.open('rb') as token:
             creds = pickle.load(token)
     
+    # Gmail profile checks need metadata access, which older tokens may lack.
+    if creds and not creds.has_scopes(SCOPES):
+        creds = _authenticate_user(credentials_path)
+
     # If no valid credentials available, authenticate
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -91,6 +96,17 @@ def get_gmail_service():
         return build('gmail', 'v1', credentials=creds)
     except Exception as e:
         raise Exception(f"Failed to create Gmail service: {str(e)}")
+
+
+def test_gmail_connection():
+    """Verify Gmail API access and return the authenticated account email."""
+    service = get_gmail_service()
+    profile = service.users().getProfile(userId='me').execute()
+    email_address = profile.get('emailAddress')
+    if not email_address:
+        raise RuntimeError("Gmail API did not return the authenticated account email.")
+    return email_address
+
 
 def create_message_with_attachment(sender, to, subject, body_text, file_path):
     """Create email message with attachment.
